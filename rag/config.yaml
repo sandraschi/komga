@@ -1,0 +1,146 @@
+# RAG System Configuration
+
+document_processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+  max_chars_per_chunk: 2000
+  min_chunk_size: 100
+  text_splitter: "recursive_character"
+  languages: ["en"]
+  max_workers: 4
+
+embedding:
+  model_name: "all-MiniLM-L6-v2"
+  device: "auto"  # cpu, cuda, or auto
+  batch_size: 32
+  normalize_embeddings: true
+  max_retries: 3
+  timeout: 30
+
+vector_store:
+  persist_directory: "data/chromadb"
+  collection_name: "komga_documents"
+  similarity_metric: "cosine"  # cosine, l2, or ip
+  max_retries: 3
+  batch_size: 100
+  cleanup_interval: 3600  # seconds
+
+retrieval:
+  top_k: 5
+  score_threshold: 0.7
+  use_hybrid_search: true
+  bm25_weight: 0.4
+  vector_weight: 0.6
+  use_reranking: true
+  rerank_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  rerank_top_k: 10
+  rerank_batch_size: 32
+
+analysis:
+  theme_analysis:
+    enabled: true
+    min_theme_length: 1
+    max_theme_length: 3
+    min_occurrences: 3
+    confidence_threshold: 0.7
+    max_themes_per_document: 10
+  
+  character_analysis:
+    enabled: true
+    min_name_length: 3
+    min_occurrences: 3
+    
+  summary:
+    enabled: true
+    model: "gpt-3.5-turbo"
+    max_length: 500
+    temperature: 0.7
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  log_level: "info"
+  cors_origins: ["*"]
+  api_key: ""
+  rate_limit: "100/minute"
+  timeout: 300
+
+caching:
+  enabled: true
+  ttl: 86400  # 24 hours in seconds
+  max_size: 1000
+  directory: "data/cache"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/rag_service.log"
+  max_size: 10485760  # 10MB
+  backup_count: 5
+
+monitoring:
+  enabled: true
+  prometheus:
+    port: 8001
+    path: "/metrics"
+  health_check:
+    enabled: true
+    path: "/health"
+  metrics:
+    enabled: true
+    include_metrics: ["requests_total", "request_duration_seconds"]
+
+# External Services
+llm_service:
+  provider: "openai"  # openai, anthropic, local, etc.
+  api_key: ""
+  model: "gpt-3.5-turbo"
+  temperature: 0.7
+  max_tokens: 1000
+  timeout: 60
+
+# Uncomment and configure additional providers as needed
+# openai:
+#   api_key: ""
+#   organization: ""
+#   base_url: "https://api.openai.com/v1"
+
+# anthropic:
+#   api_key: ""
+#   base_url: "https://api.anthropic.com"
+
+
+# Local model configuration (for self-hosted models)
+local_models:
+  enabled: false
+  model_path: ""
+  device: "cuda"  # or cpu
+  context_length: 2048
+  gpu_layers: 50  # for GGUF models
+
+# Backup configuration
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  destination: "data/backups"
+  retention_days: 7
+  include: ["data/chromadb", "config.yaml"]
+  exclude: ["**/cache/**", "**/tmp/**"]
+
+# Performance tuning
+performance:
+  max_workers: 4
+  thread_count: 4
+  batch_processing: true
+  batch_size: 32
+  prefetch_factor: 2
+  use_mmap: true
+  use_quantization: true
+
+# Feature flags
+features:
+  enable_web_ui: true
+  enable_telemetry: false
+  enable_update_check: true
+  enable_auto_migration: true
