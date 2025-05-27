@@ -53,7 +53,8 @@ data class MetaBook(
         val coverImage: String?,
         val wordCount: Int,
         val sectionCount: Int,
-        val generatedAt: Instant
+        val generatedAt: Instant,
+        val llmProvider: String? = null
     )
     
     data class GenerationOptions(

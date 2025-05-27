@@ -75,6 +75,7 @@ spring:
       - "optional:file:\${komga.config-dir}/application.yml"
       - "optional:file:\${komga.config-dir}/application.yaml"
       - "optional:file:\${komga.config-dir}/application.properties"
+      - "classpath:application-llm.yml"
 
 server:
   servlet.session.timeout: 7d
