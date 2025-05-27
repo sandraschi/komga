@@ -1,9 +1,10 @@
 package org.gotson.komga.domain.model
 
+import java.io.Serializable
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 
-interface MediaExtension
+interface MediaExtension : Serializable
 
 class ProxyExtension private constructor(
   val extensionClassName: String,
@@ -30,4 +31,8 @@ data class MediaExtensionEpub(
   val pageList: List<EpubTocEntry> = emptyList(),
   val isFixedLayout: Boolean = false,
   val positions: List<R2Locator> = emptyList(),
-) : MediaExtension
+) : MediaExtension {
+  companion object {
+    private const val serialVersionUID = 1L
+  }
+}

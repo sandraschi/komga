@@ -1,5 +1,6 @@
 package org.gotson.komga.domain.model
 
+import java.io.Serializable
 import java.time.LocalDateTime
 
 data class Media(
@@ -15,7 +16,12 @@ data class Media(
   val epubIsKepub: Boolean = false,
   override val createdDate: LocalDateTime = LocalDateTime.now(),
   override val lastModifiedDate: LocalDateTime = createdDate,
-) : Auditable {
+) : Auditable,
+  Serializable {
+  companion object {
+    private const val serialVersionUID = 1L
+  }
+
   @delegate:Transient
   val profile: MediaProfile? by lazy { MediaType.fromMediaType(mediaType)?.profile }
 

@@ -1,6 +1,7 @@
 package org.gotson.komga.domain.model
 
 import com.fasterxml.jackson.annotation.JsonInclude
+import java.io.Serializable
 
 /**
  * Locators are meant to provide a precise location in a publication in a format that can be stored and shared.
@@ -47,7 +48,11 @@ data class R2Locator(
    * Komga specific, used to have a mapping between a [R2Locator] and a koboSpan
    */
   val koboSpan: String? = null,
-) {
+) : Serializable {
+  companion object {
+    private const val serialVersionUID = 1L
+  }
+
   @JsonInclude(JsonInclude.Include.NON_EMPTY)
   data class Location(
     /**
@@ -68,7 +73,11 @@ data class R2Locator(
      * Between 0 and 1.
      */
     val totalProgression: Float? = null,
-  )
+  ) : Serializable {
+    companion object {
+      private const val serialVersionUID = 1L
+    }
+  }
 
   /**
    * A Locator Text Object contains multiple text fragments, useful to give a context to the Locator or for highlights.
@@ -87,5 +96,9 @@ data class R2Locator(
      * The text at the locator.
      */
     val highlight: String? = null,
-  )
+  ) : Serializable {
+    companion object {
+      private const val serialVersionUID = 1L
+    }
+  }
 }

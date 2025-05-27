@@ -5,9 +5,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.util.prefixIfNot
 
 plugins {
-  kotlin("jvm")
-  kotlin("plugin.spring")
-  kotlin("kapt")
+  kotlin("jvm") version "1.9.21"
+  kotlin("plugin.spring") version "1.9.21"
+  kotlin("plugin.jpa") version "1.9.21"
+  kotlin("kapt") version "1.9.21"
   id("org.springframework.boot") version "3.4.0"
   id("com.gorylenko.gradle-git-properties") version "2.4.2"
   id("nu.studer.jooq") version "9.0"
@@ -16,6 +17,13 @@ plugins {
   id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
   id("com.google.devtools.ksp") version "1.9.21-1.0.16"
   jacoco
+}
+
+// Enable JPA support for Kotlin
+allOpen {
+  annotation("jakarta.persistence.Entity")
+  annotation("jakarta.persistence.MappedSuperclass")
+  annotation("jakarta.persistence.Embeddable")
 }
 
 val benchmarkSourceSet =
@@ -39,6 +47,7 @@ dependencies {
 
   api(platform("org.springframework.boot:spring-boot-dependencies:3.4.0"))
 
+  // Spring Boot Starters
   api("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-webflux")
   implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -46,7 +55,15 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-security")
   implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+  // JPA and Database
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.springframework.boot:spring-boot-starter-jooq")
+  implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
+  implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
+  implementation("jakarta.annotation:jakarta.annotation-api:2.1.1")
+
+  // Session Management
   implementation("org.springframework.session:spring-session-core")
   implementation("com.github.gotson:spring-session-caffeine:2.0.0")
   implementation("org.springframework.data:spring-data-commons")
@@ -56,11 +73,14 @@ dependencies {
   implementation("org.flywaydb:flyway-core")
 
   api("io.github.oshai:kotlin-logging-jvm:6.0.9")
+  implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
   implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0")
 
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+  implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
   implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml")
+  implementation("com.vladmihalcea:hibernate-types-60:2.21.1")
 
   implementation("commons-io:commons-io:2.18.0")
   implementation("org.apache.commons:commons-lang3:3.14.0")
@@ -80,7 +100,30 @@ dependencies {
   implementation("com.appmattus.crypto:cryptohash:0.10.1")
 
   implementation("org.apache.tika:tika-core:2.9.1")
+
+  // Coroutines
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.8.1")
+
+  // EPUB
+  implementation("com.positiondev.epublib:epublib-core:3.1") {
+    exclude(group = "org.slf4j", module = "slf4j-api")
+  }
+  implementation("org.slf4j:slf4j-simple:1.7.36")
+  implementation("org.jsoup:jsoup:1.17.2")
   implementation("org.apache.commons:commons-compress:1.27.1")
+  
+  // Virtual Book and Omnibus
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.8.1")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.8.1")
+  
+  // Validation
+  implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
+  implementation("org.glassfish.expressly:expressly:5.0.0")
+  
+  // XML processing
+  implementation("com.fasterxml.woodstox:woodstox-core:6.6.2")
   implementation("com.github.junrar:junrar:7.5.5")
   implementation("com.github.gotson.nightcompress:nightcompress:1.1.0")
   implementation("org.apache.pdfbox:pdfbox:3.0.3")

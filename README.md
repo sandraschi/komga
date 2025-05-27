@@ -30,6 +30,9 @@ Komga is a media server for your comics, mangas, BDs, magazines and eBooks.
 - Duplicate pages detection and removal
 - Import books from outside your libraries directly into your series folder
 - Import ComicRack `cbl` read lists
+- **Omnibus Support**: Automatic detection and handling of omnibus editions with individual work extraction
+- **AI-Powered Content Analysis**: Smart search and metadata enhancement using RAG (Retrieval-Augmented Generation) technology
+- **Calibre Optimization**: Seamless integration and optimization for Calibre libraries
 
 ## Installation
 

@@ -1,6 +1,7 @@
 package org.gotson.komga.domain.model
 
 import org.gotson.komga.language.lowerNotBlank
+import java.io.Serializable
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -26,7 +27,12 @@ class BookMetadata(
   val bookId: String = "",
   override val createdDate: LocalDateTime = LocalDateTime.now(),
   override val lastModifiedDate: LocalDateTime = createdDate,
-) : Auditable {
+) : Auditable,
+  Serializable {
+  companion object {
+    private const val serialVersionUID = 1L
+  }
+
   val title = title.trim()
   val summary = summary.trim()
   val number = number.trim()

@@ -1,9 +1,15 @@
 package org.gotson.komga.domain.model
 
+import java.io.Serializable
+
 class Author(
   name: String,
   role: String,
-) {
+) : Serializable {
+  companion object {
+    private const val serialVersionUID = 1L
+  }
+
   val name = name.trim()
   val role = role.trim().lowercase()
 
