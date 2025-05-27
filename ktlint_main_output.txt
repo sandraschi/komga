@@ -1,0 +1,1627 @@
+Initialized native services in: C:\Users\sandr\.gradle\native
+Initialized jansi services in: C:\Users\sandr\.gradle\native
+The client will now receive all logging from the daemon (pid: 42780). The daemon log file: C:\Users\sandr\.gradle\daemon\8.11.1\daemon-42780.out.log
+Starting 12th build in daemon [uptime: 11 mins 19.127 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+Using 24 worker leases.
+Now considering [C:\Users\sandr\OneDrive\Dokumente\GitHub\komga] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\settings.gradle'.
+Projects loaded. Root project using build file 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\build.gradle.kts'.
+Included projects: [root project 'komga', project ':komga', project ':komga-tray']
+
+> Configure project :
+Evaluating root project 'komga' using build file 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\build.gradle.kts'.
+Transforming gradle-versions-plugin-0.51.0.jar (com.github.ben-manes:gradle-versions-plugin:0.51.0) with InstrumentationAnalysisTransform
+Transforming okhttp-4.11.0.jar (com.squareup.okhttp3:okhttp:4.11.0) with InstrumentationAnalysisTransform
+Transforming moshi-kotlin-1.12.0.jar (com.squareup.moshi:moshi-kotlin:1.12.0) with InstrumentationAnalysisTransform
+Transforming moshi-1.12.0.jar (com.squareup.moshi:moshi:1.12.0) with InstrumentationAnalysisTransform
+Transforming okio-jvm-3.2.0.jar (com.squareup.okio:okio-jvm:3.2.0) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21) with InstrumentationAnalysisTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with InstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with InstrumentationAnalysisTransform
+Transforming kotlin-allopen-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-allopen:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21) with InstrumentationAnalysisTransform
+Transforming ktlint-gradle-12.1.2.jar (org.jlleitschuh.gradle:ktlint-gradle:12.1.2) with InstrumentationAnalysisTransform
+Transforming jreleaser-gradle-plugin-1.10.0.jar (org.jreleaser:jreleaser-gradle-plugin:1.10.0) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-proto-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-klib-commonizer-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-klib-commonizer-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-build-tools-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-build-tools-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-android-extensions-1.9.21.jar (org.jetbrains.kotlin:kotlin-android-extensions:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-compiler-runner-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-runner:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-impl-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming base-gradle-plugin-0.46.10.jar (org.kordamp.gradle:base-gradle-plugin:0.46.10) with InstrumentationAnalysisTransform
+Transforming jreleaser-engine-1.10.0.jar (org.jreleaser:jreleaser-engine:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-yaml-1.10.0.jar (org.jreleaser:jreleaser-config-yaml:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-toml-1.10.0.jar (org.jreleaser:jreleaser-config-toml:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-json-1.10.0.jar (org.jreleaser:jreleaser-config-json:1.10.0) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-daemon-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming trove4j-1.0.20200330.jar (org.jetbrains.intellij.deps:trove4j:1.0.20200330) with InstrumentationAnalysisTransform
+Transforming kotlin-daemon-client-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-client:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlinx-coroutines-core-jvm-1.5.0.jar (org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-jvm-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-common-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-common:1.9.21) with InstrumentationAnalysisTransform
+Transforming maven-model-builder-3.6.3.jar (org.apache.maven:maven-model-builder:3.6.3) with InstrumentationAnalysisTransform
+Transforming jreleaser-templates-1.10.0.jar (org.jreleaser:jreleaser-templates:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-bluesky-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-bluesky-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-discourse-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discourse-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-linkedin-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-linkedin-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-mastodon-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mastodon-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-opencollective-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-opencollective-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-slack-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-slack-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-telegram-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-telegram-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-discord-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discord-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitter-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-google-chat-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-google-chat-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-mattermost-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mattermost-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-teams-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-teams-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-webhooks-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-webhooks-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-zulip-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-zulip-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-github-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-github-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitlab-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitlab-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-codeberg-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-codeberg-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitea-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitea-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-genericgit-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-genericgit-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-artifactory-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-artifactory-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-azure-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-azure-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-nexus2-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-nexus2-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-ftp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ftp-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-http-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-http-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-ssh-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ssh-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-s3-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-s3-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-java-sdk-commons-1.10.0.jar (org.jreleaser:jreleaser-java-sdk-commons:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-git-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-git-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-smtp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-smtp-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-sdkman-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-sdkman-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-twitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-twitter-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-model-impl-1.10.0.jar (org.jreleaser:jreleaser-model-impl:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-signing-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-signing-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-tool-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-tool-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-command-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-command-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming commons-text-1.11.0.jar (org.apache.commons:commons-text:1.11.0) with InstrumentationAnalysisTransform
+Transforming jsonschema-generator-4.33.1.jar (com.github.victools:jsonschema-generator:4.33.1) with InstrumentationAnalysisTransform
+Transforming jsonschema-module-jackson-4.33.1.jar (com.github.victools:jsonschema-module-jackson:4.33.1) with InstrumentationAnalysisTransform
+Transforming maven-artifact-3.6.3.jar (org.apache.maven:maven-artifact:3.6.3) with InstrumentationAnalysisTransform
+Transforming commons-lang3-3.14.0.jar (org.apache.commons:commons-lang3:3.14.0) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-xml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-annotations-2.16.0.jar (com.fasterxml.jackson.core:jackson-annotations:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-yaml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-model-api-1.10.0.jar (org.jreleaser:jreleaser-model-api:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-utils-1.10.0.jar (org.jreleaser:jreleaser-utils:1.10.0) with InstrumentationAnalysisTransform
+Transforming feign-jackson-13.1.jar (io.github.openfeign:feign-jackson:13.1) with InstrumentationAnalysisTransform
+Transforming jackson-databind-2.16.0.jar (com.fasterxml.jackson.core:jackson-databind:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-core-2.16.0.jar (com.fasterxml.jackson.core:jackson-core:2.16.0) with InstrumentationAnalysisTransform
+Transforming yamllint-1.6.1.jar (com.github.sbaudoin:yamllint:1.6.1) with InstrumentationAnalysisTransform
+Transforming maven-model-3.6.3.jar (org.apache.maven:maven-model:3.6.3) with InstrumentationAnalysisTransform
+Transforming plexus-utils-3.2.1.jar (org.codehaus.plexus:plexus-utils:3.2.1) with InstrumentationAnalysisTransform
+Transforming plexus-interpolation-1.25.jar (org.codehaus.plexus:plexus-interpolation:1.25) with InstrumentationAnalysisTransform
+Transforming javax.inject-1.jar (javax.inject:javax.inject:1) with InstrumentationAnalysisTransform
+Transforming maven-builder-support-3.6.3.jar (org.apache.maven:maven-builder-support:3.6.3) with InstrumentationAnalysisTransform
+Transforming org.eclipse.sisu.inject-0.3.4.jar (org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4) with InstrumentationAnalysisTransform
+Transforming commons-jexl3-3.3.jar (org.apache.commons:commons-jexl3:3.3) with InstrumentationAnalysisTransform
+Transforming tika-core-2.9.1.jar (org.apache.tika:tika-core:2.9.1) with InstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with InstrumentationAnalysisTransform
+Transforming compiler-0.9.11.jar (com.github.spullara.mustache.java:compiler:0.9.11) with InstrumentationAnalysisTransform
+Transforming org.eclipse.jgit-5.13.0.202109080827-r.jar (org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r) with InstrumentationAnalysisTransform
+Transforming bcpg-jdk15to18-1.76.jar (org.bouncycastle:bcpg-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming jreleaser-logger-api-1.10.0.jar (org.jreleaser:jreleaser-logger-api:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-resource-bundle-1.10.0.jar (org.jreleaser:jreleaser-resource-bundle:1.10.0) with InstrumentationAnalysisTransform
+Transforming classmate-1.5.1.jar (com.fasterxml:classmate:1.5.1) with InstrumentationAnalysisTransform
+Transforming sshj-0.37.0.jar (com.hierynomus:sshj:0.37.0) with InstrumentationAnalysisTransform
+Transforming jcl-over-slf4j-2.0.9.jar (org.slf4j:jcl-over-slf4j:2.0.9) with InstrumentationAnalysisTransform
+Transforming feign-form-3.8.0.jar (io.github.openfeign.form:feign-form:3.8.0) with InstrumentationAnalysisTransform
+Transforming asn-one-0.6.0.jar (com.hierynomus:asn-one:0.6.0) with InstrumentationAnalysisTransform
+Transforming apache-client-2.22.5.jar (software.amazon.awssdk:apache-client:2.22.5) with InstrumentationAnalysisTransform
+Transforming s3-2.22.5.jar (software.amazon.awssdk:s3:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-xml-protocol-2.22.5.jar (software.amazon.awssdk:aws-xml-protocol:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-query-protocol-2.22.5.jar (software.amazon.awssdk:aws-query-protocol:2.22.5) with InstrumentationAnalysisTransform
+Transforming protocol-core-2.22.5.jar (software.amazon.awssdk:protocol-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-core-2.22.5.jar (software.amazon.awssdk:aws-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming auth-2.22.5.jar (software.amazon.awssdk:auth:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-2.22.5.jar (software.amazon.awssdk:http-auth:2.22.5) with InstrumentationAnalysisTransform
+Transforming regions-2.22.5.jar (software.amazon.awssdk:regions:2.22.5) with InstrumentationAnalysisTransform
+Transforming sdk-core-2.22.5.jar (software.amazon.awssdk:sdk-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-aws-2.22.5.jar (software.amazon.awssdk:http-auth-aws:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-spi-2.22.5.jar (software.amazon.awssdk:http-auth-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-client-spi-2.22.5.jar (software.amazon.awssdk:http-client-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming metrics-spi-2.22.5.jar (software.amazon.awssdk:metrics-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming arns-2.22.5.jar (software.amazon.awssdk:arns:2.22.5) with InstrumentationAnalysisTransform
+Transforming profiles-2.22.5.jar (software.amazon.awssdk:profiles:2.22.5) with InstrumentationAnalysisTransform
+Transforming crt-core-2.22.5.jar (software.amazon.awssdk:crt-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming identity-spi-2.22.5.jar (software.amazon.awssdk:identity-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming json-utils-2.22.5.jar (software.amazon.awssdk:json-utils:2.22.5) with InstrumentationAnalysisTransform
+Transforming utils-2.22.5.jar (software.amazon.awssdk:utils:2.22.5) with InstrumentationAnalysisTransform
+Transforming slf4j-api-2.0.9.jar (org.slf4j:slf4j-api:2.0.9) with InstrumentationAnalysisTransform
+Transforming jakarta.mail-2.0.1.jar (com.sun.mail:jakarta.mail:2.0.1) with InstrumentationAnalysisTransform
+Transforming httpclient-4.5.13.jar (org.apache.httpcomponents:httpclient:4.5.13) with InstrumentationAnalysisTransform
+Transforming httpcore-4.4.16.jar (org.apache.httpcomponents:httpcore:4.4.16) with InstrumentationAnalysisTransform
+Transforming commons-codec-1.16.0.jar (commons-codec:commons-codec:1.16.0) with InstrumentationAnalysisTransform
+Transforming feign-httpclient-13.1.jar (io.github.openfeign:feign-httpclient:13.1) with InstrumentationAnalysisTransform
+Transforming feign-core-13.1.jar (io.github.openfeign:feign-core:13.1) with InstrumentationAnalysisTransform
+Transforming twitter4j-core-4.1.2.jar (org.twitter4j:twitter4j-core:4.1.2) with InstrumentationAnalysisTransform
+Transforming failsafe-3.3.2.jar (dev.failsafe:failsafe:3.3.2) with InstrumentationAnalysisTransform
+Transforming commons-net-3.10.0.jar (commons-net:commons-net:3.10.0) with InstrumentationAnalysisTransform
+Transforming bcpkix-jdk15to18-1.76.jar (org.bouncycastle:bcpkix-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming bcutil-jdk15to18-1.76.jar (org.bouncycastle:bcutil-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming bcprov-jdk15to18-1.76.jar (org.bouncycastle:bcprov-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming snakeyaml-2.2.jar (org.yaml:snakeyaml:2.2) with InstrumentationAnalysisTransform
+Transforming JavaEWAH-1.1.12.jar (com.googlecode.javaewah:JavaEWAH:1.1.12) with InstrumentationAnalysisTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with InstrumentationAnalysisTransform
+Transforming xz-1.9.jar (org.tukaani:xz:1.9) with InstrumentationAnalysisTransform
+Transforming zstd-jni-1.5.5-11.jar (com.github.luben:zstd-jni:1.5.5-11) with InstrumentationAnalysisTransform
+Transforming commonmark-ext-autolink-0.21.0.jar (org.commonmark:commonmark-ext-autolink:0.21.0) with InstrumentationAnalysisTransform
+Transforming commonmark-0.21.0.jar (org.commonmark:commonmark:0.21.0) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with InstrumentationAnalysisTransform
+Transforming commons-logging-1.2.jar (commons-logging:commons-logging:1.2) with InstrumentationAnalysisTransform
+Transforming woodstox-core-6.5.1.jar (com.fasterxml.woodstox:woodstox-core:6.5.1) with InstrumentationAnalysisTransform
+Transforming stax2-api-4.2.1.jar (org.codehaus.woodstox:stax2-api:4.2.1) with InstrumentationAnalysisTransform
+Transforming eddsa-0.3.0.jar (net.i2p.crypto:eddsa:0.3.0) with InstrumentationAnalysisTransform
+Transforming checksums-2.22.5.jar (software.amazon.awssdk:checksums:2.22.5) with InstrumentationAnalysisTransform
+Transforming checksums-spi-2.22.5.jar (software.amazon.awssdk:checksums-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming endpoints-spi-2.22.5.jar (software.amazon.awssdk:endpoints-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming annotations-2.22.5.jar (software.amazon.awssdk:annotations:2.22.5) with InstrumentationAnalysisTransform
+Transforming autolink-0.10.0.jar (org.nibor.autolink:autolink:0.10.0) with InstrumentationAnalysisTransform
+Transforming reactive-streams-1.0.4.jar (org.reactivestreams:reactive-streams:1.0.4) with InstrumentationAnalysisTransform
+Transforming eventstream-1.0.1.jar (software.amazon.eventstream:eventstream:1.0.1) with InstrumentationAnalysisTransform
+Transforming third-party-jackson-core-2.22.5.jar (software.amazon.awssdk:third-party-jackson-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming gradle-versions-plugin-0.51.0.jar (com.github.ben-manes:gradle-versions-plugin:0.51.0) with InstrumentationAnalysisTransform
+Transforming gradle-versions-plugin-0.51.0.jar (com.github.ben-manes:gradle-versions-plugin:0.51.0) with MergeInstrumentationAnalysisTransform
+Transforming okhttp-4.11.0.jar (com.squareup.okhttp3:okhttp:4.11.0) with InstrumentationAnalysisTransform
+Transforming okhttp-4.11.0.jar (com.squareup.okhttp3:okhttp:4.11.0) with MergeInstrumentationAnalysisTransform
+Transforming moshi-kotlin-1.12.0.jar (com.squareup.moshi:moshi-kotlin:1.12.0) with InstrumentationAnalysisTransform
+Transforming moshi-kotlin-1.12.0.jar (com.squareup.moshi:moshi-kotlin:1.12.0) with MergeInstrumentationAnalysisTransform
+Transforming gradle-versions-plugin-0.51.0.jar (com.github.ben-manes:gradle-versions-plugin:0.51.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming moshi-1.12.0.jar (com.squareup.moshi:moshi:1.12.0) with InstrumentationAnalysisTransform
+Transforming moshi-1.12.0.jar (com.squareup.moshi:moshi:1.12.0) with MergeInstrumentationAnalysisTransform
+Transforming okhttp-4.11.0.jar (com.squareup.okhttp3:okhttp:4.11.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming moshi-kotlin-1.12.0.jar (com.squareup.moshi:moshi-kotlin:1.12.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming okio-jvm-3.2.0.jar (com.squareup.okio:okio-jvm:3.2.0) with InstrumentationAnalysisTransform
+Transforming okio-jvm-3.2.0.jar (com.squareup.okio:okio-jvm:3.2.0) with MergeInstrumentationAnalysisTransform
+Transforming moshi-1.12.0.jar (com.squareup.moshi:moshi:1.12.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk8-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21) with MergeInstrumentationAnalysisTransform
+Transforming okio-jvm-3.2.0.jar (com.squareup.okio:okio-jvm:3.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with InstrumentationAnalysisTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk7-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.8.21.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with InstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-allopen-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-allopen:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-allopen-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-allopen:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-allopen-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-allopen:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming ktlint-gradle-12.1.2.jar (org.jlleitschuh.gradle:ktlint-gradle:12.1.2) with InstrumentationAnalysisTransform
+Transforming ktlint-gradle-12.1.2.jar (org.jlleitschuh.gradle:ktlint-gradle:12.1.2) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-gradle-plugin-1.10.0.jar (org.jreleaser:jreleaser-gradle-plugin:1.10.0) with InstrumentationAnalysisTransform
+Transforming ktlint-gradle-12.1.2.jar (org.jlleitschuh.gradle:ktlint-gradle:12.1.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-gradle-plugin-1.10.0.jar (org.jreleaser:jreleaser-gradle-plugin:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-proto-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-proto-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-gradle-plugin-1.10.0.jar (org.jreleaser:jreleaser-gradle-plugin:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-idea-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-proto-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-klib-commonizer-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-klib-commonizer-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-klib-commonizer-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-klib-commonizer-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-idea-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-klib-commonizer-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-klib-commonizer-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-build-tools-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-build-tools-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-build-tools-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-build-tools-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-android-extensions-1.9.21.jar (org.jetbrains.kotlin:kotlin-android-extensions:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-android-extensions-1.9.21.jar (org.jetbrains.kotlin:kotlin-android-extensions:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-compiler-runner-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-runner:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-build-tools-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-build-tools-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-android-extensions-1.9.21.jar (org.jetbrains.kotlin:kotlin-android-extensions:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-compiler-runner-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-runner:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-compiler-runner-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-runner:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-impl-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-impl-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming base-gradle-plugin-0.46.10.jar (org.kordamp.gradle:base-gradle-plugin:0.46.10) with InstrumentationAnalysisTransform
+Transforming base-gradle-plugin-0.46.10.jar (org.kordamp.gradle:base-gradle-plugin:0.46.10) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-scripting-compiler-impl-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-engine-1.10.0.jar (org.jreleaser:jreleaser-engine:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-engine-1.10.0.jar (org.jreleaser:jreleaser-engine:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-config-yaml-1.10.0.jar (org.jreleaser:jreleaser-config-yaml:1.10.0) with InstrumentationAnalysisTransform
+Transforming base-gradle-plugin-0.46.10.jar (org.kordamp.gradle:base-gradle-plugin:0.46.10) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-engine-1.10.0.jar (org.jreleaser:jreleaser-engine:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-config-yaml-1.10.0.jar (org.jreleaser:jreleaser-config-yaml:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-config-toml-1.10.0.jar (org.jreleaser:jreleaser-config-toml:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-yaml-1.10.0.jar (org.jreleaser:jreleaser-config-yaml:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-config-toml-1.10.0.jar (org.jreleaser:jreleaser-config-toml:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-config-json-1.10.0.jar (org.jreleaser:jreleaser-config-json:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-json-1.10.0.jar (org.jreleaser:jreleaser-config-json:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming jreleaser-config-toml-1.10.0.jar (org.jreleaser:jreleaser-config-toml:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-config-json-1.10.0.jar (org.jreleaser:jreleaser-config-json:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-daemon-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-embeddable:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-daemon-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-embeddable:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming trove4j-1.0.20200330.jar (org.jetbrains.intellij.deps:trove4j:1.0.20200330) with InstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming trove4j-1.0.20200330.jar (org.jetbrains.intellij.deps:trove4j:1.0.20200330) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-daemon-client-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-client:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-daemon-embeddable-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-embeddable:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-daemon-client-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-client:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlinx-coroutines-core-jvm-1.5.0.jar (org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0) with InstrumentationAnalysisTransform
+Transforming trove4j-1.0.20200330.jar (org.jetbrains.intellij.deps:trove4j:1.0.20200330) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-daemon-client-1.9.21.jar (org.jetbrains.kotlin:kotlin-daemon-client:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlinx-coroutines-core-jvm-1.5.0.jar (org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-scripting-jvm-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-jvm-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-scripting-common-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-common:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlinx-coroutines-core-jvm-1.5.0.jar (org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-common-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-common:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming maven-model-builder-3.6.3.jar (org.apache.maven:maven-model-builder:3.6.3) with InstrumentationAnalysisTransform
+Transforming kotlin-scripting-jvm-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-common-1.9.21.jar (org.jetbrains.kotlin:kotlin-scripting-common:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming maven-model-builder-3.6.3.jar (org.apache.maven:maven-model-builder:3.6.3) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-templates-1.10.0.jar (org.jreleaser:jreleaser-templates:1.10.0) with InstrumentationAnalysisTransform
+Transforming maven-model-builder-3.6.3.jar (org.apache.maven:maven-model-builder:3.6.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-templates-1.10.0.jar (org.jreleaser:jreleaser-templates:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-bluesky-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-bluesky-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-bluesky-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-bluesky-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-discourse-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discourse-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-templates-1.10.0.jar (org.jreleaser:jreleaser-templates:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-discourse-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discourse-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-bluesky-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-bluesky-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-linkedin-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-linkedin-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-discourse-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discourse-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-linkedin-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-linkedin-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-mastodon-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mastodon-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-mastodon-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mastodon-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-opencollective-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-opencollective-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-linkedin-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-linkedin-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-mastodon-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mastodon-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-opencollective-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-opencollective-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-slack-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-slack-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-slack-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-slack-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-telegram-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-telegram-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-opencollective-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-opencollective-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-slack-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-slack-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-telegram-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-telegram-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-discord-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discord-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-discord-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discord-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-gitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitter-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-telegram-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-telegram-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-gitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitter-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-discord-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-discord-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-gitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitter-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-google-chat-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-google-chat-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-google-chat-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-google-chat-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-mattermost-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mattermost-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-mattermost-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mattermost-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-teams-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-teams-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-google-chat-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-google-chat-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-teams-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-teams-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-mattermost-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-mattermost-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-webhooks-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-webhooks-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-teams-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-teams-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-webhooks-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-webhooks-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-zulip-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-zulip-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-zulip-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-zulip-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-webhooks-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-webhooks-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-github-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-github-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-zulip-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-zulip-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-github-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-github-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-gitlab-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitlab-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-github-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-github-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-gitlab-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitlab-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-codeberg-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-codeberg-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitlab-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitlab-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-codeberg-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-codeberg-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-gitea-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitea-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitea-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitea-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-codeberg-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-codeberg-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-genericgit-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-genericgit-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-gitea-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-gitea-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-genericgit-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-genericgit-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-artifactory-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-artifactory-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-genericgit-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-genericgit-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-artifactory-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-artifactory-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-azure-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-azure-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-artifactory-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-artifactory-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-azure-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-azure-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-nexus2-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-nexus2-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-nexus2-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-nexus2-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-ftp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ftp-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-azure-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-azure-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-ftp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ftp-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-nexus2-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-nexus2-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-http-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-http-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-ftp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ftp-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-http-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-http-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-ssh-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ssh-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-ssh-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ssh-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-s3-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-s3-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-http-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-http-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-s3-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-s3-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-ssh-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-ssh-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-java-sdk-commons-1.10.0.jar (org.jreleaser:jreleaser-java-sdk-commons:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-s3-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-s3-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-java-sdk-commons-1.10.0.jar (org.jreleaser:jreleaser-java-sdk-commons:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-git-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-git-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-git-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-git-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-smtp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-smtp-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-smtp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-smtp-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-sdkman-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-sdkman-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-git-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-git-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-java-sdk-commons-1.10.0.jar (org.jreleaser:jreleaser-java-sdk-commons:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-smtp-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-smtp-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-sdkman-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-sdkman-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-twitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-twitter-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-twitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-twitter-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-model-impl-1.10.0.jar (org.jreleaser:jreleaser-model-impl:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-model-impl-1.10.0.jar (org.jreleaser:jreleaser-model-impl:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-signing-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-signing-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-sdkman-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-sdkman-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-model-impl-1.10.0.jar (org.jreleaser:jreleaser-model-impl:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-twitter-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-twitter-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-signing-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-signing-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-tool-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-tool-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-tool-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-tool-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-command-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-command-java-sdk:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-command-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-command-java-sdk:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming commons-text-1.11.0.jar (org.apache.commons:commons-text:1.11.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-signing-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-signing-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-tool-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-tool-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-command-java-sdk-1.10.0.jar (org.jreleaser:jreleaser-command-java-sdk:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-text-1.11.0.jar (org.apache.commons:commons-text:1.11.0) with MergeInstrumentationAnalysisTransform
+Transforming jsonschema-generator-4.33.1.jar (com.github.victools:jsonschema-generator:4.33.1) with InstrumentationAnalysisTransform
+Transforming jsonschema-generator-4.33.1.jar (com.github.victools:jsonschema-generator:4.33.1) with MergeInstrumentationAnalysisTransform
+Transforming jsonschema-module-jackson-4.33.1.jar (com.github.victools:jsonschema-module-jackson:4.33.1) with InstrumentationAnalysisTransform
+Transforming jsonschema-module-jackson-4.33.1.jar (com.github.victools:jsonschema-module-jackson:4.33.1) with MergeInstrumentationAnalysisTransform
+Transforming maven-artifact-3.6.3.jar (org.apache.maven:maven-artifact:3.6.3) with InstrumentationAnalysisTransform
+Transforming jsonschema-generator-4.33.1.jar (com.github.victools:jsonschema-generator:4.33.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jsonschema-module-jackson-4.33.1.jar (com.github.victools:jsonschema-module-jackson:4.33.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-text-1.11.0.jar (org.apache.commons:commons-text:1.11.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming maven-artifact-3.6.3.jar (org.apache.maven:maven-artifact:3.6.3) with MergeInstrumentationAnalysisTransform
+Transforming commons-lang3-3.14.0.jar (org.apache.commons:commons-lang3:3.14.0) with InstrumentationAnalysisTransform
+Transforming commons-lang3-3.14.0.jar (org.apache.commons:commons-lang3:3.14.0) with MergeInstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming jackson-dataformat-xml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.16.0) with InstrumentationAnalysisTransform
+Transforming maven-artifact-3.6.3.jar (org.apache.maven:maven-artifact:3.6.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-dataformat-toml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-dataformat-xml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming commons-lang3-3.14.0.jar (org.apache.commons:commons-lang3:3.14.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-annotations-2.16.0.jar (com.fasterxml.jackson.core:jackson-annotations:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-annotations-2.16.0.jar (com.fasterxml.jackson.core:jackson-annotations:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming jackson-dataformat-xml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-dataformat-yaml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-annotations-2.16.0.jar (com.fasterxml.jackson.core:jackson-annotations:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-dataformat-yaml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-model-api-1.10.0.jar (org.jreleaser:jreleaser-model-api:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-model-api-1.10.0.jar (org.jreleaser:jreleaser-model-api:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming jackson-dataformat-yaml-2.16.0.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-utils-1.10.0.jar (org.jreleaser:jreleaser-utils:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-model-api-1.10.0.jar (org.jreleaser:jreleaser-model-api:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-utils-1.10.0.jar (org.jreleaser:jreleaser-utils:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming feign-jackson-13.1.jar (io.github.openfeign:feign-jackson:13.1) with InstrumentationAnalysisTransform
+Transforming feign-jackson-13.1.jar (io.github.openfeign:feign-jackson:13.1) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-utils-1.10.0.jar (org.jreleaser:jreleaser-utils:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-databind-2.16.0.jar (com.fasterxml.jackson.core:jackson-databind:2.16.0) with InstrumentationAnalysisTransform
+Transforming feign-jackson-13.1.jar (io.github.openfeign:feign-jackson:13.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-databind-2.16.0.jar (com.fasterxml.jackson.core:jackson-databind:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming jackson-core-2.16.0.jar (com.fasterxml.jackson.core:jackson-core:2.16.0) with InstrumentationAnalysisTransform
+Transforming jackson-core-2.16.0.jar (com.fasterxml.jackson.core:jackson-core:2.16.0) with MergeInstrumentationAnalysisTransform
+Transforming yamllint-1.6.1.jar (com.github.sbaudoin:yamllint:1.6.1) with InstrumentationAnalysisTransform
+Transforming jackson-databind-2.16.0.jar (com.fasterxml.jackson.core:jackson-databind:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-core-2.16.0.jar (com.fasterxml.jackson.core:jackson-core:2.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming yamllint-1.6.1.jar (com.github.sbaudoin:yamllint:1.6.1) with MergeInstrumentationAnalysisTransform
+Transforming maven-model-3.6.3.jar (org.apache.maven:maven-model:3.6.3) with InstrumentationAnalysisTransform
+Transforming maven-model-3.6.3.jar (org.apache.maven:maven-model:3.6.3) with MergeInstrumentationAnalysisTransform
+Transforming plexus-utils-3.2.1.jar (org.codehaus.plexus:plexus-utils:3.2.1) with InstrumentationAnalysisTransform
+Transforming yamllint-1.6.1.jar (com.github.sbaudoin:yamllint:1.6.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming maven-model-3.6.3.jar (org.apache.maven:maven-model:3.6.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming plexus-utils-3.2.1.jar (org.codehaus.plexus:plexus-utils:3.2.1) with MergeInstrumentationAnalysisTransform
+Transforming plexus-interpolation-1.25.jar (org.codehaus.plexus:plexus-interpolation:1.25) with InstrumentationAnalysisTransform
+Transforming plexus-interpolation-1.25.jar (org.codehaus.plexus:plexus-interpolation:1.25) with MergeInstrumentationAnalysisTransform
+Transforming javax.inject-1.jar (javax.inject:javax.inject:1) with InstrumentationAnalysisTransform
+Transforming plexus-utils-3.2.1.jar (org.codehaus.plexus:plexus-utils:3.2.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javax.inject-1.jar (javax.inject:javax.inject:1) with MergeInstrumentationAnalysisTransform
+Transforming plexus-interpolation-1.25.jar (org.codehaus.plexus:plexus-interpolation:1.25) with ExternalDependencyInstrumentingArtifactTransform
+Transforming maven-builder-support-3.6.3.jar (org.apache.maven:maven-builder-support:3.6.3) with InstrumentationAnalysisTransform
+Transforming javax.inject-1.jar (javax.inject:javax.inject:1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming maven-builder-support-3.6.3.jar (org.apache.maven:maven-builder-support:3.6.3) with MergeInstrumentationAnalysisTransform
+Transforming org.eclipse.sisu.inject-0.3.4.jar (org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4) with InstrumentationAnalysisTransform
+Transforming org.eclipse.sisu.inject-0.3.4.jar (org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4) with MergeInstrumentationAnalysisTransform
+Transforming commons-jexl3-3.3.jar (org.apache.commons:commons-jexl3:3.3) with InstrumentationAnalysisTransform
+Transforming maven-builder-support-3.6.3.jar (org.apache.maven:maven-builder-support:3.6.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming org.eclipse.sisu.inject-0.3.4.jar (org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-jexl3-3.3.jar (org.apache.commons:commons-jexl3:3.3) with MergeInstrumentationAnalysisTransform
+Transforming tika-core-2.9.1.jar (org.apache.tika:tika-core:2.9.1) with InstrumentationAnalysisTransform
+Transforming tika-core-2.9.1.jar (org.apache.tika:tika-core:2.9.1) with MergeInstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with InstrumentationAnalysisTransform
+Transforming commons-jexl3-3.3.jar (org.apache.commons:commons-jexl3:3.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tika-core-2.9.1.jar (org.apache.tika:tika-core:2.9.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with MergeInstrumentationAnalysisTransform
+Transforming compiler-0.9.11.jar (com.github.spullara.mustache.java:compiler:0.9.11) with InstrumentationAnalysisTransform
+Transforming compiler-0.9.11.jar (com.github.spullara.mustache.java:compiler:0.9.11) with MergeInstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming org.eclipse.jgit-5.13.0.202109080827-r.jar (org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r) with InstrumentationAnalysisTransform
+Transforming compiler-0.9.11.jar (com.github.spullara.mustache.java:compiler:0.9.11) with ExternalDependencyInstrumentingArtifactTransform
+Transforming org.eclipse.jgit-5.13.0.202109080827-r.jar (org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r) with MergeInstrumentationAnalysisTransform
+Transforming bcpg-jdk15to18-1.76.jar (org.bouncycastle:bcpg-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming bcpg-jdk15to18-1.76.jar (org.bouncycastle:bcpg-jdk15to18:1.76) with MergeInstrumentationAnalysisTransform
+Transforming jreleaser-logger-api-1.10.0.jar (org.jreleaser:jreleaser-logger-api:1.10.0) with InstrumentationAnalysisTransform
+Transforming org.eclipse.jgit-5.13.0.202109080827-r.jar (org.eclipse.jgit:org.eclipse.jgit:5.13.0.202109080827-r) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-logger-api-1.10.0.jar (org.jreleaser:jreleaser-logger-api:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming bcpg-jdk15to18-1.76.jar (org.bouncycastle:bcpg-jdk15to18:1.76) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-resource-bundle-1.10.0.jar (org.jreleaser:jreleaser-resource-bundle:1.10.0) with InstrumentationAnalysisTransform
+Transforming jreleaser-logger-api-1.10.0.jar (org.jreleaser:jreleaser-logger-api:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jreleaser-resource-bundle-1.10.0.jar (org.jreleaser:jreleaser-resource-bundle:1.10.0) with MergeInstrumentationAnalysisTransform
+Transforming classmate-1.5.1.jar (com.fasterxml:classmate:1.5.1) with InstrumentationAnalysisTransform
+Transforming classmate-1.5.1.jar (com.fasterxml:classmate:1.5.1) with MergeInstrumentationAnalysisTransform
+Transforming sshj-0.37.0.jar (com.hierynomus:sshj:0.37.0) with InstrumentationAnalysisTransform
+Transforming sshj-0.37.0.jar (com.hierynomus:sshj:0.37.0) with MergeInstrumentationAnalysisTransform
+Transforming jcl-over-slf4j-2.0.9.jar (org.slf4j:jcl-over-slf4j:2.0.9) with InstrumentationAnalysisTransform
+Transforming jreleaser-resource-bundle-1.10.0.jar (org.jreleaser:jreleaser-resource-bundle:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming sshj-0.37.0.jar (com.hierynomus:sshj:0.37.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming classmate-1.5.1.jar (com.fasterxml:classmate:1.5.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jcl-over-slf4j-2.0.9.jar (org.slf4j:jcl-over-slf4j:2.0.9) with MergeInstrumentationAnalysisTransform
+Transforming feign-form-3.8.0.jar (io.github.openfeign.form:feign-form:3.8.0) with InstrumentationAnalysisTransform
+Transforming feign-form-3.8.0.jar (io.github.openfeign.form:feign-form:3.8.0) with MergeInstrumentationAnalysisTransform
+Transforming jcl-over-slf4j-2.0.9.jar (org.slf4j:jcl-over-slf4j:2.0.9) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asn-one-0.6.0.jar (com.hierynomus:asn-one:0.6.0) with InstrumentationAnalysisTransform
+Transforming feign-form-3.8.0.jar (io.github.openfeign.form:feign-form:3.8.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asn-one-0.6.0.jar (com.hierynomus:asn-one:0.6.0) with MergeInstrumentationAnalysisTransform
+Transforming apache-client-2.22.5.jar (software.amazon.awssdk:apache-client:2.22.5) with InstrumentationAnalysisTransform
+Transforming asn-one-0.6.0.jar (com.hierynomus:asn-one:0.6.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming apache-client-2.22.5.jar (software.amazon.awssdk:apache-client:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming s3-2.22.5.jar (software.amazon.awssdk:s3:2.22.5) with InstrumentationAnalysisTransform
+Transforming s3-2.22.5.jar (software.amazon.awssdk:s3:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming apache-client-2.22.5.jar (software.amazon.awssdk:apache-client:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming aws-xml-protocol-2.22.5.jar (software.amazon.awssdk:aws-xml-protocol:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-xml-protocol-2.22.5.jar (software.amazon.awssdk:aws-xml-protocol:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming aws-query-protocol-2.22.5.jar (software.amazon.awssdk:aws-query-protocol:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-query-protocol-2.22.5.jar (software.amazon.awssdk:aws-query-protocol:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming protocol-core-2.22.5.jar (software.amazon.awssdk:protocol-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming protocol-core-2.22.5.jar (software.amazon.awssdk:protocol-core:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming aws-xml-protocol-2.22.5.jar (software.amazon.awssdk:aws-xml-protocol:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming s3-2.22.5.jar (software.amazon.awssdk:s3:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming protocol-core-2.22.5.jar (software.amazon.awssdk:protocol-core:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming aws-query-protocol-2.22.5.jar (software.amazon.awssdk:aws-query-protocol:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming aws-core-2.22.5.jar (software.amazon.awssdk:aws-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming aws-core-2.22.5.jar (software.amazon.awssdk:aws-core:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming auth-2.22.5.jar (software.amazon.awssdk:auth:2.22.5) with InstrumentationAnalysisTransform
+Transforming auth-2.22.5.jar (software.amazon.awssdk:auth:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming aws-core-2.22.5.jar (software.amazon.awssdk:aws-core:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming http-auth-2.22.5.jar (software.amazon.awssdk:http-auth:2.22.5) with InstrumentationAnalysisTransform
+Transforming auth-2.22.5.jar (software.amazon.awssdk:auth:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming http-auth-2.22.5.jar (software.amazon.awssdk:http-auth:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming regions-2.22.5.jar (software.amazon.awssdk:regions:2.22.5) with InstrumentationAnalysisTransform
+Transforming regions-2.22.5.jar (software.amazon.awssdk:regions:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming sdk-core-2.22.5.jar (software.amazon.awssdk:sdk-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-2.22.5.jar (software.amazon.awssdk:http-auth:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming sdk-core-2.22.5.jar (software.amazon.awssdk:sdk-core:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming regions-2.22.5.jar (software.amazon.awssdk:regions:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming sdk-core-2.22.5.jar (software.amazon.awssdk:sdk-core:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming http-auth-aws-2.22.5.jar (software.amazon.awssdk:http-auth-aws:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-aws-2.22.5.jar (software.amazon.awssdk:http-auth-aws:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming http-auth-spi-2.22.5.jar (software.amazon.awssdk:http-auth-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-spi-2.22.5.jar (software.amazon.awssdk:http-auth-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming http-client-spi-2.22.5.jar (software.amazon.awssdk:http-client-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-client-spi-2.22.5.jar (software.amazon.awssdk:http-client-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming metrics-spi-2.22.5.jar (software.amazon.awssdk:metrics-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming http-auth-spi-2.22.5.jar (software.amazon.awssdk:http-auth-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming http-client-spi-2.22.5.jar (software.amazon.awssdk:http-client-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming http-auth-aws-2.22.5.jar (software.amazon.awssdk:http-auth-aws:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming metrics-spi-2.22.5.jar (software.amazon.awssdk:metrics-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming arns-2.22.5.jar (software.amazon.awssdk:arns:2.22.5) with InstrumentationAnalysisTransform
+Transforming arns-2.22.5.jar (software.amazon.awssdk:arns:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming profiles-2.22.5.jar (software.amazon.awssdk:profiles:2.22.5) with InstrumentationAnalysisTransform
+Transforming metrics-spi-2.22.5.jar (software.amazon.awssdk:metrics-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming arns-2.22.5.jar (software.amazon.awssdk:arns:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming profiles-2.22.5.jar (software.amazon.awssdk:profiles:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming crt-core-2.22.5.jar (software.amazon.awssdk:crt-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming crt-core-2.22.5.jar (software.amazon.awssdk:crt-core:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming identity-spi-2.22.5.jar (software.amazon.awssdk:identity-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming profiles-2.22.5.jar (software.amazon.awssdk:profiles:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming crt-core-2.22.5.jar (software.amazon.awssdk:crt-core:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming identity-spi-2.22.5.jar (software.amazon.awssdk:identity-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming json-utils-2.22.5.jar (software.amazon.awssdk:json-utils:2.22.5) with InstrumentationAnalysisTransform
+Transforming json-utils-2.22.5.jar (software.amazon.awssdk:json-utils:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming utils-2.22.5.jar (software.amazon.awssdk:utils:2.22.5) with InstrumentationAnalysisTransform
+Transforming identity-spi-2.22.5.jar (software.amazon.awssdk:identity-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming utils-2.22.5.jar (software.amazon.awssdk:utils:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming slf4j-api-2.0.9.jar (org.slf4j:slf4j-api:2.0.9) with InstrumentationAnalysisTransform
+Transforming json-utils-2.22.5.jar (software.amazon.awssdk:json-utils:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming slf4j-api-2.0.9.jar (org.slf4j:slf4j-api:2.0.9) with MergeInstrumentationAnalysisTransform
+Transforming jakarta.mail-2.0.1.jar (com.sun.mail:jakarta.mail:2.0.1) with InstrumentationAnalysisTransform
+Transforming utils-2.22.5.jar (software.amazon.awssdk:utils:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming slf4j-api-2.0.9.jar (org.slf4j:slf4j-api:2.0.9) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.mail-2.0.1.jar (com.sun.mail:jakarta.mail:2.0.1) with MergeInstrumentationAnalysisTransform
+Transforming httpclient-4.5.13.jar (org.apache.httpcomponents:httpclient:4.5.13) with InstrumentationAnalysisTransform
+Transforming jakarta.mail-2.0.1.jar (com.sun.mail:jakarta.mail:2.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpclient-4.5.13.jar (org.apache.httpcomponents:httpclient:4.5.13) with MergeInstrumentationAnalysisTransform
+Transforming httpcore-4.4.16.jar (org.apache.httpcomponents:httpcore:4.4.16) with InstrumentationAnalysisTransform
+Transforming httpcore-4.4.16.jar (org.apache.httpcomponents:httpcore:4.4.16) with MergeInstrumentationAnalysisTransform
+Transforming commons-codec-1.16.0.jar (commons-codec:commons-codec:1.16.0) with InstrumentationAnalysisTransform
+Transforming httpclient-4.5.13.jar (org.apache.httpcomponents:httpclient:4.5.13) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpcore-4.4.16.jar (org.apache.httpcomponents:httpcore:4.4.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-codec-1.16.0.jar (commons-codec:commons-codec:1.16.0) with MergeInstrumentationAnalysisTransform
+Transforming feign-httpclient-13.1.jar (io.github.openfeign:feign-httpclient:13.1) with InstrumentationAnalysisTransform
+Transforming feign-httpclient-13.1.jar (io.github.openfeign:feign-httpclient:13.1) with MergeInstrumentationAnalysisTransform
+Transforming commons-codec-1.16.0.jar (commons-codec:commons-codec:1.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming feign-core-13.1.jar (io.github.openfeign:feign-core:13.1) with InstrumentationAnalysisTransform
+Transforming feign-httpclient-13.1.jar (io.github.openfeign:feign-httpclient:13.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming feign-core-13.1.jar (io.github.openfeign:feign-core:13.1) with MergeInstrumentationAnalysisTransform
+Transforming twitter4j-core-4.1.2.jar (org.twitter4j:twitter4j-core:4.1.2) with InstrumentationAnalysisTransform
+Transforming twitter4j-core-4.1.2.jar (org.twitter4j:twitter4j-core:4.1.2) with MergeInstrumentationAnalysisTransform
+Transforming failsafe-3.3.2.jar (dev.failsafe:failsafe:3.3.2) with InstrumentationAnalysisTransform
+Transforming feign-core-13.1.jar (io.github.openfeign:feign-core:13.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming failsafe-3.3.2.jar (dev.failsafe:failsafe:3.3.2) with MergeInstrumentationAnalysisTransform
+Transforming twitter4j-core-4.1.2.jar (org.twitter4j:twitter4j-core:4.1.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-net-3.10.0.jar (commons-net:commons-net:3.10.0) with InstrumentationAnalysisTransform
+Transforming failsafe-3.3.2.jar (dev.failsafe:failsafe:3.3.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-net-3.10.0.jar (commons-net:commons-net:3.10.0) with MergeInstrumentationAnalysisTransform
+Transforming bcpkix-jdk15to18-1.76.jar (org.bouncycastle:bcpkix-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming bcpkix-jdk15to18-1.76.jar (org.bouncycastle:bcpkix-jdk15to18:1.76) with MergeInstrumentationAnalysisTransform
+Transforming bcutil-jdk15to18-1.76.jar (org.bouncycastle:bcutil-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming commons-net-3.10.0.jar (commons-net:commons-net:3.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcpkix-jdk15to18-1.76.jar (org.bouncycastle:bcpkix-jdk15to18:1.76) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcutil-jdk15to18-1.76.jar (org.bouncycastle:bcutil-jdk15to18:1.76) with MergeInstrumentationAnalysisTransform
+Transforming bcprov-jdk15to18-1.76.jar (org.bouncycastle:bcprov-jdk15to18:1.76) with InstrumentationAnalysisTransform
+Transforming bcprov-jdk15to18-1.76.jar (org.bouncycastle:bcprov-jdk15to18:1.76) with MergeInstrumentationAnalysisTransform
+Transforming snakeyaml-2.2.jar (org.yaml:snakeyaml:2.2) with InstrumentationAnalysisTransform
+Transforming snakeyaml-2.2.jar (org.yaml:snakeyaml:2.2) with MergeInstrumentationAnalysisTransform
+Transforming bcutil-jdk15to18-1.76.jar (org.bouncycastle:bcutil-jdk15to18:1.76) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcprov-jdk15to18-1.76.jar (org.bouncycastle:bcprov-jdk15to18:1.76) with ExternalDependencyInstrumentingArtifactTransform
+Transforming snakeyaml-2.2.jar (org.yaml:snakeyaml:2.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming JavaEWAH-1.1.12.jar (com.googlecode.javaewah:JavaEWAH:1.1.12) with InstrumentationAnalysisTransform
+Transforming JavaEWAH-1.1.12.jar (com.googlecode.javaewah:JavaEWAH:1.1.12) with MergeInstrumentationAnalysisTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with InstrumentationAnalysisTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with MergeInstrumentationAnalysisTransform
+Transforming xz-1.9.jar (org.tukaani:xz:1.9) with InstrumentationAnalysisTransform
+Transforming xz-1.9.jar (org.tukaani:xz:1.9) with MergeInstrumentationAnalysisTransform
+Transforming JavaEWAH-1.1.12.jar (com.googlecode.javaewah:JavaEWAH:1.1.12) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming zstd-jni-1.5.5-11.jar (com.github.luben:zstd-jni:1.5.5-11) with InstrumentationAnalysisTransform
+Transforming xz-1.9.jar (org.tukaani:xz:1.9) with ExternalDependencyInstrumentingArtifactTransform
+Transforming zstd-jni-1.5.5-11.jar (com.github.luben:zstd-jni:1.5.5-11) with MergeInstrumentationAnalysisTransform
+Transforming commonmark-ext-autolink-0.21.0.jar (org.commonmark:commonmark-ext-autolink:0.21.0) with InstrumentationAnalysisTransform
+Transforming commonmark-ext-autolink-0.21.0.jar (org.commonmark:commonmark-ext-autolink:0.21.0) with MergeInstrumentationAnalysisTransform
+Transforming commonmark-0.21.0.jar (org.commonmark:commonmark:0.21.0) with InstrumentationAnalysisTransform
+Transforming commonmark-0.21.0.jar (org.commonmark:commonmark:0.21.0) with MergeInstrumentationAnalysisTransform
+Transforming zstd-jni-1.5.5-11.jar (com.github.luben:zstd-jni:1.5.5-11) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commonmark-ext-autolink-0.21.0.jar (org.commonmark:commonmark-ext-autolink:0.21.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with InstrumentationAnalysisTransform
+Transforming commonmark-0.21.0.jar (org.commonmark:commonmark:0.21.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with MergeInstrumentationAnalysisTransform
+Transforming commons-logging-1.2.jar (commons-logging:commons-logging:1.2) with InstrumentationAnalysisTransform
+Transforming commons-logging-1.2.jar (commons-logging:commons-logging:1.2) with MergeInstrumentationAnalysisTransform
+Transforming woodstox-core-6.5.1.jar (com.fasterxml.woodstox:woodstox-core:6.5.1) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-logging-1.2.jar (commons-logging:commons-logging:1.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming woodstox-core-6.5.1.jar (com.fasterxml.woodstox:woodstox-core:6.5.1) with MergeInstrumentationAnalysisTransform
+Transforming stax2-api-4.2.1.jar (org.codehaus.woodstox:stax2-api:4.2.1) with InstrumentationAnalysisTransform
+Transforming stax2-api-4.2.1.jar (org.codehaus.woodstox:stax2-api:4.2.1) with MergeInstrumentationAnalysisTransform
+Transforming eddsa-0.3.0.jar (net.i2p.crypto:eddsa:0.3.0) with InstrumentationAnalysisTransform
+Transforming woodstox-core-6.5.1.jar (com.fasterxml.woodstox:woodstox-core:6.5.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming eddsa-0.3.0.jar (net.i2p.crypto:eddsa:0.3.0) with MergeInstrumentationAnalysisTransform
+Transforming checksums-2.22.5.jar (software.amazon.awssdk:checksums:2.22.5) with InstrumentationAnalysisTransform
+Transforming stax2-api-4.2.1.jar (org.codehaus.woodstox:stax2-api:4.2.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming eddsa-0.3.0.jar (net.i2p.crypto:eddsa:0.3.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming checksums-2.22.5.jar (software.amazon.awssdk:checksums:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming checksums-spi-2.22.5.jar (software.amazon.awssdk:checksums-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming checksums-spi-2.22.5.jar (software.amazon.awssdk:checksums-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming endpoints-spi-2.22.5.jar (software.amazon.awssdk:endpoints-spi:2.22.5) with InstrumentationAnalysisTransform
+Transforming checksums-2.22.5.jar (software.amazon.awssdk:checksums:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming endpoints-spi-2.22.5.jar (software.amazon.awssdk:endpoints-spi:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming annotations-2.22.5.jar (software.amazon.awssdk:annotations:2.22.5) with InstrumentationAnalysisTransform
+Transforming checksums-spi-2.22.5.jar (software.amazon.awssdk:checksums-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-2.22.5.jar (software.amazon.awssdk:annotations:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming endpoints-spi-2.22.5.jar (software.amazon.awssdk:endpoints-spi:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming autolink-0.10.0.jar (org.nibor.autolink:autolink:0.10.0) with InstrumentationAnalysisTransform
+Transforming annotations-2.22.5.jar (software.amazon.awssdk:annotations:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming autolink-0.10.0.jar (org.nibor.autolink:autolink:0.10.0) with MergeInstrumentationAnalysisTransform
+Transforming reactive-streams-1.0.4.jar (org.reactivestreams:reactive-streams:1.0.4) with InstrumentationAnalysisTransform
+Transforming reactive-streams-1.0.4.jar (org.reactivestreams:reactive-streams:1.0.4) with MergeInstrumentationAnalysisTransform
+Transforming eventstream-1.0.1.jar (software.amazon.eventstream:eventstream:1.0.1) with InstrumentationAnalysisTransform
+Transforming autolink-0.10.0.jar (org.nibor.autolink:autolink:0.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming reactive-streams-1.0.4.jar (org.reactivestreams:reactive-streams:1.0.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming eventstream-1.0.1.jar (software.amazon.eventstream:eventstream:1.0.1) with MergeInstrumentationAnalysisTransform
+Transforming third-party-jackson-core-2.22.5.jar (software.amazon.awssdk:third-party-jackson-core:2.22.5) with InstrumentationAnalysisTransform
+Transforming third-party-jackson-core-2.22.5.jar (software.amazon.awssdk:third-party-jackson-core:2.22.5) with MergeInstrumentationAnalysisTransform
+Transforming eventstream-1.0.1.jar (software.amazon.eventstream:eventstream:1.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming third-party-jackson-core-2.22.5.jar (software.amazon.awssdk:third-party-jackson-core:2.22.5) with ExternalDependencyInstrumentingArtifactTransform
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :komga
+Evaluating project ':komga' using build file 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\komga\build.gradle.kts'.
+Transforming springdoc-openapi-gradle-plugin-1.9.0.jar (org.springdoc:springdoc-openapi-gradle-plugin:1.9.0) with InstrumentationAnalysisTransform
+Transforming awaitility-kotlin-4.0.3.jar (org.awaitility:awaitility-kotlin:4.0.3) with InstrumentationAnalysisTransform
+Transforming gradle-execfork-plugin-0.2.0.jar (com.github.psxpaul:gradle-execfork-plugin:0.2.0) with InstrumentationAnalysisTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with InstrumentationAnalysisTransform
+Transforming symbol-processing-gradle-plugin-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-gradle-plugin:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming symbol-processing-api-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-api:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming symbol-processing-common-deps-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-common-deps:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with InstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-noarg-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-noarg:1.9.21) with InstrumentationAnalysisTransform
+Transforming spring-boot-gradle-plugin-3.4.0.jar (org.springframework.boot:spring-boot-gradle-plugin:3.4.0) with InstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with InstrumentationAnalysisTransform
+Transforming gradle-jooq-plugin-9.0.jar (nu.studer:gradle-jooq-plugin:9.0) with InstrumentationAnalysisTransform
+Transforming gradle-plugin-publishing-10.20.1.jar (gradle.plugin.org.flywaydb:gradle-plugin-publishing:10.20.1) with InstrumentationAnalysisTransform
+Transforming gradle-processes-0.5.0.jar (gradle.plugin.com.github.jengelman.gradle.plugins:gradle-processes:0.5.0) with InstrumentationAnalysisTransform
+Transforming spring-boot-buildpack-platform-3.4.0.jar (org.springframework.boot:spring-boot-buildpack-platform:3.4.0) with InstrumentationAnalysisTransform
+Transforming spring-boot-loader-tools-3.4.0.jar (org.springframework.boot:spring-boot-loader-tools:3.4.0) with InstrumentationAnalysisTransform
+Transforming dependency-management-plugin-1.1.6.jar (io.spring.gradle:dependency-management-plugin:1.1.6) with InstrumentationAnalysisTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with InstrumentationAnalysisTransform
+Transforming spring-core-6.2.0.jar (org.springframework:spring-core:6.2.0) with InstrumentationAnalysisTransform
+Transforming jooq-codegen-3.19.1.jar (org.jooq:jooq-codegen:3.19.1) with InstrumentationAnalysisTransform
+Transforming jaxb-runtime-3.0.2.jar (org.glassfish.jaxb:jaxb-runtime:3.0.2) with InstrumentationAnalysisTransform
+Transforming jaxb-core-3.0.2.jar (org.glassfish.jaxb:jaxb-core:3.0.2) with InstrumentationAnalysisTransform
+Transforming flyway-core-10.20.1.jar (org.flywaydb:flyway-core:10.20.1) with InstrumentationAnalysisTransform
+Transforming gson-2.8.9.jar (com.google.code.gson:gson:2.8.9) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with InstrumentationAnalysisTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar (com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-annotations-2.18.1.jar (com.fasterxml.jackson.core:jackson-annotations:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.18.1.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-core-2.18.1.jar (com.fasterxml.jackson.core:jackson-core:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-module-parameter-names-2.18.1.jar (com.fasterxml.jackson.module:jackson-module-parameter-names:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-databind-2.18.1.jar (com.fasterxml.jackson.core:jackson-databind:2.18.1) with InstrumentationAnalysisTransform
+Transforming jna-platform-5.13.0.jar (net.java.dev.jna:jna-platform:5.13.0) with InstrumentationAnalysisTransform
+Transforming httpclient5-5.4.1.jar (org.apache.httpcomponents.client5:httpclient5:5.4.1) with InstrumentationAnalysisTransform
+Transforming tomlj-1.0.0.jar (org.tomlj:tomlj:1.0.0) with InstrumentationAnalysisTransform
+Transforming spring-jcl-6.2.0.jar (org.springframework:spring-jcl:6.2.0) with InstrumentationAnalysisTransform
+Transforming jooq-meta-3.19.1.jar (org.jooq:jooq-meta:3.19.1) with InstrumentationAnalysisTransform
+Transforming jooq-3.19.1.jar (org.jooq:jooq:3.19.1) with InstrumentationAnalysisTransform
+Transforming jakarta.xml.bind-api-4.0.0.jar (jakarta.xml.bind:jakarta.xml.bind-api:4.0.0) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with InstrumentationAnalysisTransform
+Transforming txw2-3.0.2.jar (org.glassfish.jaxb:txw2:3.0.2) with InstrumentationAnalysisTransform
+Transforming istack-commons-runtime-4.0.1.jar (com.sun.istack:istack-commons-runtime:4.0.1) with InstrumentationAnalysisTransform
+Transforming awaitility-4.0.3.jar (org.awaitility:awaitility:4.0.3) with InstrumentationAnalysisTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with InstrumentationAnalysisTransform
+Transforming jna-5.13.0.jar (net.java.dev.jna:jna:5.13.0) with InstrumentationAnalysisTransform
+Transforming httpcore5-h2-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5-h2:5.3.1) with InstrumentationAnalysisTransform
+Transforming httpcore5-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5:5.3.1) with InstrumentationAnalysisTransform
+Transforming slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36) with InstrumentationAnalysisTransform
+Transforming antlr4-runtime-4.7.2.jar (org.antlr:antlr4-runtime:4.7.2) with InstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with InstrumentationAnalysisTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar (io.r2dbc:r2dbc-spi:1.0.0.RELEASE) with InstrumentationAnalysisTransform
+Transforming hamcrest-2.1.jar (org.hamcrest:hamcrest:2.1) with InstrumentationAnalysisTransform
+Transforming reactive-streams-1.0.3.jar (org.reactivestreams:reactive-streams:1.0.3) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-api-2.1.0.jar (jakarta.activation:jakarta.activation-api:2.1.0) with InstrumentationAnalysisTransform
+Transforming springdoc-openapi-gradle-plugin-1.9.0.jar (org.springdoc:springdoc-openapi-gradle-plugin:1.9.0) with InstrumentationAnalysisTransform
+Transforming springdoc-openapi-gradle-plugin-1.9.0.jar (org.springdoc:springdoc-openapi-gradle-plugin:1.9.0) with MergeInstrumentationAnalysisTransform
+Transforming awaitility-kotlin-4.0.3.jar (org.awaitility:awaitility-kotlin:4.0.3) with InstrumentationAnalysisTransform
+Transforming awaitility-kotlin-4.0.3.jar (org.awaitility:awaitility-kotlin:4.0.3) with MergeInstrumentationAnalysisTransform
+Transforming gradle-execfork-plugin-0.2.0.jar (com.github.psxpaul:gradle-execfork-plugin:0.2.0) with InstrumentationAnalysisTransform
+Transforming gradle-execfork-plugin-0.2.0.jar (com.github.psxpaul:gradle-execfork-plugin:0.2.0) with MergeInstrumentationAnalysisTransform
+Transforming springdoc-openapi-gradle-plugin-1.9.0.jar (org.springdoc:springdoc-openapi-gradle-plugin:1.9.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with InstrumentationAnalysisTransform
+Transforming awaitility-kotlin-4.0.3.jar (org.awaitility:awaitility-kotlin:4.0.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with MergeInstrumentationAnalysisTransform
+Transforming gradle-execfork-plugin-0.2.0.jar (com.github.psxpaul:gradle-execfork-plugin:0.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming symbol-processing-gradle-plugin-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-gradle-plugin:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming kotlin-reflect-2.0.20.jar (org.jetbrains.kotlin:kotlin-reflect:2.0.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming symbol-processing-gradle-plugin-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-gradle-plugin:1.9.21-1.0.16) with MergeInstrumentationAnalysisTransform
+Transforming symbol-processing-api-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-api:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming symbol-processing-api-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-api:1.9.21-1.0.16) with MergeInstrumentationAnalysisTransform
+Transforming symbol-processing-gradle-plugin-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-gradle-plugin:1.9.21-1.0.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming symbol-processing-common-deps-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-common-deps:1.9.21-1.0.16) with InstrumentationAnalysisTransform
+Transforming symbol-processing-common-deps-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-common-deps:1.9.21-1.0.16) with MergeInstrumentationAnalysisTransform
+Transforming symbol-processing-api-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-api:1.9.21-1.0.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with MergeInstrumentationAnalysisTransform
+Transforming symbol-processing-common-deps-1.9.21-1.0.16.jar (com.google.devtools.ksp:symbol-processing-common-deps:1.9.21-1.0.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with InstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with InstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-stdlib-2.0.20.jar (org.jetbrains.kotlin:kotlin-stdlib:2.0.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-noarg-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-noarg:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-noarg-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-noarg:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-api-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming spring-boot-gradle-plugin-3.4.0.jar (org.springframework.boot:spring-boot-gradle-plugin:3.4.0) with InstrumentationAnalysisTransform
+Transforming spring-boot-gradle-plugin-3.4.0.jar (org.springframework.boot:spring-boot-gradle-plugin:3.4.0) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-noarg-1.9.21-gradle82.jar (org.jetbrains.kotlin:kotlin-noarg:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with InstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with MergeInstrumentationAnalysisTransform
+Transforming spring-boot-gradle-plugin-3.4.0.jar (org.springframework.boot:spring-boot-gradle-plugin:3.4.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-jooq-plugin-9.0.jar (nu.studer:gradle-jooq-plugin:9.0) with InstrumentationAnalysisTransform
+Transforming gradle-jooq-plugin-9.0.jar (nu.studer:gradle-jooq-plugin:9.0) with MergeInstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-plugin-publishing-10.20.1.jar (gradle.plugin.org.flywaydb:gradle-plugin-publishing:10.20.1) with InstrumentationAnalysisTransform
+Transforming gradle-plugin-publishing-10.20.1.jar (gradle.plugin.org.flywaydb:gradle-plugin-publishing:10.20.1) with MergeInstrumentationAnalysisTransform
+Transforming gradle-jooq-plugin-9.0.jar (nu.studer:gradle-jooq-plugin:9.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-processes-0.5.0.jar (gradle.plugin.com.github.jengelman.gradle.plugins:gradle-processes:0.5.0) with InstrumentationAnalysisTransform
+Transforming gradle-processes-0.5.0.jar (gradle.plugin.com.github.jengelman.gradle.plugins:gradle-processes:0.5.0) with MergeInstrumentationAnalysisTransform
+Transforming gradle-plugin-publishing-10.20.1.jar (gradle.plugin.org.flywaydb:gradle-plugin-publishing:10.20.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming spring-boot-buildpack-platform-3.4.0.jar (org.springframework.boot:spring-boot-buildpack-platform:3.4.0) with InstrumentationAnalysisTransform
+Transforming spring-boot-buildpack-platform-3.4.0.jar (org.springframework.boot:spring-boot-buildpack-platform:3.4.0) with MergeInstrumentationAnalysisTransform
+Transforming gradle-processes-0.5.0.jar (gradle.plugin.com.github.jengelman.gradle.plugins:gradle-processes:0.5.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming spring-boot-loader-tools-3.4.0.jar (org.springframework.boot:spring-boot-loader-tools:3.4.0) with InstrumentationAnalysisTransform
+Transforming spring-boot-loader-tools-3.4.0.jar (org.springframework.boot:spring-boot-loader-tools:3.4.0) with MergeInstrumentationAnalysisTransform
+Transforming spring-boot-buildpack-platform-3.4.0.jar (org.springframework.boot:spring-boot-buildpack-platform:3.4.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming dependency-management-plugin-1.1.6.jar (io.spring.gradle:dependency-management-plugin:1.1.6) with InstrumentationAnalysisTransform
+Transforming dependency-management-plugin-1.1.6.jar (io.spring.gradle:dependency-management-plugin:1.1.6) with MergeInstrumentationAnalysisTransform
+Transforming spring-boot-loader-tools-3.4.0.jar (org.springframework.boot:spring-boot-loader-tools:3.4.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with InstrumentationAnalysisTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with MergeInstrumentationAnalysisTransform
+Transforming spring-core-6.2.0.jar (org.springframework:spring-core:6.2.0) with InstrumentationAnalysisTransform
+Transforming dependency-management-plugin-1.1.6.jar (io.spring.gradle:dependency-management-plugin:1.1.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-compress-1.25.0.jar (org.apache.commons:commons-compress:1.25.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming spring-core-6.2.0.jar (org.springframework:spring-core:6.2.0) with MergeInstrumentationAnalysisTransform
+Transforming jooq-codegen-3.19.1.jar (org.jooq:jooq-codegen:3.19.1) with InstrumentationAnalysisTransform
+Transforming jooq-codegen-3.19.1.jar (org.jooq:jooq-codegen:3.19.1) with MergeInstrumentationAnalysisTransform
+Transforming jaxb-runtime-3.0.2.jar (org.glassfish.jaxb:jaxb-runtime:3.0.2) with InstrumentationAnalysisTransform
+Transforming jaxb-runtime-3.0.2.jar (org.glassfish.jaxb:jaxb-runtime:3.0.2) with MergeInstrumentationAnalysisTransform
+Transforming jaxb-core-3.0.2.jar (org.glassfish.jaxb:jaxb-core:3.0.2) with InstrumentationAnalysisTransform
+Transforming spring-core-6.2.0.jar (org.springframework:spring-core:6.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jooq-codegen-3.19.1.jar (org.jooq:jooq-codegen:3.19.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jaxb-core-3.0.2.jar (org.glassfish.jaxb:jaxb-core:3.0.2) with MergeInstrumentationAnalysisTransform
+Transforming jaxb-runtime-3.0.2.jar (org.glassfish.jaxb:jaxb-runtime:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming flyway-core-10.20.1.jar (org.flywaydb:flyway-core:10.20.1) with InstrumentationAnalysisTransform
+Transforming jaxb-core-3.0.2.jar (org.glassfish.jaxb:jaxb-core:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming flyway-core-10.20.1.jar (org.flywaydb:flyway-core:10.20.1) with MergeInstrumentationAnalysisTransform
+Transforming gson-2.8.9.jar (com.google.code.gson:gson:2.8.9) with InstrumentationAnalysisTransform
+Transforming gson-2.8.9.jar (com.google.code.gson:gson:2.8.9) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with InstrumentationAnalysisTransform
+Transforming flyway-core-10.20.1.jar (org.flywaydb:flyway-core:10.20.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming gson-2.8.9.jar (com.google.code.gson:gson:2.8.9) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.21.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar (com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1) with InstrumentationAnalysisTransform
+Transforming kotlin-native-utils-1.9.21.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-project-model-1.9.21.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar (com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-tooling-core-1.9.21.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-annotations-2.18.1.jar (com.fasterxml.jackson.core:jackson-annotations:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar (com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-annotations-2.18.1.jar (com.fasterxml.jackson.core:jackson-annotations:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.18.1.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-annotations-2.18.1.jar (com.fasterxml.jackson.core:jackson-annotations:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-dataformat-toml-2.18.1.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming jackson-core-2.18.1.jar (com.fasterxml.jackson.core:jackson-core:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-core-2.18.1.jar (com.fasterxml.jackson.core:jackson-core:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming jackson-module-parameter-names-2.18.1.jar (com.fasterxml.jackson.module:jackson-module-parameter-names:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-dataformat-toml-2.18.1.jar (com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-module-parameter-names-2.18.1.jar (com.fasterxml.jackson.module:jackson-module-parameter-names:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming jackson-core-2.18.1.jar (com.fasterxml.jackson.core:jackson-core:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-module-parameter-names-2.18.1.jar (com.fasterxml.jackson.module:jackson-module-parameter-names:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jackson-databind-2.18.1.jar (com.fasterxml.jackson.core:jackson-databind:2.18.1) with InstrumentationAnalysisTransform
+Transforming jackson-databind-2.18.1.jar (com.fasterxml.jackson.core:jackson-databind:2.18.1) with MergeInstrumentationAnalysisTransform
+Transforming jna-platform-5.13.0.jar (net.java.dev.jna:jna-platform:5.13.0) with InstrumentationAnalysisTransform
+Transforming jna-platform-5.13.0.jar (net.java.dev.jna:jna-platform:5.13.0) with MergeInstrumentationAnalysisTransform
+Transforming httpclient5-5.4.1.jar (org.apache.httpcomponents.client5:httpclient5:5.4.1) with InstrumentationAnalysisTransform
+Transforming jackson-databind-2.18.1.jar (com.fasterxml.jackson.core:jackson-databind:2.18.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jna-platform-5.13.0.jar (net.java.dev.jna:jna-platform:5.13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpclient5-5.4.1.jar (org.apache.httpcomponents.client5:httpclient5:5.4.1) with MergeInstrumentationAnalysisTransform
+Transforming tomlj-1.0.0.jar (org.tomlj:tomlj:1.0.0) with InstrumentationAnalysisTransform
+Transforming tomlj-1.0.0.jar (org.tomlj:tomlj:1.0.0) with MergeInstrumentationAnalysisTransform
+Transforming spring-jcl-6.2.0.jar (org.springframework:spring-jcl:6.2.0) with InstrumentationAnalysisTransform
+Transforming httpclient5-5.4.1.jar (org.apache.httpcomponents.client5:httpclient5:5.4.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tomlj-1.0.0.jar (org.tomlj:tomlj:1.0.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming spring-jcl-6.2.0.jar (org.springframework:spring-jcl:6.2.0) with MergeInstrumentationAnalysisTransform
+Transforming jooq-meta-3.19.1.jar (org.jooq:jooq-meta:3.19.1) with InstrumentationAnalysisTransform
+Transforming jooq-meta-3.19.1.jar (org.jooq:jooq-meta:3.19.1) with MergeInstrumentationAnalysisTransform
+Transforming jooq-3.19.1.jar (org.jooq:jooq:3.19.1) with InstrumentationAnalysisTransform
+Transforming spring-jcl-6.2.0.jar (org.springframework:spring-jcl:6.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jooq-3.19.1.jar (org.jooq:jooq:3.19.1) with MergeInstrumentationAnalysisTransform
+Transforming jakarta.xml.bind-api-4.0.0.jar (jakarta.xml.bind:jakarta.xml.bind-api:4.0.0) with InstrumentationAnalysisTransform
+Transforming jooq-meta-3.19.1.jar (org.jooq:jooq-meta:3.19.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jooq-3.19.1.jar (org.jooq:jooq:3.19.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.xml.bind-api-4.0.0.jar (jakarta.xml.bind:jakarta.xml.bind-api:4.0.0) with MergeInstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with MergeInstrumentationAnalysisTransform
+Transforming txw2-3.0.2.jar (org.glassfish.jaxb:txw2:3.0.2) with InstrumentationAnalysisTransform
+Transforming jakarta.xml.bind-api-4.0.0.jar (jakarta.xml.bind:jakarta.xml.bind-api:4.0.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming txw2-3.0.2.jar (org.glassfish.jaxb:txw2:3.0.2) with MergeInstrumentationAnalysisTransform
+Transforming istack-commons-runtime-4.0.1.jar (com.sun.istack:istack-commons-runtime:4.0.1) with InstrumentationAnalysisTransform
+Transforming txw2-3.0.2.jar (org.glassfish.jaxb:txw2:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming istack-commons-runtime-4.0.1.jar (com.sun.istack:istack-commons-runtime:4.0.1) with MergeInstrumentationAnalysisTransform
+Transforming awaitility-4.0.3.jar (org.awaitility:awaitility:4.0.3) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-2.0.1.jar (com.sun.activation:jakarta.activation:2.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming awaitility-4.0.3.jar (org.awaitility:awaitility:4.0.3) with MergeInstrumentationAnalysisTransform
+Transforming istack-commons-runtime-4.0.1.jar (com.sun.istack:istack-commons-runtime:4.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with InstrumentationAnalysisTransform
+Transforming awaitility-4.0.3.jar (org.awaitility:awaitility:4.0.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with InstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with MergeInstrumentationAnalysisTransform
+Transforming jna-5.13.0.jar (net.java.dev.jna:jna:5.13.0) with InstrumentationAnalysisTransform
+Transforming kotlin-util-klib-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jna-5.13.0.jar (net.java.dev.jna:jna:5.13.0) with MergeInstrumentationAnalysisTransform
+Transforming httpcore5-h2-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5-h2:5.3.1) with InstrumentationAnalysisTransform
+Transforming kotlin-util-io-1.9.21.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jna-5.13.0.jar (net.java.dev.jna:jna:5.13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpcore5-h2-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5-h2:5.3.1) with MergeInstrumentationAnalysisTransform
+Transforming httpcore5-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5:5.3.1) with InstrumentationAnalysisTransform
+Transforming httpcore5-h2-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5-h2:5.3.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpcore5-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5:5.3.1) with MergeInstrumentationAnalysisTransform
+Transforming slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36) with InstrumentationAnalysisTransform
+Transforming slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36) with MergeInstrumentationAnalysisTransform
+Transforming antlr4-runtime-4.7.2.jar (org.antlr:antlr4-runtime:4.7.2) with InstrumentationAnalysisTransform
+Transforming httpcore5-5.3.1.jar (org.apache.httpcomponents.core5:httpcore5:5.3.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming antlr4-runtime-4.7.2.jar (org.antlr:antlr4-runtime:4.7.2) with MergeInstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with InstrumentationAnalysisTransform
+Transforming slf4j-api-1.7.36.jar (org.slf4j:slf4j-api:1.7.36) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with MergeInstrumentationAnalysisTransform
+Transforming antlr4-runtime-4.7.2.jar (org.antlr:antlr4-runtime:4.7.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar (io.r2dbc:r2dbc-spi:1.0.0.RELEASE) with InstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar (io.r2dbc:r2dbc-spi:1.0.0.RELEASE) with MergeInstrumentationAnalysisTransform
+Transforming hamcrest-2.1.jar (org.hamcrest:hamcrest:2.1) with InstrumentationAnalysisTransform
+Transforming hamcrest-2.1.jar (org.hamcrest:hamcrest:2.1) with MergeInstrumentationAnalysisTransform
+Transforming reactive-streams-1.0.3.jar (org.reactivestreams:reactive-streams:1.0.3) with InstrumentationAnalysisTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar (io.r2dbc:r2dbc-spi:1.0.0.RELEASE) with ExternalDependencyInstrumentingArtifactTransform
+Transforming reactive-streams-1.0.3.jar (org.reactivestreams:reactive-streams:1.0.3) with MergeInstrumentationAnalysisTransform
+Transforming hamcrest-2.1.jar (org.hamcrest:hamcrest:2.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming reactive-streams-1.0.3.jar (org.reactivestreams:reactive-streams:1.0.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.activation-api-2.1.0.jar (jakarta.activation:jakarta.activation-api:2.1.0) with InstrumentationAnalysisTransform
+Transforming jakarta.activation-api-2.1.0.jar (jakarta.activation:jakarta.activation-api:2.1.0) with MergeInstrumentationAnalysisTransform
+Transforming jakarta.activation-api-2.1.0.jar (jakarta.activation:jakarta.activation-api:2.1.0) with ExternalDependencyInstrumentingArtifactTransform
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Adding forkedSpringBootStop as a finalizing task to generateOpenApiDocs
+kotlin scripting plugin: created the scripting discovery configuration: benchmarkKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: flywayKotlinScriptDef
+
+> Configure project :komga-tray
+Evaluating project ':komga-tray' using build file 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\komga-tray\build.gradle.kts'.
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with InstrumentationAnalysisTransform
+Transforming compose-gradle-plugin-1.5.11.jar (org.jetbrains.compose:compose-gradle-plugin:1.5.11) with InstrumentationAnalysisTransform
+Transforming gradle-plugin-1.12.jar (dev.hydraulic:gradle-plugin:1.12) with InstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with InstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with MergeInstrumentationAnalysisTransform
+Transforming compose-gradle-plugin-1.5.11.jar (org.jetbrains.compose:compose-gradle-plugin:1.5.11) with InstrumentationAnalysisTransform
+Transforming compose-gradle-plugin-1.5.11.jar (org.jetbrains.compose:compose-gradle-plugin:1.5.11) with MergeInstrumentationAnalysisTransform
+Transforming gradle-plugin-1.12.jar (dev.hydraulic:gradle-plugin:1.12) with InstrumentationAnalysisTransform
+Transforming gradle-plugin-1.12.jar (dev.hydraulic:gradle-plugin:1.12) with MergeInstrumentationAnalysisTransform
+Transforming gradle-git-properties-2.4.2.jar (com.gorylenko.gradle-git-properties:gradle-git-properties:2.4.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming compose-gradle-plugin-1.5.11.jar (org.jetbrains.compose:compose-gradle-plugin:1.5.11) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-plugin-1.12.jar (dev.hydraulic:gradle-plugin:1.12) with ExternalDependencyInstrumentingArtifactTransform
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+All projects evaluated.
+Task path ':komga:ktlintMainSourceSetCheck' matched project ':komga'
+Task name matched 'ktlintMainSourceSetCheck'
+Selected primary task 'ktlintMainSourceSetCheck' from project :komga
+Add dependencies: ktlint version 1.5.0
+Add dependencies: ktlint version 1.5.0
+Add dependencies: ktlint version 1.5.0
+Add dependencies: ktlint version 1.5.0
+Tasks to be executed: [task ':komga:loadKtlintReporters', task ':komga:checkKotlinGradlePluginConfigurationErrors', task ':komga:kaptGenerateStubsFlywayKotlin', task ':komga:kaptFlywayKotlin', task ':komga:compileFlywayKotlin', task ':komga:compileFlywayJava', task ':komga:processFlywayResources', task ':komga:flywayClasses', task ':komga:flywayMigrateMain', task ':komga:generateJooq', task ':komga:flywayMigrateTasks', task ':komga:generateTasksJooq', task ':komga:runKtlintCheckOverMainSourceSet', task ':komga:ktlintMainSourceSetCheck']
+Tasks that were excluded: []
+Resolve mutations for :komga:loadKtlintReporters (Thread[Execution worker,5,main]) started.
+:komga:loadKtlintReporters (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :komga:loadKtlintReporters UP-TO-DATE
+Add dependencies: ktlint version 1.5.0
+Caching disabled for task ':komga:loadKtlintReporters' because:
+  Build cache is disabled
+Skipping task ':komga:loadKtlintReporters' as it is up-to-date.
+Resolve mutations for :komga:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 8,5,main]) started.
+:komga:checkKotlinGradlePluginConfigurationErrors (Thread[included builds,5,main]) started.
+
+> Task :komga:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':komga:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':komga:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :komga:kaptGenerateStubsFlywayKotlin (Thread[included builds,5,main]) started.
+:komga:kaptGenerateStubsFlywayKotlin (Thread[included builds,5,main]) started.
+
+> Task :komga:kaptGenerateStubsFlywayKotlin UP-TO-DATE
+Transforming kotlin-stdlib-1.9.21.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-web-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-logging-jvm-6.0.9.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-reactive-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-core-jvm-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-reactor-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-xml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming flyway-core-10.20.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-webflux-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-json-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-webmvc-ui-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-webmvc-api-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-common-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-core-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-toml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-datatype-jdk8-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-module-parameter-names-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-yaml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-databind-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-core-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-models-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-annotations-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-module-kotlin-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-reflect-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-logging-jvm-3.0.5.jar with ClasspathEntrySnapshotTransform
+Transforming cryptohash-jvm-0.10.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-jdk8-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-jdk7-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-validation-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-actuator-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-security-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-oauth2-client-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-thymeleaf-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-data-jpa-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-jooq-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-core-6.6.2.Final.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.persistence-api-3.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-jdbc-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-data-jpa-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-tomcat-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.annotation-api-2.1.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-session-core-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-session-caffeine-2.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-data-commons-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-types-60-2.21.1.jar with ClasspathEntrySnapshotTransform
+Transforming tika-core-2.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming commons-compress-1.27.1.jar with ClasspathEntrySnapshotTransform
+Transforming commons-io-2.18.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-lang3-3.17.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-validator-1.9.0.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-analysis-common-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-queryparser-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-backward-codecs-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-sandbox-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-queries-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-core-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming icu4j-76.1.jar with ClasspathEntrySnapshotTransform
+Transforming epublib-core-3.1.jar with ClasspathEntrySnapshotTransform
+Transforming slf4j-simple-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming jsoup-1.18.3.jar with ClasspathEntrySnapshotTransform
+Transforming junrar-7.5.5.jar with ClasspathEntrySnapshotTransform
+Transforming nightcompress-1.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming pdfbox-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming natural-comparator-1.1.jar with ClasspathEntrySnapshotTransform
+Transforming thumbnailator-0.4.20.jar with ClasspathEntrySnapshotTransform
+Transforming core-3.5.3.jar with ClasspathEntrySnapshotTransform
+Transforming byteunits-0.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming tsid-creator-5.2.6.jar with ClasspathEntrySnapshotTransform
+Transforming caffeine-3.1.8.jar with ClasspathEntrySnapshotTransform
+Transforming sqlite-jdbc-3.48.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming jooq-3.19.15.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.xml.bind-api-4.0.2.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.activation-api-2.1.3.jar with ClasspathEntrySnapshotTransform
+Transforming webjars-locator-lite-1.0.1.jar with ClasspathEntrySnapshotTransform
+Transforming jspecify-1.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-logging-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming log4j-to-slf4j-2.24.1.jar with ClasspathEntrySnapshotTransform
+Transforming log4j-api-2.24.1.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-jakarta9-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-config-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-client-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-jose-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-web-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-core-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-core-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-webmvc-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-webflux-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-web-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-core-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-actuator-autoconfigure-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-autoconfigure-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-actuator-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-context-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-observation-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-commons-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-reactor-netty-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-netty-http-1.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-http2-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-netty-core-1.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming netty-handler-proxy-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-http-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-native-macos-4.1.115.Final-osx-x86_64.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-classes-macos-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-native-epoll-4.1.115.Final-linux-x86_64.jar with ClasspathEntrySnapshotTransform
+Transforming netty-handler-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-dns-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-socks-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-classes-epoll-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-native-unix-common-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-buffer-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-common-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-core-3.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming reactive-streams-1.0.4.jar with ClasspathEntrySnapshotTransform
+Transforming spring-aop-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-aspects-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-orm-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-jdbc-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-tx-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-beans-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-expression-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-core-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-jcl-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-crypto-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming aspectjweaver-1.9.22.1.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-validator-8.0.1.Final.jar with ClasspathEntrySnapshotTransform
+Transforming classmate-1.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-codec-1.17.1.jar with ClasspathEntrySnapshotTransform
+Transforming HikariCP-5.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.transaction-api-2.0.1.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.validation-api-3.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming jboss-logging-3.6.1.Final.jar with ClasspathEntrySnapshotTransform
+Transforming oauth2-oidc-sdk-9.43.4.jar with ClasspathEntrySnapshotTransform
+Transforming json-smart-2.5.1.jar with ClasspathEntrySnapshotTransform
+Transforming logback-classic-1.5.12.jar with ClasspathEntrySnapshotTransform
+Transforming logback-core-1.5.12.jar with ClasspathEntrySnapshotTransform
+Transforming jul-to-slf4j-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming thymeleaf-spring6-3.1.2.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming thymeleaf-3.1.2.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming slf4j-api-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming snakeyaml-2.3.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-websocket-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-core-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-el-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-ui-5.18.2.jar with ClasspathEntrySnapshotTransform
+Transforming jaxb-api-2.3.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-beanutils-1.9.4.jar with ClasspathEntrySnapshotTransform
+Transforming commons-digester-2.1.jar with ClasspathEntrySnapshotTransform
+Transforming fontbox-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming pdfbox-io-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming commons-logging-1.3.3.jar with ClasspathEntrySnapshotTransform
+Transforming commons-collections-3.2.2.jar with ClasspathEntrySnapshotTransform
+Transforming kxml2-2.3.0.jar with ClasspathEntrySnapshotTransform
+Transforming xmlpull-1.1.3.4d_b4_min.jar with ClasspathEntrySnapshotTransform
+Transforming jsr305-3.0.2.jar with ClasspathEntrySnapshotTransform
+Transforming woodstox-core-7.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming stax2-api-4.2.2.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-23.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming checker-qual-3.37.0.jar with ClasspathEntrySnapshotTransform
+Transforming error_prone_annotations-2.21.1.jar with ClasspathEntrySnapshotTransform
+Transforming antlr4-runtime-4.13.0.jar with ClasspathEntrySnapshotTransform
+Transforming nimbus-jose-jwt-9.37.3.jar with ClasspathEntrySnapshotTransform
+Transforming jcip-annotations-1.0-1.jar with ClasspathEntrySnapshotTransform
+Transforming content-type-2.2.jar with ClasspathEntrySnapshotTransform
+Transforming lang-tag-1.7.jar with ClasspathEntrySnapshotTransform
+Transforming attoparser-2.0.7.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming unbescape-1.1.6.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-annotations-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming accessors-smart-2.5.1.jar with ClasspathEntrySnapshotTransform
+Transforming asm-9.6.jar with ClasspathEntrySnapshotTransform
+Caching disabled for task ':komga:kaptGenerateStubsFlywayKotlin' because:
+  Build cache is disabled
+Skipping task ':komga:kaptGenerateStubsFlywayKotlin' as it is up-to-date.
+Resolve mutations for :komga:kaptFlywayKotlin (Thread[included builds,5,main]) started.
+:komga:kaptFlywayKotlin (Thread[included builds,5,main]) started.
+
+> Task :komga:kaptFlywayKotlin UP-TO-DATE
+Transforming kotlin-stdlib-1.9.21.jar with StructureTransformAction
+Transforming annotations-13.0.jar with StructureTransformAction
+Transforming spring-boot-starter-web-3.4.0.jar with StructureTransformAction
+Transforming kotlin-logging-jvm-6.0.9.jar with StructureTransformAction
+Transforming kotlinx-coroutines-reactive-1.8.1.jar with StructureTransformAction
+Transforming kotlinx-coroutines-core-jvm-1.8.1.jar with StructureTransformAction
+Transforming kotlinx-coroutines-reactor-1.8.1.jar with StructureTransformAction
+Transforming jackson-dataformat-xml-2.18.1.jar with StructureTransformAction
+Transforming flyway-core-10.20.1.jar with StructureTransformAction
+Transforming spring-boot-starter-webflux-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-json-3.4.0.jar with StructureTransformAction
+Transforming springdoc-openapi-starter-webmvc-ui-2.7.0.jar with StructureTransformAction
+Transforming springdoc-openapi-starter-webmvc-api-2.7.0.jar with StructureTransformAction
+Transforming springdoc-openapi-starter-common-2.7.0.jar with StructureTransformAction
+Transforming swagger-core-jakarta-2.2.25.jar with StructureTransformAction
+Transforming jackson-datatype-jsr310-2.18.1.jar with StructureTransformAction
+Transforming jackson-dataformat-toml-2.18.1.jar with StructureTransformAction
+Transforming jackson-datatype-jdk8-2.18.1.jar with StructureTransformAction
+Transforming jackson-module-parameter-names-2.18.1.jar with StructureTransformAction
+Transforming jackson-dataformat-yaml-2.18.1.jar with StructureTransformAction
+Transforming jackson-databind-2.18.1.jar with StructureTransformAction
+Transforming jackson-core-2.18.1.jar with StructureTransformAction
+Transforming swagger-models-jakarta-2.2.25.jar with StructureTransformAction
+Transforming jackson-annotations-2.18.1.jar with StructureTransformAction
+Transforming jackson-module-kotlin-2.18.1.jar with StructureTransformAction
+Transforming kotlin-reflect-1.9.25.jar with StructureTransformAction
+Transforming kotlin-logging-jvm-3.0.5.jar with StructureTransformAction
+Transforming cryptohash-jvm-0.10.1.jar with StructureTransformAction
+Transforming kotlin-stdlib-jdk8-1.9.25.jar with StructureTransformAction
+Transforming kotlin-stdlib-jdk7-1.9.25.jar with StructureTransformAction
+Transforming kotlin-stdlib-1.9.25.jar with StructureTransformAction
+Transforming spring-boot-starter-validation-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-actuator-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-security-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-oauth2-client-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-thymeleaf-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-data-jpa-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-jooq-3.4.0.jar with StructureTransformAction
+Transforming hibernate-core-6.6.2.Final.jar with StructureTransformAction
+Transforming jakarta.persistence-api-3.1.0.jar with StructureTransformAction
+Transforming spring-boot-starter-jdbc-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-3.4.0.jar with StructureTransformAction
+Transforming spring-data-jpa-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-starter-tomcat-3.4.0.jar with StructureTransformAction
+Transforming jakarta.annotation-api-2.1.1.jar with StructureTransformAction
+Transforming spring-session-core-3.4.0.jar with StructureTransformAction
+Transforming spring-session-caffeine-2.0.0.jar with StructureTransformAction
+Transforming spring-data-commons-3.4.0.jar with StructureTransformAction
+Transforming hibernate-types-60-2.21.1.jar with StructureTransformAction
+Transforming tika-core-2.9.1.jar with StructureTransformAction
+Transforming commons-compress-1.27.1.jar with StructureTransformAction
+Transforming commons-io-2.18.0.jar with StructureTransformAction
+Transforming commons-lang3-3.17.0.jar with StructureTransformAction
+Transforming commons-validator-1.9.0.jar with StructureTransformAction
+Transforming lucene-analysis-common-9.9.1.jar with StructureTransformAction
+Transforming lucene-queryparser-9.9.1.jar with StructureTransformAction
+Transforming lucene-backward-codecs-9.9.1.jar with StructureTransformAction
+Transforming lucene-sandbox-9.9.1.jar with StructureTransformAction
+Transforming lucene-queries-9.9.1.jar with StructureTransformAction
+Transforming lucene-core-9.9.1.jar with StructureTransformAction
+Transforming icu4j-76.1.jar with StructureTransformAction
+Transforming epublib-core-3.1.jar with StructureTransformAction
+Transforming slf4j-simple-2.0.16.jar with StructureTransformAction
+Transforming jsoup-1.18.3.jar with StructureTransformAction
+Transforming junrar-7.5.5.jar with StructureTransformAction
+Transforming nightcompress-1.1.0.jar with StructureTransformAction
+Transforming pdfbox-3.0.3.jar with StructureTransformAction
+Transforming natural-comparator-1.1.jar with StructureTransformAction
+Transforming thumbnailator-0.4.20.jar with StructureTransformAction
+Transforming core-3.5.3.jar with StructureTransformAction
+Transforming byteunits-0.9.1.jar with StructureTransformAction
+Transforming tsid-creator-5.2.6.jar with StructureTransformAction
+Transforming caffeine-3.1.8.jar with StructureTransformAction
+Transforming sqlite-jdbc-3.48.0.0.jar with StructureTransformAction
+Transforming jooq-3.19.15.jar with StructureTransformAction
+Transforming jakarta.xml.bind-api-4.0.2.jar with StructureTransformAction
+Transforming jakarta.activation-api-2.1.3.jar with StructureTransformAction
+Transforming webjars-locator-lite-1.0.1.jar with StructureTransformAction
+Transforming jspecify-1.0.0.jar with StructureTransformAction
+Transforming spring-boot-starter-logging-3.4.0.jar with StructureTransformAction
+Transforming log4j-to-slf4j-2.24.1.jar with StructureTransformAction
+Transforming log4j-api-2.24.1.jar with StructureTransformAction
+Transforming micrometer-jakarta9-1.14.1.jar with StructureTransformAction
+Transforming spring-security-config-6.4.1.jar with StructureTransformAction
+Transforming spring-security-oauth2-client-6.4.1.jar with StructureTransformAction
+Transforming spring-security-oauth2-jose-6.4.1.jar with StructureTransformAction
+Transforming spring-security-web-6.4.1.jar with StructureTransformAction
+Transforming spring-security-oauth2-core-6.4.1.jar with StructureTransformAction
+Transforming spring-security-core-6.4.1.jar with StructureTransformAction
+Transforming spring-webmvc-6.2.0.jar with StructureTransformAction
+Transforming spring-webflux-6.2.0.jar with StructureTransformAction
+Transforming spring-web-6.2.0.jar with StructureTransformAction
+Transforming micrometer-core-1.14.1.jar with StructureTransformAction
+Transforming spring-boot-actuator-autoconfigure-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-autoconfigure-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-actuator-3.4.0.jar with StructureTransformAction
+Transforming spring-boot-3.4.0.jar with StructureTransformAction
+Transforming spring-context-6.2.0.jar with StructureTransformAction
+Transforming micrometer-observation-1.14.1.jar with StructureTransformAction
+Transforming micrometer-commons-1.14.1.jar with StructureTransformAction
+Transforming spring-boot-starter-reactor-netty-3.4.0.jar with StructureTransformAction
+Transforming reactor-netty-http-1.2.0.jar with StructureTransformAction
+Transforming netty-codec-http2-4.1.115.Final.jar with StructureTransformAction
+Transforming reactor-netty-core-1.2.0.jar with StructureTransformAction
+Transforming netty-handler-proxy-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-codec-http-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-resolver-dns-native-macos-4.1.115.Final-osx-x86_64.jar with StructureTransformAction
+Transforming netty-resolver-dns-classes-macos-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-resolver-dns-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-transport-native-epoll-4.1.115.Final-linux-x86_64.jar with StructureTransformAction
+Transforming netty-handler-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-codec-dns-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-codec-socks-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-codec-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-transport-classes-epoll-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-transport-native-unix-common-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-transport-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-buffer-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-resolver-4.1.115.Final.jar with StructureTransformAction
+Transforming netty-common-4.1.115.Final.jar with StructureTransformAction
+Transforming reactor-core-3.7.0.jar with StructureTransformAction
+Transforming r2dbc-spi-1.0.0.RELEASE.jar with StructureTransformAction
+Transforming reactive-streams-1.0.4.jar with StructureTransformAction
+Transforming spring-aop-6.2.0.jar with StructureTransformAction
+Transforming spring-aspects-6.2.0.jar with StructureTransformAction
+Transforming spring-orm-6.2.0.jar with StructureTransformAction
+Transforming spring-jdbc-6.2.0.jar with StructureTransformAction
+Transforming spring-tx-6.2.0.jar with StructureTransformAction
+Transforming spring-beans-6.2.0.jar with StructureTransformAction
+Transforming spring-expression-6.2.0.jar with StructureTransformAction
+Transforming spring-core-6.2.0.jar with StructureTransformAction
+Transforming spring-jcl-6.2.0.jar with StructureTransformAction
+Transforming spring-security-crypto-6.4.1.jar with StructureTransformAction
+Transforming aspectjweaver-1.9.22.1.jar with StructureTransformAction
+Transforming hibernate-validator-8.0.1.Final.jar with StructureTransformAction
+Transforming classmate-1.7.0.jar with StructureTransformAction
+Transforming commons-codec-1.17.1.jar with StructureTransformAction
+Transforming HikariCP-5.1.0.jar with StructureTransformAction
+Transforming jakarta.transaction-api-2.0.1.jar with StructureTransformAction
+Transforming jakarta.validation-api-3.1.0.jar with StructureTransformAction
+Transforming jboss-logging-3.6.1.Final.jar with StructureTransformAction
+Transforming oauth2-oidc-sdk-9.43.4.jar with StructureTransformAction
+Transforming json-smart-2.5.1.jar with StructureTransformAction
+Transforming logback-classic-1.5.12.jar with StructureTransformAction
+Transforming logback-core-1.5.12.jar with StructureTransformAction
+Transforming jul-to-slf4j-2.0.16.jar with StructureTransformAction
+Transforming thymeleaf-spring6-3.1.2.RELEASE.jar with StructureTransformAction
+Transforming thymeleaf-3.1.2.RELEASE.jar with StructureTransformAction
+Transforming slf4j-api-2.0.16.jar with StructureTransformAction
+Transforming snakeyaml-2.3.jar with StructureTransformAction
+Transforming tomcat-embed-websocket-10.1.33.jar with StructureTransformAction
+Transforming tomcat-embed-core-10.1.33.jar with StructureTransformAction
+Transforming tomcat-embed-el-10.1.33.jar with StructureTransformAction
+Transforming swagger-ui-5.18.2.jar with StructureTransformAction
+Transforming jaxb-api-2.3.0.jar with StructureTransformAction
+Transforming commons-beanutils-1.9.4.jar with StructureTransformAction
+Transforming commons-digester-2.1.jar with StructureTransformAction
+Transforming fontbox-3.0.3.jar with StructureTransformAction
+Transforming pdfbox-io-3.0.3.jar with StructureTransformAction
+Transforming commons-logging-1.3.3.jar with StructureTransformAction
+Transforming commons-collections-3.2.2.jar with StructureTransformAction
+Transforming kxml2-2.3.0.jar with StructureTransformAction
+Transforming xmlpull-1.1.3.4d_b4_min.jar with StructureTransformAction
+Transforming jsr305-3.0.2.jar with StructureTransformAction
+Transforming woodstox-core-7.0.0.jar with StructureTransformAction
+Transforming stax2-api-4.2.2.jar with StructureTransformAction
+Transforming annotations-23.0.0.jar with StructureTransformAction
+Transforming checker-qual-3.37.0.jar with StructureTransformAction
+Transforming error_prone_annotations-2.21.1.jar with StructureTransformAction
+Transforming antlr4-runtime-4.13.0.jar with StructureTransformAction
+Transforming nimbus-jose-jwt-9.37.3.jar with StructureTransformAction
+Transforming jcip-annotations-1.0-1.jar with StructureTransformAction
+Transforming content-type-2.2.jar with StructureTransformAction
+Transforming lang-tag-1.7.jar with StructureTransformAction
+Transforming attoparser-2.0.7.RELEASE.jar with StructureTransformAction
+Transforming unbescape-1.1.6.RELEASE.jar with StructureTransformAction
+Transforming swagger-annotations-jakarta-2.2.25.jar with StructureTransformAction
+Transforming accessors-smart-2.5.1.jar with StructureTransformAction
+Transforming asm-9.6.jar with StructureTransformAction
+file or directory 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\komga\src\flyway\java', not found
+file or directory 'C:\Users\sandr\OneDrive\Dokumente\GitHub\komga\komga\src\flyway\java', not found
+Caching disabled for task ':komga:kaptFlywayKotlin' because:
+  Build cache is disabled
+Skipping task ':komga:kaptFlywayKotlin' as it is up-to-date.
+Resolve mutations for :komga:compileFlywayKotlin (Thread[included builds,5,main]) started.
+:komga:compileFlywayKotlin (Thread[included builds,5,main]) started.
+
+> Task :komga:compileFlywayKotlin UP-TO-DATE
+Transforming kotlin-stdlib-1.9.21.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-web-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-logging-jvm-6.0.9.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-reactive-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-core-jvm-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlinx-coroutines-reactor-1.8.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-xml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming flyway-core-10.20.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-webflux-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-json-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-webmvc-ui-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-webmvc-api-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming springdoc-openapi-starter-common-2.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-core-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-datatype-jsr310-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-toml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-datatype-jdk8-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-module-parameter-names-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-dataformat-yaml-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-databind-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-core-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-models-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-annotations-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming jackson-module-kotlin-2.18.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-reflect-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-logging-jvm-3.0.5.jar with ClasspathEntrySnapshotTransform
+Transforming cryptohash-jvm-0.10.1.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-jdk8-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-jdk7-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-1.9.25.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-validation-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-actuator-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-security-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-oauth2-client-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-thymeleaf-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-data-jpa-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-jooq-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-core-6.6.2.Final.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.persistence-api-3.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-jdbc-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-data-jpa-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-tomcat-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.annotation-api-2.1.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-session-core-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-session-caffeine-2.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-data-commons-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-types-60-2.21.1.jar with ClasspathEntrySnapshotTransform
+Transforming tika-core-2.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming commons-compress-1.27.1.jar with ClasspathEntrySnapshotTransform
+Transforming commons-io-2.18.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-lang3-3.17.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-validator-1.9.0.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-analysis-common-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-queryparser-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-backward-codecs-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-sandbox-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-queries-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming lucene-core-9.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming icu4j-76.1.jar with ClasspathEntrySnapshotTransform
+Transforming epublib-core-3.1.jar with ClasspathEntrySnapshotTransform
+Transforming slf4j-simple-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming jsoup-1.18.3.jar with ClasspathEntrySnapshotTransform
+Transforming junrar-7.5.5.jar with ClasspathEntrySnapshotTransform
+Transforming nightcompress-1.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming pdfbox-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming natural-comparator-1.1.jar with ClasspathEntrySnapshotTransform
+Transforming thumbnailator-0.4.20.jar with ClasspathEntrySnapshotTransform
+Transforming core-3.5.3.jar with ClasspathEntrySnapshotTransform
+Transforming byteunits-0.9.1.jar with ClasspathEntrySnapshotTransform
+Transforming tsid-creator-5.2.6.jar with ClasspathEntrySnapshotTransform
+Transforming caffeine-3.1.8.jar with ClasspathEntrySnapshotTransform
+Transforming sqlite-jdbc-3.48.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming jooq-3.19.15.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.xml.bind-api-4.0.2.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.activation-api-2.1.3.jar with ClasspathEntrySnapshotTransform
+Transforming webjars-locator-lite-1.0.1.jar with ClasspathEntrySnapshotTransform
+Transforming jspecify-1.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-logging-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming log4j-to-slf4j-2.24.1.jar with ClasspathEntrySnapshotTransform
+Transforming log4j-api-2.24.1.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-jakarta9-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-config-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-client-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-jose-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-web-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-oauth2-core-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-core-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-webmvc-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-webflux-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-web-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-core-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-actuator-autoconfigure-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-autoconfigure-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-actuator-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-context-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-observation-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming micrometer-commons-1.14.1.jar with ClasspathEntrySnapshotTransform
+Transforming spring-boot-starter-reactor-netty-3.4.0.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-netty-http-1.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-http2-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-netty-core-1.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming netty-handler-proxy-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-http-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-native-macos-4.1.115.Final-osx-x86_64.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-classes-macos-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-dns-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-native-epoll-4.1.115.Final-linux-x86_64.jar with ClasspathEntrySnapshotTransform
+Transforming netty-handler-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-dns-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-socks-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-codec-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-classes-epoll-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-native-unix-common-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-transport-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-buffer-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-resolver-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming netty-common-4.1.115.Final.jar with ClasspathEntrySnapshotTransform
+Transforming reactor-core-3.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming r2dbc-spi-1.0.0.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming reactive-streams-1.0.4.jar with ClasspathEntrySnapshotTransform
+Transforming spring-aop-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-aspects-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-orm-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-jdbc-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-tx-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-beans-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-expression-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-core-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-jcl-6.2.0.jar with ClasspathEntrySnapshotTransform
+Transforming spring-security-crypto-6.4.1.jar with ClasspathEntrySnapshotTransform
+Transforming aspectjweaver-1.9.22.1.jar with ClasspathEntrySnapshotTransform
+Transforming hibernate-validator-8.0.1.Final.jar with ClasspathEntrySnapshotTransform
+Transforming classmate-1.7.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-codec-1.17.1.jar with ClasspathEntrySnapshotTransform
+Transforming HikariCP-5.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.transaction-api-2.0.1.jar with ClasspathEntrySnapshotTransform
+Transforming jakarta.validation-api-3.1.0.jar with ClasspathEntrySnapshotTransform
+Transforming jboss-logging-3.6.1.Final.jar with ClasspathEntrySnapshotTransform
+Transforming oauth2-oidc-sdk-9.43.4.jar with ClasspathEntrySnapshotTransform
+Transforming json-smart-2.5.1.jar with ClasspathEntrySnapshotTransform
+Transforming logback-classic-1.5.12.jar with ClasspathEntrySnapshotTransform
+Transforming logback-core-1.5.12.jar with ClasspathEntrySnapshotTransform
+Transforming jul-to-slf4j-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming thymeleaf-spring6-3.1.2.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming thymeleaf-3.1.2.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming slf4j-api-2.0.16.jar with ClasspathEntrySnapshotTransform
+Transforming snakeyaml-2.3.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-websocket-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-core-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming tomcat-embed-el-10.1.33.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-ui-5.18.2.jar with ClasspathEntrySnapshotTransform
+Transforming jaxb-api-2.3.0.jar with ClasspathEntrySnapshotTransform
+Transforming commons-beanutils-1.9.4.jar with ClasspathEntrySnapshotTransform
+Transforming commons-digester-2.1.jar with ClasspathEntrySnapshotTransform
+Transforming fontbox-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming pdfbox-io-3.0.3.jar with ClasspathEntrySnapshotTransform
+Transforming commons-logging-1.3.3.jar with ClasspathEntrySnapshotTransform
+Transforming commons-collections-3.2.2.jar with ClasspathEntrySnapshotTransform
+Transforming kxml2-2.3.0.jar with ClasspathEntrySnapshotTransform
+Transforming xmlpull-1.1.3.4d_b4_min.jar with ClasspathEntrySnapshotTransform
+Transforming jsr305-3.0.2.jar with ClasspathEntrySnapshotTransform
+Transforming woodstox-core-7.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming stax2-api-4.2.2.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-23.0.0.jar with ClasspathEntrySnapshotTransform
+Transforming checker-qual-3.37.0.jar with ClasspathEntrySnapshotTransform
+Transforming error_prone_annotations-2.21.1.jar with ClasspathEntrySnapshotTransform
+Transforming antlr4-runtime-4.13.0.jar with ClasspathEntrySnapshotTransform
+Transforming nimbus-jose-jwt-9.37.3.jar with ClasspathEntrySnapshotTransform
+Transforming jcip-annotations-1.0-1.jar with ClasspathEntrySnapshotTransform
+Transforming content-type-2.2.jar with ClasspathEntrySnapshotTransform
+Transforming lang-tag-1.7.jar with ClasspathEntrySnapshotTransform
+Transforming attoparser-2.0.7.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming unbescape-1.1.6.RELEASE.jar with ClasspathEntrySnapshotTransform
+Transforming swagger-annotations-jakarta-2.2.25.jar with ClasspathEntrySnapshotTransform
+Transforming accessors-smart-2.5.1.jar with ClasspathEntrySnapshotTransform
+Transforming asm-9.6.jar with ClasspathEntrySnapshotTransform
+Transforming flyway with ClasspathEntrySnapshotTransform
+Caching disabled for task ':komga:compileFlywayKotlin' because:
+  Build cache is disabled
+Skipping task ':komga:compileFlywayKotlin' as it is up-to-date.
+Resolve mutations for :komga:compileFlywayJava (Thread[included builds,5,main]) started.
+:komga:compileFlywayJava (Thread[included builds,5,main]) started.
+
+> Task :komga:compileFlywayJava NO-SOURCE
+Skipping task ':komga:compileFlywayJava' as it has no source files and no previous output files.
+Resolve mutations for :komga:processFlywayResources (Thread[included builds,5,main]) started.
+:komga:processFlywayResources (Thread[Execution worker Thread 17,5,main]) started.
+
+> Task :komga:processFlywayResources UP-TO-DATE
+Caching disabled for task ':komga:processFlywayResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':komga:processFlywayResources' as it is up-to-date.
+Resolve mutations for :komga:flywayClasses (Thread[Execution worker Thread 17,5,main]) started.
+:komga:flywayClasses (Thread[Execution worker Thread 17,5,main]) started.
+
+> Task :komga:flywayClasses UP-TO-DATE
+Skipping task ':komga:flywayClasses' as it has no actions.
+Resolve mutations for :komga:flywayMigrateMain (Thread[Execution worker Thread 6,5,main]) started.
+:komga:flywayMigrateMain (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :komga:flywayMigrateMain UP-TO-DATE
+Custom actions are attached to task ':komga:flywayMigrateMain'.
+Caching disabled for task ':komga:flywayMigrateMain' because:
+  Build cache is disabled
+  Caching has not been enabled for the task
+Skipping task ':komga:flywayMigrateMain' as it is up-to-date.
+Resolve mutations for :komga:generateJooq (Thread[Execution worker Thread 3,5,main]) started.
+:komga:generateJooq (Thread[Execution worker Thread 14,5,main]) started.
+
+> Task :komga:generateJooq UP-TO-DATE
+Caching disabled for task ':komga:generateJooq' because:
+  Build cache is disabled
+Skipping task ':komga:generateJooq' as it is up-to-date.
+Resolve mutations for :komga:flywayMigrateTasks (Thread[Execution worker Thread 14,5,main]) started.
+:komga:flywayMigrateTasks (Thread[Execution worker Thread 16,5,main]) started.
+
+> Task :komga:flywayMigrateTasks UP-TO-DATE
+Custom actions are attached to task ':komga:flywayMigrateTasks'.
+Caching disabled for task ':komga:flywayMigrateTasks' because:
+  Build cache is disabled
+  Caching has not been enabled for the task
+Skipping task ':komga:flywayMigrateTasks' as it is up-to-date.
+Resolve mutations for :komga:generateTasksJooq (Thread[Execution worker Thread 16,5,main]) started.
+:komga:generateTasksJooq (Thread[Execution worker Thread 16,5,main]) started.
+
+> Task :komga:generateTasksJooq UP-TO-DATE
+Caching disabled for task ':komga:generateTasksJooq' because:
+  Build cache is disabled
+Skipping task ':komga:generateTasksJooq' as it is up-to-date.
+Resolve mutations for :komga:runKtlintCheckOverMainSourceSet (Thread[Execution worker Thread 16,5,main]) started.
+:komga:runKtlintCheckOverMainSourceSet (Thread[Execution worker Thread 15,5,main]) started.
+
+> Task :komga:runKtlintCheckOverMainSourceSet UP-TO-DATE
+Caching disabled for task ':komga:runKtlintCheckOverMainSourceSet' because:
+  Build cache is disabled
+Skipping task ':komga:runKtlintCheckOverMainSourceSet' as it is up-to-date.
+Resolve mutations for :komga:ktlintMainSourceSetCheck (Thread[Execution worker Thread 15,5,main]) started.
+:komga:ktlintMainSourceSetCheck (Thread[Execution worker Thread 8,5,main]) started.
+
+> Task :komga:ktlintMainSourceSetCheck UP-TO-DATE
+Caching disabled for task ':komga:ktlintMainSourceSetCheck' because:
+  Build cache is disabled
+Skipping task ':komga:ktlintMainSourceSetCheck' as it is up-to-date.
+[Incubating] Problems report is available at: file:///C:/Users/sandr/OneDrive/Dokumente/GitHub/komga/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1s
+12 actionable tasks: 1 executed, 11 up-to-date
+Watched directory hierarchies: [C:\Users\sandr\OneDrive\Dokumente\GitHub\komga]
