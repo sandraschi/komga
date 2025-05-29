@@ -177,6 +177,15 @@ dependencies {
 
 val webui = "$rootDir/komga-webui"
 tasks {
+  processResources {
+    // Exclude all YAML files from template processing
+    exclude("**/*.yml", "**/*.yaml")
+    // If you need to process specific YAML files as templates, uncomment and modify this:
+    // filesMatching("**/specific-template.yml") {
+    //   expand(project.properties)
+    // }
+  }
+  
   withType<JavaCompile> {
     sourceCompatibility = "17"
     targetCompatibility = "17"
