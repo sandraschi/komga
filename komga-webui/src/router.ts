@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from './store'
 import {LIBRARIES_ALL, LIBRARY_ROUTE} from '@/types/library'
+import { metabookRoutes } from './router/metabook.routes'
 
 const qs = require('qs')
 
@@ -117,9 +118,15 @@ const router = new Router({
         },
         {
           path: '/settings/updates',
-          name: 'updates',
+          name: 'settings-updates',
           beforeEnter: adminGuard,
-          component: () => import(/* webpackChunkName: "updates" */ './views/UpdatesView.vue'),
+          component: () => import('@/views/SettingsUpdates.vue'),
+        },
+        {
+          path: '/settings/rag',
+          name: 'rag',
+          beforeEnter: adminGuard,
+          component: () => import('@/views/rag/RagPage.vue'),
         },
         {
           path: '/media-management/analysis',
@@ -267,6 +274,7 @@ const router = new Router({
           beforeEnter: adminGuard,
           component: () => import(/* webpackChunkName: "import-readlist" */ './views/ImportReadList.vue'),
         },
+        ...metabookRoutes,
       ],
     },
     {

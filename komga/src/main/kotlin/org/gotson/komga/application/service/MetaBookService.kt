@@ -15,7 +15,7 @@ import java.util.*
 private val logger = KotlinLogging.logger {}
 
 @Service
-transactional
+@Transactional
 class MetaBookService(
     private val metaBookRepository: MetaBookRepository,
     private val bookRepository: BookRepository,

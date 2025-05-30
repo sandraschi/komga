@@ -61,15 +61,30 @@ class OpfMetadataProvider(
     )
 
   override fun getBookMetadataFromBook(book: BookWithMedia): BookMetadataPatch? {
-    // Only handle PDF files with OPF sidecar
+    // Only handle PDF files with OPF metadata
     if (book.media.mediaType != MediaType.PDF.type) return null
 
-    val opfFile =
-      File(
-        book.book.path.parent
-          .toFile(),
-        "${book.book.path.nameWithoutExtension}.opf",
-      )
+    // First try Calibre-style metadata.opf in the same directory as the PDF
+    val calibreOpfFile = book.book.path.parent.resolve("metadata.opf").toFile()
+    if (calibreOpfFile.exists() && calibreOpfFile.isFile) {
+      logger.info { "Found Calibre metadata.opf file for ${book.book.path}: ${calibreOpfFile.absolutePath}" }
+      return try {
+        calibreOpfFile.reader().use { reader ->
+          val opf = Jsoup.parse(reader, null, "")
+          parseOpfMetadata(opf)
+        }
+      } catch (e: Exception) {
+        logger.error(e) { "Failed to parse Calibre metadata.opf file: ${calibreOpfFile.absolutePath}" }
+        null
+      }
+    }
+
+    // Fall back to original behavior: OPF file with same name as PDF
+    val opfFile = File(
+      book.book.path.parent
+        .toFile(),
+      "${book.book.path.nameWithoutExtension}.opf",
+    )
     if (!opfFile.exists() || !opfFile.isFile) return null
 
     logger.info { "Found OPF sidecar file for ${book.book.path}: ${opfFile.absolutePath}" }
@@ -86,49 +101,58 @@ class OpfMetadataProvider(
   }
 
   private fun parseOpfMetadata(opf: org.jsoup.nodes.Document): BookMetadataPatch {
+    // Title handling - prefer dc:title, fall back to title tag
     val title = opf.selectFirst("metadata > dc|title")?.text()?.ifBlank { null }
-    val description =
-      opf
-        .selectFirst("metadata > dc|description")
-        ?.text()
-        ?.let {
-          Jsoup.clean(it, Safelist.none())
-        }?.ifBlank { null }
-    val date = opf.selectFirst("metadata > dc|date")?.text()?.let { parseDate(it) }
+      ?: opf.selectFirst("title")?.text()?.ifBlank { null }
 
+    // Description/Summary
+    val description =
+      opf.selectFirst("metadata > dc|description")?.text()
+        ?.let { Jsoup.clean(it, Safelist.none()) }
+        ?.ifBlank { null }
+
+    // Date handling - try multiple date fields
+    val date = opf.selectFirst("metadata > dc|date")?.text()?.let { parseDate(it) }
+      ?: opf.selectFirst("meta[property=dcterms:modified]")?.attr("content")?.let { parseDate(it) }
+      ?: opf.selectFirst("meta[property=dcterms:created]")?.attr("content")?.let { parseDate(it) }
+
+    // Author and contributor handling
     val authorRoles =
-      opf
-        .select("metadata > *|meta[property=role][scheme=marc:relators]")
+      opf.select("metadata > *|meta[property=role][scheme=marc:relators], metadata > *|meta[property=role]")
         .associate { it.attr("refines").removePrefix("#") to it.text() }
 
-    val authors =
-      opf
-        .select("metadata > dc|creator")
-        .mapNotNull { el ->
-          val name = el.text().trim()
-          if (name.isBlank()) {
-            null
-          } else {
-            val opfRole = el.attr("opf:role").ifBlank { null }
-            val id = el.attr("id").ifBlank { null }
-            val refineRole = authorRoles[id]?.ifBlank { null }
-            Author(name, relators[opfRole ?: refineRole] ?: "writer")
-          }
-        }.ifEmpty { null }
+    val creators = opf.select("metadata > dc|creator, metadata > creator").associate { 
+      it.attr("id").ifBlank { null } to it 
+    }
 
-    val isbn =
-      opf
-        .select("metadata > dc|identifier")
-        .map { it.text().lowercase().removePrefix("isbn:") }
-        .firstNotNullOfOrNull { isbnValidator.validate(it) }
+    val authors = creators.mapNotNull { (id, el) ->
+      val name = el.text().trim()
+      if (name.isBlank()) {
+        null
+      } else {
+        val opfRole = el.attr("opf:role").ifBlank { null }
+        val refineRole = id?.let { authorRoles[it] }?.ifBlank { null }
+        val role = relators[opfRole ?: refineRole] ?: "writer"
+        Author(name, role)
+      }
+    }.takeIf { it.isNotEmpty() }
 
-    val seriesIndex =
-      opf
-        .selectFirst("metadata > *|meta[property=belongs-to-collection]")
+    // Handle identifiers (ISBN, etc.)
+    val isbn = opf.select("metadata > dc|identifier, metadata > identifier")
+      .map { it.text().trim() }
+      .firstNotNullOfOrNull { 
+        val cleanId = it.lowercase().removePrefix("isbn:")
+        isbnValidator.validate(cleanId) ?: if (cleanId.matches(Regex("^\\d+[\\dX]$"))) cleanId else null 
+      }
+
+    // Series and series index handling
+    val series = opf.selectFirst("metadata > *|meta[property=calibre:series]")?.text()?.ifBlank { null }
+    val seriesIndex = opf.selectFirst("metadata > *|meta[property=calibre:series_index]")?.text()?.toFloatOrNull()
+      ?: opf.selectFirst("metadata > *|meta[property=belongs-to-collection]")
         ?.attr("id")
         ?.let { id ->
           opf.selectFirst("metadata > *|meta[refines=#$id][property=group-position]")
-        }?.text()
+        }?.text()?.toFloatOrNull()
 
     return BookMetadataPatch(
       title = title,
@@ -136,8 +160,13 @@ class OpfMetadataProvider(
       releaseDate = date,
       authors = authors,
       isbn = isbn,
-      number = seriesIndex?.ifBlank { null },
-      numberSort = seriesIndex?.toFloatOrNull(),
+      series = series,
+      number = seriesIndex?.toString(),
+      numberSort = seriesIndex,
+      // Include additional metadata from Calibre if available
+      publisher = opf.selectFirst("metadata > dc|publisher")?.text()?.ifBlank { null },
+      language = opf.selectFirst("metadata > dc|language")?.text()?.ifBlank { null },
+      tags = opf.select("metadata > dc|subject").map { it.text().trim() }.filter { it.isNotBlank() }.toSet().takeIf { it.isNotEmpty() },
     )
   }
 
@@ -162,12 +191,17 @@ class OpfMetadataProvider(
   // SidecarBookConsumer implementation
   override fun getSidecarBookType(): Sidecar.Type = Sidecar.Type.METADATA
 
-  override fun getSidecarBookPrefilter(): List<Regex> = listOf(".*\\.opf$".toRegex(RegexOption.IGNORE_CASE))
+  override fun getSidecarBookPrefilter(): List<Regex> = 
+    listOf(
+      ".*\\.opf$".toRegex(RegexOption.IGNORE_CASE),
+      "metadata\\.opf$".toRegex(RegexOption.IGNORE_CASE)
+    )
 
   override fun isSidecarBookMatch(
     basename: String,
     sidecar: String,
-  ): Boolean = sidecar.equals("$basename.opf", ignoreCase = true)
+  ): Boolean = sidecar.equals("$basename.opf", ignoreCase = true) || 
+              sidecar.equals("metadata.opf", ignoreCase = true)
 
   private fun parseDate(date: String): LocalDate? =
     try {

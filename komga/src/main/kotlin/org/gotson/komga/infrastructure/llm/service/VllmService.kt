@@ -6,11 +6,7 @@ import kotlinx.coroutines.withContext
 import mu.KotlinLogging
 import org.gotson.komga.infrastructure.llm.config.VllmConfig
 import org.gotson.komga.infrastructure.llm.exception.LlmException
-import org.gotson.komga.infrastructure.llm.model.ChatCompletion
-import org.gotson.komga.infrastructure.llm.model.ChatMessage
-import org.gotson.komga.infrastructure.llm.model.FunctionCall
-import org.gotson.komga.infrastructure.llm.model.FunctionDefinition
-import org.gotson.komga.infrastructure.llm.model.LlmProvider
+import org.gotson.komga.infrastructure.llm.model.*
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType

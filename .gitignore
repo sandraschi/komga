@@ -7,7 +7,7 @@ node_modules
 
 ### Logs
 *.log
-!build_output_*.log
+!build_output.log
 *.log.*.gz
 
 ### Temporary files

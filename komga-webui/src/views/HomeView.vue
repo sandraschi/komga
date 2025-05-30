@@ -85,6 +85,9 @@
             </v-list-item-action>
           </v-list-item>
 
+          <!--   METABOOKS     -->
+          <metabook-navigation-item />
+
           <!--   PINNED LIBRARIES     -->
           <v-list-item v-for="(l, index) in librariesPinned"
                        :key="index"
@@ -273,6 +276,13 @@
                 <v-list-item-title>{{ $t('server.updates') }}</v-list-item-title>
               </v-badge>
             </v-list-item>
+
+            <v-list-item :to="{name: 'rag'}">
+              <v-list-item-icon>
+                <v-icon>mdi-robot</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>RAG System</v-list-item-title>
+            </v-list-item>
           </v-list-group>
 
           <!--   ACCOUNT     -->
@@ -373,6 +383,7 @@
 <script lang="ts">
 import ReusableDialogs from '@/components/ReusableDialogs.vue'
 import LibraryActionsMenu from '@/components/menus/LibraryActionsMenu.vue'
+import MetaBookNavigationItem from '@/components/navigation/MetaBookNavigationItem.vue'
 import SearchBox from '@/components/SearchBox.vue'
 import {Theme} from '@/types/themes'
 import Vue from 'vue'
@@ -393,6 +404,7 @@ export default Vue.extend({
     LibraryActionsMenu,
     SearchBox,
     ReusableDialogs,
+    MetaBookNavigationItem,
   },
   data: function () {
     return {
@@ -427,9 +439,13 @@ export default Vue.extend({
     this.checkRoute(this.$route)
   },
   watch: {
-    $route(to, from) {
-      this.checkRoute(to)
-    },
+    $route: {
+      handler(to: any) {
+        this.checkRoute(to)
+      },
+      immediate: true,
+      deep: true
+    }
   },
   computed: {
     taskCount(): number {
@@ -491,7 +507,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    checkRoute(to) {
+    checkRoute(to: any) {
       this.expandSettings = to.path.includes('/settings/')
       this.expandMediaManagement = to.path.includes('/media-management/')
       this.expandImport = to.path.includes('/import/')
@@ -505,7 +521,7 @@ export default Vue.extend({
     },
     logout() {
       this.$store.dispatch('logout')
-      this.$router.push({name: 'login', query: {'logout': true}})
+      this.$router.push('/login')
     },
     addLibrary() {
       this.$store.dispatch('dialogAddLibrary')

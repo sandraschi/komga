@@ -66,9 +66,12 @@ dependencies {
   // Session Management
   implementation("org.springframework.session:spring-session-core")
   implementation("com.github.gotson:spring-session-caffeine:2.0.0")
-  implementation("org.springframework.data:spring-data-commons")
-
+  implementation("org.springframework.boot:spring-boot-configuration-processor:3.4.0")
   kapt("org.springframework.boot:spring-boot-configuration-processor:3.4.0")
+
+  // kapt configuration for annotation processing
+  // For Dagger configuration if needed, we can add it later
+  // kapt("com.google.dagger:dagger-compiler:2.x")
 
   implementation("org.flywaydb:flyway-core")
 
@@ -100,6 +103,17 @@ dependencies {
   implementation("com.appmattus.crypto:cryptohash:0.10.1")
 
   implementation("org.apache.tika:tika-core:2.9.1")
+  
+  // RAG and Vector Database Dependencies
+  implementation("ai.djl.huggingface:tokenizers:0.28.0")
+  implementation("ai.djl.huggingface:transformers:0.28.0")
+  implementation("com.pinecone:pinecone-client:0.1.0")
+  implementation("org.chromadb:chromadb-client:0.4.0")
+  implementation("org.apache.commons:commons-text:1.10.0")
+  implementation("org.apache.tika:tika-parsers:2.9.1")
+  implementation("io.grpc:grpc-netty:1.62.2")
+  implementation("io.grpc:grpc-protobuf:1.62.2")
+  implementation("io.grpc:grpc-stub:1.62.2")
 
   // Coroutines
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
@@ -112,17 +126,15 @@ dependencies {
   implementation("org.slf4j:slf4j-simple:1.7.36")
   implementation("org.jsoup:jsoup:1.17.2")
   implementation("org.apache.commons:commons-compress:1.27.1")
-  
+
   // Virtual Book and Omnibus
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.8.1")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.8.1")
-  
+
   // Validation
   implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
   implementation("org.glassfish.expressly:expressly:5.0.0")
-  
-  // XML processing
   implementation("com.fasterxml.woodstox:woodstox-core:6.6.2")
   implementation("com.github.junrar:junrar:7.5.5")
   implementation("com.github.gotson.nightcompress:nightcompress:1.1.0")
@@ -153,9 +165,10 @@ dependencies {
   implementation("org.xerial:sqlite-jdbc:3.48.0.0")
   jooqGenerator("org.xerial:sqlite-jdbc:3.48.0.0")
 
-  if (version.toString().endsWith(".0.0")) {
-    ksp("com.github.gotson.bestbefore:bestbefore-processor-kotlin:0.1.0")
-  }
+  // Temporarily disable KSP until we can properly configure it
+  // if (version.toString().endsWith(".0.0")) {
+  //   ksp("com.github.gotson.bestbefore:bestbefore-processor-kotlin:0.1.0")
+  // }
 
   testImplementation("org.springframework.boot:spring-boot-starter-test") {
     exclude(module = "mockito-core")
@@ -185,7 +198,7 @@ tasks {
     //   expand(project.properties)
     // }
   }
-  
+
   withType<JavaCompile> {
     sourceCompatibility = "17"
     targetCompatibility = "17"

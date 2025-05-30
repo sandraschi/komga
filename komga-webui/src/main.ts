@@ -82,6 +82,7 @@ Vue.use(komgaHistory, {http: Vue.prototype.$http})
 Vue.use(komgaAnnouncements, {http: Vue.prototype.$http})
 Vue.use(komgaReleases, {http: Vue.prototype.$http})
 Vue.use(komgaFonts, {http: Vue.prototype.$http})
+Vue.use(komgaRag, {http: Vue.prototype.$http})
 
 Vue.config.productionTip = false
 
@@ -99,6 +100,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $_: LoDashStatic;
     $eventHub: Vue;
+    $rag: any;
   }
 }
 

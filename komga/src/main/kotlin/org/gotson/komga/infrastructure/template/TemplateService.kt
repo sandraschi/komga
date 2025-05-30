@@ -38,7 +38,7 @@ class TemplateService {
         return RenderedContent(
             content = content.toByteArray(StandardCharsets.UTF_8),
             fileExtension = "epub",
-            wordCount = content.split(\s).size
+            wordCount = content.split("\\s+".toRegex()).size
         )
     }
     
@@ -55,7 +55,7 @@ class TemplateService {
         return RenderedContent(
             content = content.toByteArray(StandardCharsets.UTF_8),
             fileExtension = "pdf",
-            wordCount = content.split(\s).size
+            wordCount = content.split("\\s+".toRegex()).size
         )
     }
     
@@ -73,7 +73,7 @@ class TemplateService {
         return RenderedContent(
             content = content.toByteArray(StandardCharsets.UTF_8),
             fileExtension = "md",
-            wordCount = content.split(\s).size
+            wordCount = content.split("\\s+".toRegex()).size
         )
     }
     
@@ -110,7 +110,7 @@ class TemplateService {
         return RenderedContent(
             content = content.toByteArray(StandardCharsets.UTF_8),
             fileExtension = "html",
-            wordCount = content.split(\s).size
+            wordCount = content.split("\\s+".toRegex()).size
         )
     }
 }

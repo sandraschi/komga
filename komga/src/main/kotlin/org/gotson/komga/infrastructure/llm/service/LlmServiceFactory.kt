@@ -1,13 +1,8 @@
 package org.gotson.komga.infrastructure.llm.service
 
 import mu.KotlinLogging
-import org.gotson.komga.infrastructure.llm.LlmProvider
-import org.gotson.komga.infrastructure.llm.config.GoogleNoteLmConfig
-import org.gotson.komga.infrastructure.llm.config.LlmConfig
-import org.gotson.komga.infrastructure.llm.config.LmStudioConfig
-import org.gotson.komga.infrastructure.llm.config.OllamaConfig
-import org.gotson.komga.infrastructure.llm.config.OpenAIConfig
-import org.gotson.komga.infrastructure.llm.config.VllmConfig
+import org.gotson.komga.infrastructure.llm.model.LlmProvider
+import org.gotson.komga.infrastructure.llm.config.*
 import org.gotson.komga.infrastructure.llm.exception.LlmException
 import org.springframework.context.ApplicationContext
 import org.springframework.stereotype.Component

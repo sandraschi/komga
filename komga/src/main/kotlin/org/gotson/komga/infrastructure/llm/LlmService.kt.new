@@ -1,0 +1,95 @@
+/**
+ * # LLM Service Module
+ * 
+ * This module provides integration with various Large Language Model (LLM) providers.
+ * It supports multiple backends including OpenAI, Ollama, vLLM, LM Studio, and Google NoteLM.
+ */
+@file:Suppress("TooManyFunctions", "LongMethod", "ComplexMethod")
+
+package org.gotson.komga.infrastructure.llm
+
+import org.gotson.komga.infrastructure.llm.model.*
+
+/**
+ * Core interface for interacting with various Language Model (LLM) providers.
+ */
+interface LlmService {
+    val provider: LlmProvider
+    
+    suspend fun isAvailable(): Boolean
+    
+    suspend fun generateCompletion(
+        prompt: String,
+        maxTokens: Int = 1000,
+        temperature: Double = 0.7,
+        stopSequences: List<String> = emptyList()
+    ): String
+    
+    suspend fun generateChatCompletion(
+        messages: List<ChatMessage>,
+        maxTokens: Int = 1000,
+        temperature: Double = 0.7,
+        functions: List<FunctionDefinition> = emptyList(),
+        functionCall: FunctionCall? = null
+    ): ChatCompletion
+    
+    suspend fun createEmbedding(input: String): List<Double>
+    
+    suspend fun cleanup()
+}
+
+/**
+ * Exception for LLM-related errors
+ */
+class LlmException(
+    message: String, 
+    cause: Throwable? = null,
+    val errorType: ErrorType = ErrorType.UNKNOWN
+) : RuntimeException(message, cause) {
+    enum class ErrorType {
+        /** The API request was invalid or malformed */
+        INVALID_REQUEST,
+        
+        /** The API key is invalid or missing */
+        AUTHENTICATION,
+        
+        /** The API key doesn't have permission to access the resource */
+        PERMISSION_DENIED,
+        
+        /** The requested resource doesn't exist */
+        NOT_FOUND,
+        
+        /** The API request timed out */
+        TIMEOUT,
+        
+        /** The API is currently unavailable */
+        UNAVAILABLE,
+        
+        /** The API response was incomplete or malformed */
+        INCOMPLETE_RESPONSE,
+        
+        /** An unknown error occurred */
+        UNKNOWN
+    }
+    
+    companion object {
+        /**
+         * Creates an LlmException from an exception, attempting to determine the error type.
+         */
+        fun fromException(e: Exception): LlmException {
+            return when (e) {
+                is LlmException -> e
+                is HttpClientErrorException.Unauthorized,
+                is HttpClientErrorException.Forbidden -> 
+                    LlmException("Authentication failed: ${e.message}", e, ErrorType.AUTHENTICATION)
+                is HttpServerErrorException.ServiceUnavailable ->
+                    LlmException("Service unavailable: ${e.message}", e, ErrorType.UNAVAILABLE)
+                is ResourceAccessException ->
+                    LlmException("Connection failed: ${e.message}", e, ErrorType.TIMEOUT)
+                is HttpStatusCodeException ->
+                    LlmException("HTTP error: ${e.statusCode.value()} - ${e.statusText}", e, ErrorType.UNKNOWN)
+                else -> LlmException(e.message ?: "Unknown error", e, ErrorType.UNKNOWN)
+            }
+        }
+    }
+}

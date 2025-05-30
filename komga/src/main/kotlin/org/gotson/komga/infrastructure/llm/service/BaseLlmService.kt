@@ -2,11 +2,7 @@ package org.gotson.komga.infrastructure.llm.service
 
 import mu.KotlinLogging
 import org.gotson.komga.infrastructure.llm.exception.LlmException
-import org.gotson.komga.infrastructure.llm.model.ChatCompletion
-import org.gotson.komga.infrastructure.llm.model.ChatMessage
-import org.gotson.komga.infrastructure.llm.model.FunctionCall
-import org.gotson.komga.infrastructure.llm.model.FunctionDefinition
-import org.gotson.komga.infrastructure.llm.model.LlmProvider
+import org.gotson.komga.infrastructure.llm.model.*
 import org.springframework.retry.annotation.Backoff
 import org.springframework.retry.annotation.Retryable
 import org.springframework.web.client.RestTemplate

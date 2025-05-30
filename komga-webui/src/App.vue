@@ -1,6 +1,8 @@
 <template>
   <v-app>
     <router-view/>
+    <chat-fab @toggle-chat="toggleChatModal"/>
+    <chat-modal :visible="isChatModalVisible" @close-chat="toggleChatModal"/>
   </v-app>
 </template>
 <script lang="ts">
@@ -8,9 +10,20 @@ import Vue from 'vue'
 import {Theme} from '@/types/themes'
 import {LIBRARY_ADDED, LIBRARY_CHANGED, LIBRARY_DELETED, SESSION_EXPIRED} from '@/types/events'
 import {LibrarySseDto, SessionExpiredDto} from '@/types/komga-sse'
+import ChatFab from '@/components/ChatFab.vue'
+import ChatModal from '@/components/ChatModal.vue'
 
 export default Vue.extend({
+  components: {
+    ChatFab,
+    ChatModal,
+  },
   name: 'App',
+  data() {
+    return {
+      isChatModalVisible: false,
+    }
+  },
   created() {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.systemThemeChange)
 
@@ -49,6 +62,9 @@ export default Vue.extend({
     },
   },
   methods: {
+    toggleChatModal() {
+      this.isChatModalVisible = !this.isChatModalVisible
+    },
     systemThemeChange() {
       if (this.$store.state.persistedState.theme === Theme.SYSTEM) {
         this.changeTheme(this.$store.state.persistedState.theme)

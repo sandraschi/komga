@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve --port 8081",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint --mode production"
+    "lint": "vue-cli-service lint --mode production --fix"
   },
   "dependencies": {
     "@d-i-t-a/reader": "github:gotson/R2D2BC#fork",
@@ -73,6 +73,7 @@
     "typescript": "^4.9.5",
     "vue-cli-plugin-i18n": "~2.3.2",
     "vue-cli-plugin-vuetify": "~2.5.8",
+    "vue-property-decorator": "^9.1.2",
     "vue-template-compiler": "^2.6.14",
     "vuetify-loader": "^1.7.3"
   }

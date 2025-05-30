@@ -8,11 +8,7 @@ import kotlinx.coroutines.withContext
 import mu.KotlinLogging
 import org.gotson.komga.infrastructure.llm.config.GoogleNoteLmConfig
 import org.gotson.komga.infrastructure.llm.exception.LlmException
-import org.gotson.komga.infrastructure.llm.model.ChatCompletion
-import org.gotson.komga.infrastructure.llm.model.ChatMessage
-import org.gotson.komga.infrastructure.llm.model.FunctionCall
-import org.gotson.komga.infrastructure.llm.model.FunctionDefinition
-import org.gotson.komga.infrastructure.llm.model.LlmProvider
+import org.gotson.komga.infrastructure.llm.model.*
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -22,6 +18,17 @@ import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import java.io.ByteArrayInputStream
 import java.net.URI
+
+data class PredictionResponse(val content: String)
+
+data class Prediction(
+    val content: String
+)
+
+data class PredictionsResponse(
+    val predictions: List<Prediction>
+)
+
 
 /**
  * Implementation of [LlmService] for Google's NoteLM API.
@@ -152,17 +159,27 @@ class GoogleNoteLmService(
 
         val endpoint = "${config.apiUrl}/projects/${config.projectId}/locations/${config.location}/publishers/google/models/${config.model}:predict"
         
-        val response = restTemplate.postForObject<Map<String, Any>>(
-            URI(endpoint),
-            HttpEntity(request, headers),
-            Map::class.java
-        )
+        val response = try {
+            restTemplate.postForObject<Map<String, Any>>(
+                URI(endpoint),
+                HttpEntity(request, headers),
+                Map::class.java
+            )
+        } catch (e: Exception) {
+            throw LlmException("Failed to get prediction: ${e.message}", e)
+        }
 
         val predictions = response?.get("predictions") as? List<*>
             ?: throw LlmException("No predictions in response")
             
-        (predictions.firstOrNull() as? Map<*, ?>)?.get("content") as? String
+        val firstPrediction = predictions.firstOrNull() as? Map<*, *>
+            ?: throw LlmException("Invalid prediction format")
+            
+        @Suppress("UNCHECKED_CAST")
+        val content = firstPrediction["content"] as? String
             ?: throw LlmException("No content in prediction")
+            
+        content
     }
     
     /**
