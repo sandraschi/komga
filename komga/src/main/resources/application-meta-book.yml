@@ -1,0 +1,28 @@
+# Meta Book Configuration
+komga:
+  meta-book:
+    default-options:
+      depth: STANDARD
+      include-spoilers: false
+      sections:
+        - SUMMARY
+        - CHARACTERS
+        - THEMES
+        - STYLE
+      language: en
+      style: ANALYTICAL
+
+  # LLM Configuration (OpenAI)
+  llm:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      model: gpt-4
+      api-url: https://api.openai.com
+
+  # Storage Configuration
+  storage:
+    meta-books-dir: ${KOMGA_META_BOOKS_DIR:${KOMGA_CONFIG_DIRECTORY:data/meta-books}}
+
+# Enable meta book feature
+meta-book:
+  enabled: true

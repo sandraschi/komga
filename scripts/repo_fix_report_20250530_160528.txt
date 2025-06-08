@@ -1,0 +1,3 @@
+[2025-05-30 16:05:28] [INFO] Starting repository path fixes at: C:\Users\sandr\CascadeProjects\pinpon
+[2025-05-30 16:05:28] [WARNING] RUNNING IN DRY RUN MODE - NO CHANGES WILL BE MADE
+[2025-05-30 16:05:28] [WARNING] No Git repositories found in: C:\Users\sandr\CascadeProjects\pinpon

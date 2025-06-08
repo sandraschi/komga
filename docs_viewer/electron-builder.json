@@ -1,0 +1,25 @@
+{
+  "appId": "com.docsviewer.app",
+  "productName": "DocsViewer",
+  "files": [
+    "main.js",
+    "backend/**",
+    "frontend/dist/**",
+    "node_modules/**",
+    "package.json"
+  ],
+  "directories": {
+    "output": "dist_electron"
+  },
+  "asar": true,
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "frontend/public/favicon.ico"
+  },
+  "extraResources": []
+} 

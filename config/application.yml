@@ -1,0 +1,24 @@
+# Application configuration
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:sqlite:${user.dir}/data/komga.db
+    driver-class-name: org.sqlite.JDBC
+
+# Security configuration (disable authentication)
+komga:
+  security:
+    authentication: 'none'  # Disable authentication
+
+# File storage
+file-storage:
+  base-path: ${user.dir}/data
+  
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    com.example: DEBUG

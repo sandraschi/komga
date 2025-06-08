@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: komga-rag
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/chromadb:/app/data/chromadb
+      - ./data/cache:/app/data/cache
+      - ./books:/books:ro
+    environment:
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+      - CHROMA_DB_PATH=/app/data/chromadb
+      - CACHE_DIR=/app/data/cache
+      - LOG_LEVEL=INFO
+      - MAX_WORKERS=4
+      - UVICORN_WORKERS=2
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  # Uncomment to enable monitoring
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   container_name: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   command:
+  #     - '--config.file=/etc/prometheus/prometheus.yml'
+  #   depends_on:
+  #     - rag-api
+
+  # grafana:
+  #   image: grafana/grafana:latest
+  #   container_name: grafana
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-storage:/var/lib/grafana
+  #   environment:
+  #     - GF_SECURITY_ADMIN_USER=admin
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   depends_on:
+  #     - prometheus
+
+volumes:
+  # grafana-storage:
+  #   driver: local
