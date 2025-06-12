@@ -5,12 +5,14 @@ import axios from 'axios';
 import * as pdfjsLib from 'pdfjs-dist/build/pdf';
 import 'pdfjs-dist/build/pdf.worker.entry';
 import mammoth from 'mammoth/mammoth.browser';
+import { useLanguage } from '../context/LanguageContext';
 // TODO: Import PDF and DOCX renderers
 
 const PAGE_SIZE_CHARS = 5000;
 const PAGE_SIZE_LINES = 100;
 
 const FileViewer = ({ filePath, root, fileType }) => {
+  const { t } = useLanguage();
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -156,14 +158,12 @@ const FileViewer = ({ filePath, root, fileType }) => {
 
   if (!filePath) return (
     <Box p={4} sx={{ textAlign: 'center' }}>
-      <Typography variant="h4" gutterBottom>Welcome to docs_viewer!</Typography>
+      <Typography variant="h4" gutterBottom>{t('welcome_to_docs_viewer')}</Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        This is your three-panel documentation viewer with AI chat, file tree, and metadata. <br />
-        Select a file from the tree on the left to get started.<br />
-        If you see a demo tree, the backend is not available.
+        {t('docs_viewer_intro')}
       </Typography>
       <Typography variant="caption" color="text.secondary">
-        Tip: Use the chat icon in the top bar to ask questions about your docs with local LLMs.
+        {t('docs_viewer_tip')}
       </Typography>
     </Box>
   );

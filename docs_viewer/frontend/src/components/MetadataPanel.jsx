@@ -4,8 +4,10 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Avatar from '@mui/material/Avatar';
 import axios from 'axios';
+import { useLanguage } from '../context/LanguageContext';
 
 const MetadataPanel = ({ filePath, root, disabled }) => {
+  const { t } = useLanguage();
   const [meta, setMeta] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -156,7 +158,7 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
 
   return (
     <Box p={2}>
-      <Typography variant="h6">Metadata</Typography>
+      <Typography variant="h6">{t('metadata')}</Typography>
       {meta?.cover && (
         <Box mt={2} mb={2} display="flex" justifyContent="center">
           <Avatar src={`/api/cover?path=${encodeURIComponent(meta.cover)}`} sx={{ width: 96, height: 128 }} variant="square" />
@@ -164,30 +166,30 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
       )}
       {meta?.series !== undefined && (
         <Box mt={2}>
-          <Typography variant="subtitle2">Series:</Typography>
+          <Typography variant="subtitle2">{t('series')}:</Typography>
           <TextField size="small" value={seriesInput} onChange={e => setSeriesInput(e.target.value)} onBlur={e => handleSetSeries(e.target.value)} fullWidth />
         </Box>
       )}
       {meta?.authors !== undefined && (
         <Box mt={2}>
-          <Typography variant="subtitle2">Authors:</Typography>
+          <Typography variant="subtitle2">{t('authors')}:</Typography>
           <TextField size="small" value={authorsInput} onChange={e => setAuthorsInput(e.target.value)} onBlur={e => handleSetAuthors(e.target.value)} fullWidth />
         </Box>
       )}
       <Box mt={2}>
-        <Typography variant="subtitle2">Tags:</Typography>
+        <Typography variant="subtitle2">{t('tags')}:</Typography>
         <Stack direction="row" spacing={1} flexWrap="wrap">
           {tags.map((tag) => (
             <Chip key={tag} label={tag} onDelete={() => handleDeleteTag(tag)} />
           ))}
         </Stack>
         <Box mt={1} display="flex">
-          <TextField size="small" label="Add tag" value={tagInput} onChange={(e) => setTagInput(e.target.value)} />
-          <Button onClick={handleAddTag} sx={{ ml: 1 }}>Add</Button>
+          <TextField size="small" label={t('addTag')} value={tagInput} onChange={(e) => setTagInput(e.target.value)} />
+          <Button onClick={handleAddTag} sx={{ ml: 1 }}>{t('add')}</Button>
         </Box>
       </Box>
       <Box mt={2}>
-        <Typography variant="subtitle2">Rating:</Typography>
+        <Typography variant="subtitle2">{t('rating')}:</Typography>
         <Box>
           {[1,2,3,4,5].map((n) => (
             <IconButton key={n} onClick={() => handleSetStars(n)} color={n <= stars ? 'warning' : 'default'} size="large">
@@ -197,7 +199,7 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
         </Box>
       </Box>
       <Box mt={2}>
-        <Typography variant="subtitle2">Comments</Typography>
+        <Typography variant="subtitle2">{t('comments')}</Typography>
         <TextField
           value={meta?.comments || ''}
           onChange={e => handleSetComments(e.target.value)}
@@ -210,7 +212,7 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
         />
       </Box>
       <Box mt={2}>
-        <Typography variant="subtitle2">AI Metadata (Summarization)</Typography>
+        <Typography variant="subtitle2">{t('aiMetadata')}</Typography>
         <TextField
           value={meta?.ai_metadata || ''}
           multiline
@@ -220,7 +222,7 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
           variant="outlined"
           size="small"
           InputProps={{ readOnly: true }}
-          placeholder="No AI metadata available."
+          placeholder={t('noAIMetadataAvailable')}
         />
         <Box mt={1} display="flex" alignItems="center">
           <Button
@@ -229,20 +231,20 @@ const MetadataPanel = ({ filePath, root, disabled }) => {
             onClick={handleSummarize}
             disabled={aiLoading || !filePath}
           >
-            Summarize
+            {t('summarize')}
           </Button>
           {aiLoading && <CircularProgress size={20} sx={{ ml: 2 }} />}
         </Box>
       </Box>
       <Box mt={2} display="flex" gap={2}>
-        <Button variant="outlined" onClick={handleExport}>Export Metadata</Button>
+        <Button variant="outlined" onClick={handleExport}>{t('exportMetadata')}</Button>
         <Button variant="outlined" component="label">
-          Import Metadata
+          {t('importMetadata')}
           <input type="file" accept="application/json" hidden onChange={handleImport} />
         </Button>
       </Box>
       <Box mt={2}>
-        <Typography variant="subtitle2">File:</Typography>
+        <Typography variant="subtitle2">{t('file')}:</Typography>
         <Typography variant="body2">{filePath}</Typography>
       </Box>
     </Box>

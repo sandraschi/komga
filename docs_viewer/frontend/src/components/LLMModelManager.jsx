@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Select, MenuItem, Typography, CircularProgress, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Chip } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import axios from 'axios';
+import logger from '../utils/logger';
+
+// If ../utils/logger does not exist, create a simple logger utility:
+// utils/logger.js
+// export default {
+//   info: (...args) => console.log('[INFO]', ...args),
+//   error: (...args) => console.error('[ERROR]', ...args),
+//   warn: (...args) => console.warn('[WARN]', ...args),
+// };
+
+// Never use console directly. Use logger for all logging.
 
 // ErrorBoundary for this component
 class LocalErrorBoundary extends React.Component {
@@ -13,8 +24,7 @@ class LocalErrorBoundary extends React.Component {
     return { hasError: true, error };
   }
   componentDidCatch(error, info) {
-    // Log error to console for debugging
-    console.error('LLMModelManager error:', error, info);
+    logger.error('LLMModelManager error:', error, info);
   }
   render() {
     if (this.state.hasError) {

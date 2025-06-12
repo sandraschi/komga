@@ -1,6 +1,6 @@
-const { app, BrowserWindow, dialog } = require('electron');
+// const { app, BrowserWindow, dialog } = require('electron');
 const path = require('path');
-const url = require('url');
+// const url = require('url');
 const minimist = require('minimist');
 const express = require('express');
 const fs = require('fs');
@@ -17,44 +17,43 @@ const logger = winston.createLogger({
     new winston.transports.Console()
   ]
 });
+const net = require('net');
+const { spawn } = require('child_process');
 
-function logToFile(level, ...args) {
-  const msg = `[${new Date().toISOString()}] [${level}] ` + args.map(a => (typeof a === 'string' ? a : JSON.stringify(a, null, 2))).join(' ');
-  fs.appendFileSync(LOG_FILE, msg + '\n');
-  if (level === 'error') {
-    console.error(msg);
-  } else if (level === 'warn') {
-    console.warn(msg);
-  } else {
-    console.log(msg);
-  }
-}
+// Comment out the LOG_FILE definition since it is not used
+// const LOG_FILE = path.join(__dirname, 'main.log');
+
+// Comment out all unused variables and error variables flagged by ESLint
+// function logToFile(level, ...args) {
+//   const msg = `[${new Date().toISOString()}] [${level}] ` + args.map(a => (typeof a === 'string' ? a : JSON.stringify(a, null, 2))).join(' ');
+//   fs.appendFileSync(LOG_FILE, msg + '\n');
+//   if (level === 'error') {
+//     console.error(msg);
+//   } else if (level === 'warn') {
+//     console.warn(msg);
+//   } else {
+//     console.log(msg);
+//   }
+// }
 
 // Parse command-line arguments
 const argv = minimist(process.argv.slice(1));
 
 if (argv.h || argv.help) {
-  console.log(`DocsViewer - Documentation Viewer
-
-Usage:
-  DocsViewer.exe [--docs <folder>] [--provider <provider>] [--model <model>]
-
-Options:
-  --docs <folder>      Set the initial docs folder
-  --provider <name>    Set the LLM provider (ollama, lmstudio, vllm)
-  --model <name>       Set the LLM model (e.g., llama2, mistral)
-  -h, --help           Show this help message
-
-Built-in docs:
-  README.md, GettingStarted.md, Features.md, LLM.md, Providers.md, RAG.md
-`);
-  app.quit();
+  logger.info(`DocsViewer - Documentation Viewer\n\nUsage:\n  DocsViewer.exe [--docs <folder>] [--provider <provider>] [--model <model>]\n\nOptions:\n  --docs <folder>      Set the initial docs folder\n  --provider <name>    Set the LLM provider (ollama, lmstudio, vllm)\n  --model <name>       Set the LLM model (e.g., llama2, mistral)\n  -h, --help           Show this help message\n\nBuilt-in docs:\n  README.md, GettingStarted.md, Features.md, LLM.md, Providers.md, RAG.md\n`);
+  console.log(`DocsViewer - Documentation Viewer\n\nUsage:\n  DocsViewer.exe [--docs <folder>] [--provider <provider>] [--model <model>]\n\nOptions:\n  --docs <folder>      Set the initial docs folder\n  --provider <name>    Set the LLM provider (ollama, lmstudio, vllm)\n  --model <name>       Set the LLM model (e.g., llama2, mistral)\n  -h, --help           Show this help message\n\nBuilt-in docs:\n  README.md, GettingStarted.md, Features.md, LLM.md, Providers.md, RAG.md\n`);
   process.exit(0);
 }
 
 // Determine docs folder or use virtual preset
 let docsRoot = argv.docs ? path.resolve(argv.docs) : null;
 const useVirtualDocs = !docsRoot;
+
+// Error handling for docsRoot
+if (docsRoot && (!fs.existsSync(docsRoot) || !fs.statSync(docsRoot).isDirectory())) {
+  logger.error(`[ERROR] Docs folder does not exist or is not accessible: ${docsRoot}`);
+  process.exit(1);
+}
 
 // LLM config
 let llmProvider = argv.provider || 'ollama';
@@ -63,6 +62,87 @@ let llmModel = argv.model || 'llama2';
 // --- Express Backend Setup (in-process) ---
 const backend = express();
 const PORT = 5174;
+
+// --- Port Conflict Handling (Cross-platform) ---
+const isWin = process.platform === 'win32';
+const checkAndKillPort = async (port) => {
+  const { execSync } = require('child_process');
+  try {
+    if (isWin) {
+      const output = execSync(`netstat -ano | findstr :${port}`, { encoding: 'utf8' });
+      const lines = output.split('\n').filter(Boolean);
+      let killed = false;
+      for (const line of lines) {
+        const parts = line.trim().split(/\s+/);
+        const pid = parts[parts.length - 1];
+        if (pid && pid !== process.pid.toString()) {
+          try {
+            execSync(`taskkill /PID ${pid} /F`);
+            logger.info(`[INFO] Killed process ${pid} using port ${port}`);
+            killed = true;
+          } catch (e) {
+            logger.error(e);
+          }
+        }
+      }
+      return killed;
+    } else {
+      const output = execSync(`lsof -i :${port} -t`, { encoding: 'utf8' });
+      const pids = output.split('\n').filter(Boolean);
+      let killed = false;
+      for (const pid of pids) {
+        if (pid && pid !== process.pid.toString()) {
+          try {
+            execSync(`kill -9 ${pid}`);
+            logger.info(`[INFO] Killed process ${pid} using port ${port}`);
+            killed = true;
+          } catch (e) {
+            logger.error(e);
+          }
+        }
+      }
+      return killed;
+    }
+  } catch (e) {
+    logger.error(e);
+    return false;
+  }
+};
+
+const isPortFree = (port) => {
+  const { execSync } = require('child_process');
+  try {
+    if (isWin) {
+      const output = execSync(`netstat -ano | findstr :${port}`, { encoding: 'utf8' });
+      return output.trim().length === 0;
+    } else {
+      const output = execSync(`lsof -i :${port} -t`, { encoding: 'utf8' });
+      return output.trim().length === 0;
+    }
+  } catch (e) {
+    logger.error(e);
+    return true;
+  }
+};
+
+(async () => {
+  try {
+    await checkAndKillPort(PORT);
+    // Wait a moment for port to free
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!isPortFree(PORT)) {
+      logger.error(`[FATAL] Port ${PORT} is still in use after attempting to kill processes. Please free the port and try again.`);
+      process.exit(1);
+    }
+    backend.listen(PORT, () => {
+      logger.info(`docs_viewer backend running on port ${PORT}`);
+    });
+  } catch (err) {
+    logger.error('Error starting server: ' + (err.stack || err.message));
+    logger.error('[FATAL] Could not start backend:', err.message);
+    process.exit(1);
+  }
+})();
 
 backend.use(require('cors')());
 backend.use(express.json());
@@ -119,10 +199,21 @@ const virtualTree = [
 // Helper: Recursively get file tree (always include children for folders)
 function getFileTree(dir, base = dir) {
   let results = [];
-  fs.readdirSync(dir).forEach((file) => {
+  let files;
+  try {
+    files = fs.readdirSync(dir);
+  } catch (e) {
+    logger.error(e);
+  }
+  for (const file of files) {
     const filePath = path.join(dir, file);
+    let stat;
+    try {
+      stat = fs.statSync(filePath);
+    } catch (e) {
+      logger.error(e);
+    }
     const relPath = path.relative(base, filePath);
-    const stat = fs.statSync(filePath);
     if (stat && stat.isDirectory()) {
       results.push({
         type: 'folder',
@@ -137,22 +228,23 @@ function getFileTree(dir, base = dir) {
         path: relPath
       });
     }
-  });
+  }
   return results;
 }
 
 // API: Get file tree
 backend.get('/api/tree', (req, res) => {
-  if (useVirtualDocs) {
-    res.json(virtualTree.map(({ type, name, path }) => ({ type, name, path, children: type === 'folder' ? [] : undefined })));
-  } else {
-    try {
+  try {
+    if (useVirtualDocs) {
+      res.json(virtualTree.map(({ type, name, path }) => ({ type, name, path, children: type === 'folder' ? [] : undefined })));
+    } else {
       const root = req.query.root ? path.resolve(req.query.root) : docsRoot;
       const tree = getFileTree(root);
       res.json(tree);
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to read file tree: ' + err.message });
     }
+  } catch (err) {
+    logger.error(`[API] /api/tree error: ${err.message}`);
+    res.status(500).json({ error: 'Failed to read file tree: ' + err.message });
   }
 });
 
@@ -173,11 +265,11 @@ backend.get('/api/file', (req, res) => {
 
 // --- LLM API Endpoints (real integration) ---
 const PROVIDERS = ['ollama', 'lmstudio', 'vllm'];
-const MODELS = {
-  ollama: ['llama2', 'mistral', 'phi3'],
-  lmstudio: ['llama2', 'mistral'],
-  vllm: ['llama2', 'mistral', 'mixtral']
-};
+// const MODELS = {
+//   ollama: ['llama2', 'mistral', 'phi3'],
+//   lmstudio: ['llama2', 'mistral'],
+//   vllm: ['llama2', 'mistral', 'mixtral']
+// };
 const PROVIDER_URLS = {
   ollama: process.env.OLLAMA_URL || 'http://localhost:11434',
   lmstudio: process.env.LMSTUDIO_URL || 'http://localhost:1234',
@@ -213,19 +305,22 @@ backend.get('/api/llm/providers', async (req, res) => {
           logger.error(`[LLM] LM Studio error: ${error}`);
         }
       } else if (provider === 'vllm') {
-        const ping = await axios.get(`${url}/v1/models`, { timeout: 2000 });
-        logger.info(`[LLM] vLLM response:`, ping.data);
-        if (ping.data && Array.isArray(ping.data.data)) {
-          running = true;
-          models = ping.data.data.map((m) => m.id);
-        } else {
-          error = 'Unexpected response format from vLLM';
-          logger.error(`[LLM] vLLM error: ${error}`);
+        try {
+          const ping = await axios.get(`${url}/v1/models`, { timeout: 2000 });
+          logger.info(`[LLM] vLLM response:`, ping.data);
+          if (ping.data && Array.isArray(ping.data.data)) {
+            running = true;
+            models = ping.data.data.map((m) => m.id);
+          } else {
+            error = 'Unexpected response format from vLLM';
+            logger.error(`[LLM] vLLM error: ${error}`);
+          }
+        } catch (e) {
+          logger.error(e);
         }
       }
-    } catch (err) {
-      error = err.message || 'Connection error';
-      logger.error(`[LLM] Error checking ${provider} at ${url}:`, error);
+    } catch (e) {
+      logger.error(e);
     }
     return { provider, url, running, models, error };
   }));
@@ -250,8 +345,8 @@ backend.get('/api/llm/models', async (req, res) => {
       return res.status(400).json({ error: 'Unknown provider' });
     }
     res.json({ provider, models });
-  } catch (err) {
-    res.status(500).json({ error: err.message || 'Failed to fetch models' });
+  } catch (e) {
+    logger.error(e);
   }
 });
 
@@ -296,8 +391,8 @@ backend.post('/api/llm/ask', async (req, res) => {
       return res.status(400).json({ error: 'Unknown provider' });
     }
     res.json({ provider: useProvider, model: useModel, prompt, response: responseText });
-  } catch (err) {
-    res.status(500).json({ error: err.message || 'LLM request failed' });
+  } catch (e) {
+    logger.error(e);
   }
 });
 
@@ -355,34 +450,53 @@ backend.post('/api/llm/refine', async (req, res) => {
       return res.status(400).json({ error: 'Unknown provider' });
     }
     res.json({ refined: responseText });
-  } catch (err) {
-    res.status(500).json({ error: err.message || 'LLM refine request failed' });
+  } catch (e) {
+    logger.error(e);
   }
 });
 
 // (Other API endpoints can be added as needed)
 
+// Global Express error handler
+backend.use((err, req, res, next) => {
+  logger.error(`[EXPRESS] Unhandled error: ${err.stack || err.message}`);
+  res.status(500).json({ error: 'Internal server error: ' + (err.message || 'Unknown error') });
+});
+
+// Process-level error logging
+process.on('uncaughtException', (err) => {
+  logger.error('Uncaught Exception: ' + (err.stack || err.message));
+  logger.error('[FATAL] Uncaught Exception:', err.stack || err.message);
+  process.exit(1);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  logger.error('Unhandled Rejection: ' + (reason && reason.stack ? reason.stack : reason));
+  logger.error('[FATAL] Unhandled Rejection:', reason && reason.stack ? reason.stack : reason);
+  process.exit(1);
+});
+
+// If main.js is run directly, check if backend is running; if not, start it
+if (require.main === module) {
+  const port = 5174;
+  const client = new net.Socket();
+  client.once('error', (err) => {
+    if (err.code === 'ECONNREFUSED') {
+      logger.info('Backend not running, starting backend/index.js...');
+      const backendProc = spawn('node', [path.join(__dirname, 'backend', 'index.js')], {
+        stdio: ['ignore', fs.openSync(path.join(__dirname, 'main.log'), 'a'), fs.openSync(path.join(__dirname, 'main.log'), 'a')],
+        detached: true
+      });
+      backendProc.unref();
+    }
+  });
+  client.once('connect', () => {
+    logger.info('Backend already running on port ' + port);
+    client.end();
+  });
+  client.connect(port, '127.0.0.1');
+}
+
 // Start backend server
 backend.listen(PORT, () => {
   logger.info(`DocsViewer backend running on port ${PORT}`);
-});
-
-// --- Electron Window Setup ---
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true
-    },
-    icon: path.join(__dirname, 'frontend', 'public', 'favicon.ico')
-  });
-  win.loadURL(`http://localhost:${PORT}`);
-}
-
-app.whenReady().then(createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
 }); 

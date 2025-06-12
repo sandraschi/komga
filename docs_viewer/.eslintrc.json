@@ -1,0 +1,24 @@
+{
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:promise/recommended"
+  ],
+  "plugins": ["promise"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "args": "none" }],
+    "no-async-promise-executor": "warn",
+    "no-empty": ["warn", { "allowEmptyCatch": false }],
+    "require-atomic-updates": "warn",
+    "promise/catch-or-return": "warn",
+    "promise/always-return": "warn"
+    // To enforce try/catch in async functions, consider using a plugin like eslint-plugin-promise or custom lint rules.
+  }
+} 

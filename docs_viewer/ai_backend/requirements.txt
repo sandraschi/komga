@@ -1,0 +1,23 @@
+fastapi==0.95.2
+uvicorn==0.22.0
+python-multipart==0.0.6
+python-dotenv==1.0.0
+pydantic==1.10.7
+chromadb==0.3.29
+sentence-transformers==2.2.2
+langchain==0.0.200
+openai==0.27.8
+pypdf2==3.0.1
+python-docx==0.8.11
+unstructured==0.8.7
+python-magic==0.4.27
+python-magic-bin==0.4.14; sys_platform == 'win32'
+pytest==7.3.1
+httpx==0.24.1
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+alembic==1.11.1
+sqlalchemy==2.0.15
+psycopg2-binary==2.9.6
+pydantic-settings==2.0.3

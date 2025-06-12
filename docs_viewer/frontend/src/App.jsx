@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline, Box, AppBar, Toolbar, Typography, IconButton, Button, Grid, Drawer, Snackbar, Alert, Dialog, DialogTitle, DialogContent, Tabs, Tab, CircularProgress } from '@mui/material';
+import { CssBaseline, Box, AppBar, Toolbar, Typography, IconButton, Button, Grid, Drawer, Snackbar, Alert, Dialog, DialogTitle, DialogContent, Tabs, Tab, CircularProgress, TextField, Paper } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -13,8 +13,9 @@ import ChatIcon from '@mui/icons-material/Chat';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import useBackendStatus from './components/useBackendStatus';
 import BackendHealthStatus from './components/BackendHealthStatus';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from 'react-router-dom';
 import LogViewerPage from './components/LogViewerPage';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 // TODO: Import components for FileTree, FileViewer, MetadataPanel, FolderPicker, etc.
 
@@ -119,7 +120,74 @@ function ErrorBoundary({ children }) {
   );
 }
 
-function App() {
+function LanguageDropdown() {
+  const { language, setLanguage, t } = useLanguage();
+  return (
+    <select
+      value={language}
+      onChange={e => setLanguage(e.target.value)}
+      style={{ marginLeft: 16 }}
+      aria-label={t('language')}
+    >
+      <option value="en">{t('english')}</option>
+      <option value="de">{t('german')}</option>
+      <option value="ja">{t('japanese')}</option>
+    </select>
+  );
+}
+
+const beautifulTheme = (darkMode) => createTheme({
+  palette: {
+    mode: darkMode ? 'dark' : 'light',
+    primary: {
+      main: darkMode ? '#90caf9' : '#1976d2',
+      light: '#e3f2fd',
+      dark: '#1565c0',
+    },
+    secondary: {
+      main: darkMode ? '#ce93d8' : '#7e57c2',
+    },
+    background: {
+      default: darkMode ? '#181c24' : '#f7f7fa',
+      paper: darkMode ? '#23283a' : '#fff',
+    },
+  },
+  shape: {
+    borderRadius: 16,
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 12,
+          textTransform: 'none',
+          fontWeight: 600,
+          letterSpacing: 0.2,
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          background: darkMode
+            ? 'linear-gradient(90deg, #23283a 0%, #2d3748 100%)'
+            : 'linear-gradient(90deg, #1976d2 0%, #90caf9 100%)',
+          boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
+        },
+      },
+    },
+  },
+});
+
+function AppContent() {
   const [darkMode, setDarkMode] = useState(false);
   const [root, setRoot] = useState(undefined); // undefined = default backend folder
   const [selectedFile, setSelectedFile] = useState(null);
@@ -130,15 +198,17 @@ function App() {
   const [chatOpen, setChatOpen] = useState(false);
   const [logModalOpen, setLogModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [folderPath, setFolderPath] = useState('');
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [fileTree, setFileTree] = useState(null);
+  const [loadingTree, setLoadingTree] = useState(false);
+  const [treeError, setTreeError] = useState(null);
 
   // Backend health
   const backend = useBackendStatus();
 
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-  });
+  const theme = beautifulTheme(darkMode);
+  const { t } = useLanguage();
 
   // Folder picker using File System Access API if available
   const handleFolderChange = async () => {
@@ -176,104 +246,174 @@ function App() {
     setSnackbar({ open: true, message: `Selected model: ${model} (${backend})`, severity: 'info' });
   };
 
+  const handleFolderInput = (e) => {
+    setFolderPath(e.target.value);
+  };
+
+  const handleFolderKeyDown = async (e) => {
+    if (e.key === 'Enter') {
+      setSelectedFolder(folderPath);
+      setLoadingTree(true);
+      setFileTree(null);
+      setTreeError(null);
+      try {
+        const res = await fetch(`/api/tree?root=${encodeURIComponent(folderPath)}`);
+        if (!res.ok) throw new Error('Failed to load folder tree');
+        const tree = await res.json();
+        setFileTree(tree);
+      } catch (err) {
+        setTreeError('Failed to load folder tree.');
+      } finally {
+        setLoadingTree(false);
+      }
+    }
+  };
+
+  // Recursive tree renderer
+  const renderTree = (node) => {
+    if (!node) return null;
+    if (Array.isArray(node)) {
+      return (
+        <ul style={{ marginLeft: 16 }}>
+          {node.map((child, i) => (
+            <li key={i}>{renderTree(child)}</li>
+          ))}
+        </ul>
+      );
+    }
+    return (
+      <ul style={{ marginLeft: 16 }}>
+        <li>
+          {node.type === 'folder' ? '📁' : '📄'} {node.name}
+          {node.children && node.children.length > 0 && renderTree(node.children)}
+        </li>
+      </ul>
+    );
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* Backend status banner */}
-      {backend.status !== 'ok' && (
-        <Box sx={{ bgcolor: 'error.main', color: 'error.contrastText', p: 1, textAlign: 'center', zIndex: 2000 }}>
-          <Typography variant="body2">
-            Backend not reachable: {backend.error || 'Unknown error'}
-            <Button onClick={backend.retry} sx={{ ml: 2 }} size="small" variant="contained" color="inherit">Retry</Button>
-          </Typography>
-          <BackendHealthStatus details={backend.details} error={backend.error} />
-        </Box>
-      )}
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            docs_viewer
-          </Typography>
-          <Button color="inherit" onClick={handleFolderChange} disabled={backend.status !== 'ok'}>
-            Select Folder
-          </Button>
-          <IconButton color="inherit" onClick={() => setLogModalOpen(true)} title="View Logs">
-            <ListAltIcon />
-          </IconButton>
-          <IconButton color="inherit" onClick={() => setChatOpen(true)} disabled={backend.status !== 'ok'}>
-            <ChatIcon />
-          </IconButton>
-          <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
-            <SettingsIcon />
-          </IconButton>
-          <IconButton color="inherit" onClick={() => setDarkMode((m) => !m)}>
-            {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <LogViewerErrorBoundary open={logModalOpen} onClose={() => setLogModalOpen(false)}>
-        <LogViewerModal open={logModalOpen} onClose={() => setLogModalOpen(false)} />
-      </LogViewerErrorBoundary>
-      <ChatWindow open={chatOpen} onClose={() => setChatOpen(false)} backend={llmBackend} model={llmModel} />
-      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <LLMModelManager
-          onModelSelect={handleModelSelect}
-          activeBackend={llmBackend}
-          activeModel={llmModel}
-        />
-      </Drawer>
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={4000}
-        onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert severity={snackbar.severity} sx={{ width: '100%' }}>{snackbar.message}</Alert>
-      </Snackbar>
-      <ErrorBoundary>
-        <Grid container spacing={0} sx={{ height: 'calc(100vh - 64px)', minHeight: '0' }}>
-          {/* Left: File Tree */}
-          <Grid item xs={12} sm={3} md={2} sx={{ borderRight: 1, borderColor: 'divider', height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
-            <FileTree
-              root={root}
-              onSelect={setSelectedFile}
-              onFolderChange={handleFolderChange}
-              disabled={backend.status !== 'ok'}
-            />
-          </Grid>
-          {/* Center: File Viewer */}
-          <Grid item xs={12} sm={6} md={7} sx={{ height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
-            <Box sx={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
-              <FileViewer
-                filePath={selectedFile}
+      <Box sx={{ minHeight: '100vh', background: darkMode
+        ? 'linear-gradient(135deg, #181c24 0%, #23283a 100%)'
+        : 'linear-gradient(135deg, #e3f2fd 0%, #f7f7fa 100%)',
+        transition: 'background 0.5s',
+      }}>
+        {/* Backend status banner */}
+        {backend.status !== 'ok' && (
+          <Box sx={{ bgcolor: 'error.main', color: 'error.contrastText', p: 1, textAlign: 'center', zIndex: 2000 }}>
+            <Typography variant="body2">
+              Backend not reachable: {backend.error || 'Unknown error'}
+              <Button onClick={backend.retry} sx={{ ml: 2 }} size="small" variant="contained" color="inherit">Retry</Button>
+            </Typography>
+            <BackendHealthStatus details={backend.details} error={backend.error} />
+          </Box>
+        )}
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={() => navigate('/')}>docs_viewer</Typography>
+            {/* Harlequin button for AI Playground */}
+            <Link to="/ai-playground" style={{ display: 'inline-flex', alignItems: 'center', fontWeight: 'bold', fontSize: '1.1em', marginLeft: 12, textDecoration: 'none', color: 'inherit' }}>
+              <span role="img" aria-label="AI Playground" style={{ marginRight: 6 }}>🎭</span>AI Playground
+            </Link>
+            <IconButton color="inherit" onClick={() => setLogModalOpen(true)} title="View Logs">
+              <ListAltIcon />
+            </IconButton>
+            <IconButton color="inherit" onClick={() => setChatOpen(true)} disabled={backend.status !== 'ok'}>
+              <ChatIcon />
+            </IconButton>
+            <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
+              <SettingsIcon />
+            </IconButton>
+            <IconButton color="inherit" onClick={() => setDarkMode((m) => !m)}>
+              {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+            <LanguageDropdown />
+          </Toolbar>
+        </AppBar>
+        {/* Folder path textbox always visible at top */}
+        <Paper sx={{ p: 2, mb: 2, display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ mr: 2 }}>Select Folder</Typography>
+          <TextField
+            label="Folder Path"
+            value={folderPath}
+            onChange={handleFolderInput}
+            onKeyDown={handleFolderKeyDown}
+            size="small"
+            sx={{ minWidth: 300 }}
+            placeholder="Paste or type a folder path and press Enter"
+          />
+        </Paper>
+        {selectedFolder && (
+          <Paper sx={{ p: 2, mb: 2 }}>
+            <Typography variant="subtitle2">Selected Folder:</Typography>
+            <Typography variant="body2">{selectedFolder}</Typography>
+            {loadingTree && <CircularProgress size={20} sx={{ ml: 2 }} />}
+            {treeError && <Typography color="error">{treeError}</Typography>}
+            {fileTree && renderTree(fileTree)}
+          </Paper>
+        )}
+        <LogViewerErrorBoundary open={logModalOpen} onClose={() => setLogModalOpen(false)}>
+          <LogViewerModal open={logModalOpen} onClose={() => setLogModalOpen(false)} />
+        </LogViewerErrorBoundary>
+        <ChatWindow open={chatOpen} onClose={() => setChatOpen(false)} backend={llmBackend} model={llmModel} />
+        <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+          <LLMModelManager
+            onModelSelect={handleModelSelect}
+            activeBackend={llmBackend}
+            activeModel={llmModel}
+          />
+        </Drawer>
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={4000}
+          onClose={() => setSnackbar((s) => ({ ...s, open: false }))}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert severity={snackbar.severity} sx={{ width: '100%' }}>{snackbar.message}</Alert>
+        </Snackbar>
+        <ErrorBoundary>
+          <Grid container spacing={0} sx={{ height: 'calc(100vh - 64px)', minHeight: '0' }}>
+            {/* Left: File Tree */}
+            <Grid item xs={12} sm={3} md={2} sx={{ borderRight: 1, borderColor: 'divider', height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+              <FileTree
                 root={root}
+                onSelect={setSelectedFile}
+                onFolderChange={handleFolderChange}
                 disabled={backend.status !== 'ok'}
               />
-            </Box>
+            </Grid>
+            {/* Center: File Viewer */}
+            <Grid item xs={12} sm={6} md={7} sx={{ height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+              <Box sx={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+                <FileViewer
+                  filePath={selectedFile}
+                  root={root}
+                  disabled={backend.status !== 'ok'}
+                />
+              </Box>
+            </Grid>
+            {/* Right: Metadata Panel */}
+            <Grid item xs={12} sm={3} md={3} sx={{ borderLeft: 1, borderColor: 'divider', height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+              <Box sx={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+                <MetadataPanel
+                  filePath={selectedFile}
+                  root={root}
+                  disabled={backend.status !== 'ok'}
+                />
+              </Box>
+            </Grid>
           </Grid>
-          {/* Right: Metadata Panel */}
-          <Grid item xs={12} sm={3} md={3} sx={{ borderLeft: 1, borderColor: 'divider', height: '100%', minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
-            <Box sx={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
-              <MetadataPanel
-                filePath={selectedFile}
-                root={root}
-                disabled={backend.status !== 'ok'}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      </ErrorBoundary>
+        </ErrorBoundary>
+      </Box>
     </ThemeProvider>
   );
 }
 
-export default function AppWithRouter() {
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/logs" element={<LogViewerPage />} />
-      </Routes>
-    </Router>
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

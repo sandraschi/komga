@@ -13,24 +13,34 @@ export default function useBackendStatus({ interval = 10000 } = {}) {
       if (res.ok) {
         const data = await res.json();
         setDetails(data.details);
+        let llmWarning = '';
+        let hasCriticalError = false;
         if (data.status === 'ok') {
           setStatus('ok');
           setError(null);
         } else {
-          setStatus('down');
-          // Compose a detailed error message
-          let msg = 'Backend health check failed:';
+          // Compose a detailed error/warning message
+          let msg = 'Backend health check:';
           if (data.details) {
-            if (data.details.node_modules !== 'ok') msg += ` node_modules: ${data.details.node_modules}.`;
-            if (data.details.db !== 'ok') msg += ` db: ${data.details.db}.`;
+            if (data.details.node_modules !== 'ok') { msg += ` node_modules: ${data.details.node_modules}.`; hasCriticalError = true; }
+            if (data.details.db !== 'ok') { msg += ` db: ${data.details.db}.`; hasCriticalError = true; }
             if (data.details.llm) {
               Object.entries(data.details.llm).forEach(([llm, info]) => {
-                if (!info.reachable) msg += ` ${llm} not reachable.`;
-                else if (!info.hasLoadedModel) msg += ` ${llm} has no loaded models.`;
+                if (!info.reachable) { msg += ` ${llm} not reachable.`; hasCriticalError = true; }
+                else if (!info.hasLoadedModel) { llmWarning += ` ${llm} has no loaded models.`; }
               });
             }
           }
-          setError(msg);
+          if (hasCriticalError) {
+            setStatus('down');
+            setError(msg);
+          } else if (llmWarning) {
+            setStatus('ok');
+            setError('Warning:' + llmWarning);
+          } else {
+            setStatus('ok');
+            setError(null);
+          }
         }
       } else {
         setStatus('down');

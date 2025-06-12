@@ -1,90 +1,148 @@
 @echo off
 setlocal enabledelayedexpansion
 
-REM --- Close any old docs_viewer_backend or docs_viewer_frontend windows ---
-for /f "tokens=2 delims=," %%a in ('tasklist /v /fo csv ^| findstr /i "docs_viewer_backend"') do (
-    echo Closing old backend window with PID %%a
-    taskkill /F /PID %%a >nul 2>&1
-)
-for /f "tokens=2 delims=," %%a in ('tasklist /v /fo csv ^| findstr /i "docs_viewer_frontend"') do (
-    echo Closing old frontend window with PID %%a
-    taskkill /F /PID %%a >nul 2>&1
-)
-
-REM --- Kill any process using ports 5173 or 5174 ---
-echo Checking for processes using ports 5173 and 5174...
-for %%P in (5173 5174) do (
-  for /f "tokens=5" %%a in ('netstat -ano ^| findstr :%%P ^| findstr LISTENING') do (
-    echo Killing process on port %%P with PID %%a
-    taskkill /F /PID %%a >nul 2>&1
-  )
-)
-
-REM Set directories
+:: ===========================================
+:: Configuration
+:: ===========================================
 set "BACKEND_DIR=%~dp0backend"
 set "FRONTEND_DIR=%~dp0frontend"
 set "BACKEND_LOG=%~dp0backend.log"
 set "FRONTEND_LOG=%~dp0frontend.log"
+set "PORT=5174"
+set "MAX_RETRIES=15"
+set "RETRY_DELAY=2"
 
-REM Start backend
-echo Starting backend...
-cd /d "%BACKEND_DIR%"
-if not exist node_modules (
-    echo Installing backend dependencies...
-    call npm install >> "%BACKEND_LOG%" 2>&1
+:: ===========================================
+:: Initialize
+:: ===========================================
+title Docs Viewer - Starting...
+cls
+echo [%TIME%] ===== Starting Docs Viewer =====
+echo [%TIME%] Backend: %BACKEND_DIR%
+echo [%TIME%] Frontend: %FRONTEND_DIR%
+echo.
+
+:: ===========================================
+:: Kill existing processes (optimized)
+:: ===========================================
+echo [%TIME%] Stopping any running instances...
+
+:: Kill by window title
+for /f "tokens=2" %%a in ('tasklist /v ^| findstr /i "docs_viewer_backend docs_viewer_frontend" ^| findstr /v findstr') do (
+    echo [%TIME%] Killing process with PID: %%a
+    taskkill /F /PID %%a >nul 2>&1
 )
-start "docs_viewer_backend" cmd /k "node index.js >> "%BACKEND_LOG%" 2>&1"
 
-REM Wait for backend to be ready (poll localhost:5174/api/tree)
-echo Waiting for backend to start...
-set "RETRIES=0"
-:waitloop
-timeout /t 2 >nul
-powershell -Command "try { (Invoke-WebRequest -Uri http://localhost:5174/api/tree -UseBasicParsing).StatusCode } catch { 0 }" >nul 2>&1
-if %errorlevel% neq 0 (
-    set /a RETRIES+=1
-    if !RETRIES! geq 15 (
-        echo Backend failed to start after 30 seconds. See %BACKEND_LOG% for details.
-        pause
-        exit /b 1
+:: Kill by port
+for /f "tokens=5" %%a in ('netstat -ano ^| findstr ":%PORT% "') do (
+    echo [%TIME%] Killing process on port %PORT% (PID: %%a)
+    taskkill /F /PID %%a >nul 2>&1
+)
+
+:: ===========================================
+:: Start Frontend Build (in parallel)
+:: ===========================================
+start "" /MIN cmd /c "(
+    cd /d "%FRONTEND_DIR%" && ^
+    echo [%TIME%] Installing frontend dependencies... && ^
+    (if not exist node_modules npm install) && ^
+    echo [%TIME%] Building frontend... && ^
+    npm run build && ^
+    echo [%TIME%] Frontend build completed
+) > "%FRONTEND_LOG%" 2>&1"
+
+:: ===========================================
+:: Setup and Start Backend
+:: ===========================================
+(
+    cd /d "%BACKEND_DIR%"
+    
+    :: Install backend dependencies if needed
+    if not exist node_modules (
+        echo [%TIME%] Installing backend dependencies...
+        call npm install >> "%BACKEND_LOG%" 2>&1
     )
-    goto waitloop
+    
+    :: Start backend
+    echo [%TIME%] Starting backend server...
+    start "docs_viewer_backend" /MIN node main.js >> "%BACKEND_LOG%" 2>&1
 )
 
-REM Start frontend
-echo Starting frontend...
-cd /d "%FRONTEND_DIR%"
-if not exist node_modules (
-    echo Installing frontend dependencies...
-    call npm install >> "%FRONTEND_LOG%" 2>&1
+:: ===========================================
+:: Wait for Backend to be Ready
+:: ===========================================
+echo [%TIME%] Waiting for backend to start...
+set "RETRIES=0"
+
+:check_backend
+ping -n 2 127.0.0.1 >nul 2>&1  :: Small delay
+powershell -Command "try { $null = Invoke-WebRequest -Uri 'http://localhost:%PORT%/api/tree' -UseBasicParsing -TimeoutSec 2; exit 0 } catch { exit 1 }" >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    set /a "RETRIES+=1"
+    if !RETRIES! GEQ %MAX_RETRIES% (
+        echo [%TIME%] ERROR: Backend failed to start after !MAX_RETRIES! attempts.
+        echo [%TIME%] Check %BACKEND_LOG% for details.
+        start notepad "%BACKEND_LOG%"
+        goto :error_exit
+    )
+    <nul set /p "=."
+    goto check_backend
 )
-start "docs_viewer_frontend" cmd /k "npm run dev >> "%FRONTEND_LOG%" 2>&1"
 
-REM Wait a few seconds for frontend to start
-timeout /t 5 >nul
+:: ===========================================
+:: Final Output
+:: ===========================================
+cls
+title Docs Viewer - Running on http://localhost:%PORT%
 
-REM Open browser
-start http://localhost:5173
+echo [%TIME%] ===== Docs Viewer is Running =====
+echo.
+echo   Frontend: http://localhost:%PORT%
+echo   Backend:  http://localhost:%PORT%/api
 
-echo All done! Backend and frontend are running. Check the browser window.
+echo.
+echo   Logs:
+echo   - Backend:  %BACKEND_LOG%
+echo   - Frontend: %FRONTEND_LOG%
+echo.
+echo   Press Ctrl+C to stop the application
+echo   or close this window to exit.
+echo.
 
-REM --- Start backend health monitor in a new window ---
-start "docs_viewer_backend_monitor" cmd /c "call :monitor_backend"
-goto :eof
+echo [%TIME%] Opening in browser...
+start "" "http://localhost:%PORT%"
 
-:monitor_backend
-REM Monitor backend every 10 seconds
-:monitor_loop
-    timeout /t 10 >nul
-    powershell -Command "try { (Invoke-WebRequest -Uri http://localhost:5174/api/tree -UseBasicParsing).StatusCode } catch { 0 }" >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo.
-        echo [MONITOR] Backend is NOT responding! It may have crashed.
-        echo [MONITOR] See %BACKEND_LOG% for details.
-        if exist %BACKEND_LOG% start notepad.exe %BACKEND_LOG%
-        pause
-        exit /b 2
+:: ===========================================
+:: Start Health Monitor (in background)
+:: ===========================================
+start "" /MIN cmd /c "(
+    echo [%TIME%] Health monitor started
+    set RETRIES=0
+    :monitor_loop
+    ping -n 10 127.0.0.1 >nul
+    powershell -Command "try { $null = Invoke-WebRequest -Uri 'http://localhost:%PORT%/api/tree' -UseBasicParsing -TimeoutSec 5; exit 0 } catch { exit 1 }" >nul 2>&1
+    if %ERRORLEVEL% NEQ 0 (
+        set /a "RETRIES+=1"
+        if !RETRIES! GEQ 3 (
+            echo [%TIME%] ERROR: Backend is not responding! Check %BACKEND_LOG%
+            start notepad "%BACKEND_LOG%"
+            exit 1
+        )
+    ) else (
+        set "RETRIES=0"
     )
     goto monitor_loop
+)"
 
-exit /b 0 
+:: ===========================================
+:: Keep Window Open and Handle Exit
+:: ===========================================
+:keep_alive
+ping -n 2 127.0.0.1 >nul 2>&1
+goto keep_alive
+
+:error_exit
+echo.
+echo [%TIME%] Press any key to exit...
+pause >nul
+exit /b 1 

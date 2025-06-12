@@ -1,0 +1,21 @@
+{
+  "ai_playground": "KI-Spielplatz",
+  "files": "Dateien",
+  "folder": "Ordner",
+  "file": "Datei",
+  "setup_settings": "Setup / Einstellungen",
+  "single_llm_chat": "Einzel-LLM-Chat",
+  "dueling_llms": "LLM-Duell",
+  "teams_debate": "Teams-Debatte",
+  "talk_to_future_self": "Mit deinem zukünftigen Ich sprechen",
+  "experiment_log": "Experimentprotokoll / Verlauf",
+  "multimodal_chat": "Multimodaler Chat",
+  "select_folder": "Ordner auswählen",
+  "no_folder_selected": "Kein Ordner ausgewählt",
+  "file_preview": "Dateivorschau",
+  "metadata": "Metadaten",
+  "language": "Sprache",
+  "english": "Englisch",
+  "german": "Deutsch",
+  "japanese": "Japanisch"
+} 

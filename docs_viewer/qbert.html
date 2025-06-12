@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q*bert Clone</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .game-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: #000;
+        }
+        canvas {
+            border: 2px solid #fff;
+            background: #000;
+        }
+        .ui {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .lives {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            z-index: 20;
+            display: none;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #aaa;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="ui">
+            <div>Score: <span id="score">0</span></div>
+            <div>Level: <span id="level">1</span></div>
+        </div>
+        <div class="lives">Lives: <span id="lives">10</span></div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="game-over" id="gameOver">
+            <div>GAME OVER</div>
+            <div style="font-size: 16px; margin-top: 10px;">Press SPACE to restart</div>
+        </div>
+        <div class="controls">
+            Use ARROW KEYS or WASD to move Q*bert
+        </div>
+    </div>
+
+    <script>
+        // Game setup
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Game state
+        let score = 0;
+        let lives = 10;
+        let level = 1;
+        let gameRunning = true;
+        let gameStarted = true;
+        
+        // Pyramid structure - each cube position
+        const pyramidStructure = [
+            [{x: 7, y: 0}], // Top row
+            [{x: 6, y: 1}, {x: 8, y: 1}], // Second row
+            [{x: 5, y: 2}, {x: 7, y: 2}, {x: 9, y: 2}], // Third row
+            [{x: 4, y: 3}, {x: 6, y: 3}, {x: 8, y: 3}, {x: 10, y: 3}], // Fourth row
+            [{x: 3, y: 4}, {x: 5, y: 4}, {x: 7, y: 4}, {x: 9, y: 4}, {x: 11, y: 4}], // Fifth row
+            [{x: 2, y: 5}, {x: 4, y: 5}, {x: 6, y: 5}, {x: 8, y: 5}, {x: 10, y: 5}, {x: 12, y: 5}], // Sixth row
+            [{x: 1, y: 6}, {x: 3, y: 6}, {x: 5, y: 6}, {x: 7, y: 6}, {x: 9, y: 6}, {x: 11, y: 6}, {x: 13, y: 6}] // Bottom row
+        ];
+        
+        // Flatten pyramid for easier access
+        const cubes = [];
+        pyramidStructure.forEach(row => {
+            row.forEach(cube => {
+                cubes.push({
+                    ...cube,
+                    active: false,
+                    screenX: 400 + (cube.x - 7) * 25,
+                    screenY: 100 + cube.y * 40
+                });
+            });
+        });
+        
+        // Game objects
+        const qbert = {
+            x: 7, y: 0,
+            screenX: 400, screenY: 100,
+            moving: false,
+            direction: null,
+            moveProgress: 0
+        };
+        
+        const enemies = [];
+        const elevatorDisks = [];
+        
+        // Enemy types
+        const ENEMY_TYPES = {
+            COILY: 'coily',
+            WRONGWAY: 'wrongway',
+            UGG: 'ugg',
+            RED_BALL: 'redball',
+            PURPLE_BALL: 'purpleball'
+        };
+        
+        // Audio context for sound effects
+        let audioContext;
+        
+        function initAudio() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+        
+        function playSound(frequency, duration, type = 'sine') {
+            if (!audioContext) return;
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.type = type;
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + duration);
+        }
+        
+        // Draw Q*bert sprite
+        function drawQbert(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Q*bert body (orange/yellow)
+            ctx.fillStyle = '#FFA500';
+            ctx.fillRect(-8, -12, 16, 16);
+            
+            // Q*bert snout
+            ctx.fillStyle = '#FFD700';
+            ctx.fillRect(-4, -8, 8, 4);
+            
+            // Eyes
+            ctx.fillStyle = '#000';
+            ctx.fillRect(-6, -10, 2, 2);
+            ctx.fillRect(4, -10, 2, 2);
+            
+            // Legs
+            ctx.fillStyle = '#FFA500';
+            ctx.fillRect(-8, 4, 4, 8);
+            ctx.fillRect(4, 4, 4, 8);
+            
+            ctx.restore();
+        }
+        
+        // Draw Coily sprite
+        function drawCoily(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Coily body (purple)
+            ctx.fillStyle = '#8A2BE2';
+            ctx.fillRect(-8, -12, 16, 20);
+            
+            // Snake pattern
+            ctx.fillStyle = '#9932CC';
+            for (let i = 0; i < 3; i++) {
+                ctx.fillRect(-6, -10 + i * 4, 12, 2);
+            }
+            
+            // Eyes (red)
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(-6, -10, 2, 2);
+            ctx.fillRect(4, -10, 2, 2);
+            
+            ctx.restore();
+        }
+        
+        // Draw enemy sprite
+        function drawEnemy(enemy) {
+            const x = enemy.screenX;
+            const y = enemy.screenY;
+            
+            ctx.save();
+            ctx.translate(x, y);
+            
+            switch (enemy.type) {
+                case ENEMY_TYPES.COILY:
+                    if (enemy.hatched) {
+                        drawCoily(0, 0);
+                    } else {
+                        // Purple ball
+                        ctx.fillStyle = '#8A2BE2';
+                        ctx.beginPath();
+                        ctx.arc(0, -8, 8, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    break;
+                case ENEMY_TYPES.RED_BALL:
+                    ctx.fillStyle = '#FF0000';
+                    ctx.beginPath();
+                    ctx.arc(0, -8, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    break;
+                case ENEMY_TYPES.PURPLE_BALL:
+                    ctx.fillStyle = '#8A2BE2';
+                    ctx.beginPath();
+                    ctx.arc(0, -8, 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    break;
+                case ENEMY_TYPES.WRONGWAY:
+                    ctx.fillStyle = '#00FF00';
+                    ctx.fillRect(-8, -12, 16, 16);
+                    ctx.fillStyle = '#000';
+                    ctx.fillRect(-6, -10, 2, 2);
+                    ctx.fillRect(4, -10, 2, 2);
+                    break;
+                case ENEMY_TYPES.UGG:
+                    ctx.fillStyle = '#FF6600';
+                    ctx.fillRect(-8, -12, 16, 16);
+                    ctx.fillStyle = '#000';
+                    ctx.fillRect(-6, -10, 2, 2);
+                    ctx.fillRect(4, -10, 2, 2);
+                    break;
+            }
+            
+            ctx.restore();
+        }
+        
+        // Draw cube
+        function drawCube(cube) {
+            const x = cube.screenX;
+            const y = cube.screenY;
+            
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Draw 3D cube
+            const size = 20;
+            
+            // Top face
+            ctx.fillStyle = cube.active ? '#FFD700' : '#666';
+            ctx.beginPath();
+            ctx.moveTo(0, -size/2);
+            ctx.lineTo(size/2, -size);
+            ctx.lineTo(0, -size*1.5);
+            ctx.lineTo(-size/2, -size);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Left face
+            ctx.fillStyle = cube.active ? '#FFA500' : '#444';
+            ctx.beginPath();
+            ctx.moveTo(-size/2, -size);
+            ctx.lineTo(0, -size/2);
+            ctx.lineTo(0, size/2);
+            ctx.lineTo(-size/2, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Right face
+            ctx.fillStyle = cube.active ? '#FF8C00' : '#333';
+            ctx.beginPath();
+            ctx.moveTo(size/2, -size);
+            ctx.lineTo(0, -size/2);
+            ctx.lineTo(0, size/2);
+            ctx.lineTo(size/2, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Outline
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            
+            ctx.restore();
+        }
+        
+        // Draw elevator disk
+        function drawElevatorDisk(disk) {
+            ctx.save();
+            ctx.translate(disk.screenX, disk.screenY);
+            
+            ctx.fillStyle = '#00FFFF';
+            ctx.beginPath();
+            ctx.arc(0, 0, 12, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            
+            ctx.restore();
+        }
+        
+        // Find cube at position
+        function findCube(x, y) {
+            return cubes.find(cube => cube.x === x && cube.y === y);
+        }
+        
+        // Check if position is valid
+        function isValidPosition(x, y) {
+            return findCube(x, y) !== undefined;
+        }
+        
+        // Move Q*bert
+        function moveQbert(dx, dy) {
+            if (qbert.moving || !gameRunning) return;
+            
+            const newX = qbert.x + dx;
+            const newY = qbert.y + dy;
+            
+            if (isValidPosition(newX, newY)) {
+                qbert.moving = true;
+                qbert.direction = { dx, dy };
+                qbert.moveProgress = 0;
+                playSound(400, 0.1);
+            } else {
+                // Q*bert fell off the pyramid
+                loseLife();
+                playSound(150, 0.5, 'sawtooth');
+            }
+        }
+        
+        // Update Q*bert position
+        function updateQbert() {
+            if (!qbert.moving) return;
+            
+            qbert.moveProgress += 0.15;
+            
+            if (qbert.moveProgress >= 1) {
+                qbert.x += qbert.direction.dx;
+                qbert.y += qbert.direction.dy;
+                qbert.moving = false;
+                
+                const cube = findCube(qbert.x, qbert.y);
+                if (cube && !cube.active) {
+                    cube.active = true;
+                    score += 25;
+                    playSound(600, 0.1);
+                    updateUI();
+                    checkLevelComplete();
+                }
+                
+                updateQbertScreen();
+            } else {
+                // Smooth movement
+                const startCube = findCube(qbert.x, qbert.y);
+                const endCube = findCube(qbert.x + qbert.direction.dx, qbert.y + qbert.direction.dy);
+                
+                if (startCube && endCube) {
+                    qbert.screenX = startCube.screenX + (endCube.screenX - startCube.screenX) * qbert.moveProgress;
+                    qbert.screenY = startCube.screenY + (endCube.screenY - startCube.screenY) * qbert.moveProgress;
+                }
+            }
+        }
+        
+        // Update Q*bert screen position
+        function updateQbertScreen() {
+            const cube = findCube(qbert.x, qbert.y);
+            if (cube) {
+                qbert.screenX = cube.screenX;
+                qbert.screenY = cube.screenY;
+            }
+        }
+        
+        // Spawn enemy
+        function spawnEnemy() {
+            const types = [ENEMY_TYPES.COILY, ENEMY_TYPES.RED_BALL, ENEMY_TYPES.PURPLE_BALL];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            const enemy = {
+                x: 7, y: 0,
+                screenX: 400, screenY: 100,
+                type: type,
+                moving: false,
+                moveTimer: 0,
+                hatched: false
+            };
+            
+            enemies.push(enemy);
+        }
+        
+        // Update enemies
+        function updateEnemies() {
+            enemies.forEach((enemy, index) => {
+                enemy.moveTimer++;
+                
+                if (enemy.moveTimer > 60) { // Move every second
+                    enemy.moveTimer = 0;
+                    
+                    let dx, dy;
+                    
+                    if (enemy.type === ENEMY_TYPES.COILY && enemy.hatched) {
+                        // Coily chases Q*bert
+                        if (qbert.x > enemy.x) dx = 1;
+                        else if (qbert.x < enemy.x) dx = -1;
+                        else dx = 0;
+                        
+                        if (qbert.y > enemy.y) dy = 1;
+                        else if (qbert.y < enemy.y) dy = -1;
+                        else dy = 0;
+                        
+                        // Ensure valid diagonal movement
+                        if (dx !== 0 && dy !== 0) {
+                            if (!isValidPosition(enemy.x + dx, enemy.y + dy)) {
+                                if (Math.random() < 0.5) dx = 0;
+                                else dy = 0;
+                            }
+                        }
+                    } else {
+                        // Random movement for other enemies
+                        const moves = [[1, 1], [-1, 1], [1, -1], [-1, -1]];
+                        const move = moves[Math.floor(Math.random() * moves.length)];
+                        dx = move[0];
+                        dy = move[1];
+                    }
+                    
+                    const newX = enemy.x + dx;
+                    const newY = enemy.y + dy;
+                    
+                    if (isValidPosition(newX, newY)) {
+                        enemy.x = newX;
+                        enemy.y = newY;
+                        
+                        const cube = findCube(enemy.x, enemy.y);
+                        if (cube) {
+                            enemy.screenX = cube.screenX;
+                            enemy.screenY = cube.screenY;
+                        }
+                        
+                        // Coily hatches at bottom
+                        if (enemy.type === ENEMY_TYPES.COILY && enemy.y === 6 && !enemy.hatched) {
+                            enemy.hatched = true;
+                            playSound(300, 0.3, 'sawtooth');
+                        }
+                    } else {
+                        // Enemy fell off
+                        enemies.splice(index, 1);
+                    }
+                }
+                
+                // Check collision with Q*bert
+                if (enemy.x === qbert.x && enemy.y === qbert.y) {
+                    loseLife();
+                    enemies.splice(index, 1);
+                }
+            });
+        }
+        
+        // Spawn elevator disk
+        function spawnElevatorDisk() {
+            if (elevatorDisks.length < 2) {
+                const disk = {
+                    screenX: Math.random() < 0.5 ? 100 : 700,
+                    screenY: 500,
+                    active: true
+                };
+                elevatorDisks.push(disk);
+            }
+        }
+        
+        // Update elevator disks
+        function updateElevatorDisks() {
+            elevatorDisks.forEach((disk, index) => {
+                // Check if Q*bert is on disk
+                if (Math.abs(qbert.screenX - disk.screenX) < 30 && Math.abs(qbert.screenY - disk.screenY) < 30) {
+                    // Transport Q*bert
+                    qbert.x = 7;
+                    qbert.y = 0;
+                    updateQbertScreen();
+                    score += 100;
+                    playSound(800, 0.5);
+                    elevatorDisks.splice(index, 1);
+                }
+            });
+        }
+        
+        // Lose life
+        function loseLife() {
+            lives--;
+            updateUI();
+            
+            if (lives <= 0) {
+                gameOver();
+            } else {
+                // Reset Q*bert position
+                qbert.x = 7;
+                qbert.y = 0;
+                qbert.moving = false;
+                updateQbertScreen();
+                
+                // Clear enemies
+                enemies.length = 0;
+            }
+        }
+        
+        // Check level complete
+        function checkLevelComplete() {
+            const allActive = cubes.every(cube => cube.active);
+            if (allActive) {
+                level++;
+                score += 1000;
+                playSound(1000, 1);
+                resetLevel();
+                updateUI();
+            }
+        }
+        
+        // Reset level
+        function resetLevel() {
+            cubes.forEach(cube => cube.active = false);
+            qbert.x = 7;
+            qbert.y = 0;
+            qbert.moving = false;
+            updateQbertScreen();
+            enemies.length = 0;
+            elevatorDisks.length = 0;
+        }
+        
+        // Game over
+        function gameOver() {
+            gameRunning = false;
+            document.getElementById('gameOver').style.display = 'block';
+        }
+        
+        // Restart game
+        function restartGame() {
+            score = 0;
+            lives = 10;
+            level = 1;
+            gameRunning = true;
+            document.getElementById('gameOver').style.display = 'none';
+            resetLevel();
+            updateUI();
+        }
+        
+        // Update UI
+        function updateUI() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('lives').textContent = lives;
+            document.getElementById('level').textContent = level;
+        }
+        
+        // Render game
+        function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw cubes
+            cubes.forEach(drawCube);
+            
+            // Draw elevator disks
+            elevatorDisks.forEach(drawElevatorDisk);
+            
+            // Draw enemies
+            enemies.forEach(drawEnemy);
+            
+            // Draw Q*bert
+            drawQbert(qbert.screenX, qbert.screenY);
+        }
+        
+        // Game loop
+        let enemySpawnTimer = 0;
+        let diskSpawnTimer = 0;
+        
+        function gameLoop() {
+            if (gameRunning) {
+                updateQbert();
+                updateEnemies();
+                updateElevatorDisks();
+                
+                // Spawn enemies
+                enemySpawnTimer++;
+                if (enemySpawnTimer > 180) { // Every 3 seconds
+                    spawnEnemy();
+                    enemySpawnTimer = 0;
+                }
+                
+                // Spawn elevator disks
+                diskSpawnTimer++;
+                if (diskSpawnTimer > 600) { // Every 10 seconds
+                    spawnElevatorDisk();
+                    diskSpawnTimer = 0;
+                }
+            }
+            
+            render();
+            requestAnimationFrame(gameLoop);
+        }
+        
+        // Input handling
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning && e.code === 'Space') {
+                restartGame();
+                return;
+            }
+            
+            if (!gameRunning) return;
+            
+            switch (e.code) {
+                case 'ArrowUp':
+                case 'KeyW':
+                    moveQbert(-1, -1);
+                    break;
+                case 'ArrowDown':
+                case 'KeyS':
+                    moveQbert(1, 1);
+                    break;
+                case 'ArrowLeft':
+                case 'KeyA':
+                    moveQbert(-1, 1);
+                    break;
+                case 'ArrowRight':
+                case 'KeyD':
+                    moveQbert(1, -1);
+                    break;
+            }
+        });
+        
+        // Initialize game
+        initAudio();
+        updateUI();
+        updateQbertScreen();
+        
+        // Start game loop
+        gameLoop();
+    </script>
+</body>
+</html>

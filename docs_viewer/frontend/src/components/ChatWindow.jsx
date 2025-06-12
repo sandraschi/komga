@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, CircularProgress, Box, Typography, IconButton, Slider, MenuItem, Select, FormControl, InputLabel, Paper } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, CircularProgress, Box, Typography, IconButton, Slider, MenuItem, Select, FormControl, InputLabel, Paper, Divider, Avatar, Stack } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
+import { useLanguage } from '../context/LanguageContext';
 
 const creativityMarks = [
   { value: 0.1, label: 'Demure' },
@@ -64,6 +65,7 @@ const PERSONALITIES = [
 ];
 
 function RefinePromptDialog({ open, onClose, onRefine, initialPrompt }) {
+  const { t } = useLanguage();
   const [creativity, setCreativity] = useState(0.7);
   const [length, setLength] = useState('medium');
   const [detail, setDetail] = useState('detailed');
@@ -92,11 +94,11 @@ function RefinePromptDialog({ open, onClose, onRefine, initialPrompt }) {
 
   return (
     <Dialog open={open} onClose={() => onClose(null)} maxWidth="xs" fullWidth>
-      <DialogTitle>Refine Prompt</DialogTitle>
+      <DialogTitle>{t('refine_prompt')}</DialogTitle>
       <DialogContent>
-        <Typography variant="body2" sx={{ mb: 1 }}>Adjust how the LLM should refine your prompt:</Typography>
+        <Typography variant="body2" sx={{ mb: 1 }}>{t('adjust_refine_prompt')}</Typography>
         <Box sx={{ mb: 2 }}>
-          <InputLabel shrink>Creativity</InputLabel>
+          <InputLabel shrink>{t('creativity')}</InputLabel>
           <Slider
             value={creativity}
             min={0.1}
@@ -109,20 +111,20 @@ function RefinePromptDialog({ open, onClose, onRefine, initialPrompt }) {
           />
         </Box>
         <FormControl fullWidth sx={{ mb: 2 }}>
-          <InputLabel>Length</InputLabel>
-          <Select value={length} label="Length" onChange={e => setLength(e.target.value)}>
+          <InputLabel>{t('length')}</InputLabel>
+          <Select value={length} label={t('length')} onChange={e => setLength(e.target.value)}>
             {lengthOptions.map(opt => <MenuItem key={opt} value={opt}>{opt.charAt(0).toUpperCase() + opt.slice(1)}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl fullWidth sx={{ mb: 2 }}>
-          <InputLabel>Detail</InputLabel>
-          <Select value={detail} label="Detail" onChange={e => setDetail(e.target.value)}>
+          <InputLabel>{t('detail')}</InputLabel>
+          <Select value={detail} label={t('detail')} onChange={e => setDetail(e.target.value)}>
             {detailOptions.map(opt => <MenuItem key={opt} value={opt}>{opt.charAt(0).toUpperCase() + opt.slice(1)}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl fullWidth sx={{ mb: 2 }}>
-          <InputLabel>Formality</InputLabel>
-          <Select value={formality} label="Formality" onChange={e => setFormality(e.target.value)}>
+          <InputLabel>{t('formality')}</InputLabel>
+          <Select value={formality} label={t('formality')} onChange={e => setFormality(e.target.value)}>
             {formalityOptions.map(opt => <MenuItem key={opt} value={opt}>{opt.charAt(0).toUpperCase() + opt.slice(1)}</MenuItem>)}
           </Select>
         </FormControl>
@@ -130,8 +132,8 @@ function RefinePromptDialog({ open, onClose, onRefine, initialPrompt }) {
         {error && <Typography color="error">{error}</Typography>}
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => onClose(null)} disabled={loading}>Cancel</Button>
-        <Button onClick={handleRefine} disabled={loading} variant="contained">Refine</Button>
+        <Button onClick={() => onClose(null)} disabled={loading}>{t('cancel')}</Button>
+        <Button onClick={handleRefine} disabled={loading} variant="contained">{t('refine')}</Button>
       </DialogActions>
     </Dialog>
   );
@@ -147,6 +149,7 @@ function getSuggestions(lastPrompt, lastResponse) {
 }
 
 export default function ChatWindow({ open, onClose, backend, model }) {
+  const { t } = useLanguage();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -230,58 +233,56 @@ export default function ChatWindow({ open, onClose, backend, model }) {
   const suggestions = lastPrompt && lastResponse ? getSuggestions(lastPrompt, lastResponse) : [];
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle>
-        LLM Chat
-        <IconButton onClick={onClose} sx={{ position: 'absolute', right: 8, top: 8 }}>
-          <CloseIcon />
-        </IconButton>
-      </DialogTitle>
-      <DialogContent dividers sx={{ minHeight: 300, maxHeight: 400, overflowY: 'auto' }}>
-        {messages.length === 0 && <Typography color="text.secondary">Start a conversation with your local LLM.</Typography>}
-        {messages.map((msg, i) => (
-          <Box key={i} sx={{ mb: 1, textAlign: msg.role === 'user' ? 'right' : 'left', position: 'relative' }}>
-            <Typography variant="body2" color={msg.role === 'user' ? 'primary' : 'secondary'}>
-              <b>{msg.role === 'user' ? 'You' : 'LLM'}:</b> {msg.content}
-            </Typography>
-            {msg.role === 'user' && (
-              <IconButton
-                size="small"
-                sx={{ position: 'absolute', top: 0, left: msg.role === 'user' ? undefined : 0, right: msg.role === 'user' ? 0 : undefined }}
-                onClick={() => handleRefine(msg.content)}
-                disabled={refining}
-                title="Refine prompt"
-              >
-                <EditIcon fontSize="small" />
-              </IconButton>
-            )}
-          </Box>
-        ))}
-        {(loading || refining) && <Box sx={{ textAlign: 'center', mt: 2 }}><CircularProgress size={24} /></Box>}
-        {error && <Typography color="error">{error}</Typography>}
-        {/* Suggestions */}
-        {suggestions.length > 0 && !loading && !refining && (
-          <Box sx={{ mt: 2 }}>
-            <Typography variant="caption" color="text.secondary">Suggestions:</Typography>
-            {suggestions.map((s, i) => (
-              <Button key={i} size="small" sx={{ m: 0.5 }} variant="outlined" onClick={() => sendMessage(s)}>{s}</Button>
-            ))}
-          </Box>
+    <Paper elevation={4} sx={{ maxWidth: 600, mx: 'auto', my: 4, p: 0, borderRadius: 4, boxShadow: 6, bgcolor: 'background.paper' }}>
+      <Box sx={{ px: 3, py: 2, borderBottom: '1px solid #e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', bgcolor: 'background.default', borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
+        <Typography variant="h5" sx={{ fontWeight: 700, color: 'primary.main' }}>{t('llm_chat')}</Typography>
+        {onClose && (
+          <IconButton onClick={onClose}><CloseIcon /></IconButton>
         )}
-      </DialogContent>
-      <DialogActions>
+      </Box>
+      <Divider />
+      <Box sx={{ minHeight: 320, maxHeight: 400, overflowY: 'auto', px: 3, py: 2, bgcolor: 'background.default', borderRadius: 2 }}>
+        {messages.length === 0 ? (
+          <Typography color="text.secondary" sx={{ textAlign: 'center', mt: 6 }}>
+            {t('start_conversation')}
+          </Typography>
+        ) : (
+          <Stack spacing={2}>
+            {messages.map((msg, i) => (
+              <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1, justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start' }}>
+                {msg.role === 'assistant' && (
+                  <Avatar sx={{ bgcolor: 'secondary.main', width: 36, height: 36, fontSize: 18 }}>A</Avatar>
+                )}
+                <Paper sx={{ p: 2, bgcolor: msg.role === 'user' ? 'primary.main' : 'background.paper', color: msg.role === 'user' ? '#fff' : 'text.primary', borderRadius: 3, maxWidth: 420, boxShadow: 1, borderTopLeftRadius: msg.role === 'user' ? 16 : 3, borderTopRightRadius: msg.role === 'user' ? 3 : 16 }}>
+                  <Typography variant="body2" sx={{ whiteSpace: 'pre-line' }}>{msg.content}</Typography>
+                </Paper>
+                {msg.role === 'user' && (
+                  <Avatar sx={{ bgcolor: 'primary.main', width: 36, height: 36, fontSize: 18 }}>U</Avatar>
+                )}
+              </Box>
+            ))}
+          </Stack>
+        )}
+      </Box>
+      <Divider />
+      <Box sx={{ display: 'flex', alignItems: 'flex-end', gap: 2, px: 3, py: 2, bgcolor: 'background.default', borderBottomLeftRadius: 16, borderBottomRightRadius: 16 }}>
         <TextField
-          inputRef={inputRef}
+          fullWidth
+          multiline
+          minRows={1}
+          maxRows={4}
+          label={t('type_your_message')}
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          label="Type your message..."
-          fullWidth
-          disabled={loading || refining || !backend || !model}
-          autoFocus
+          inputRef={inputRef}
+          sx={{ bgcolor: 'background.paper', borderRadius: 2 }}
         />
-        <Button onClick={() => sendMessage()} disabled={loading || refining || !input.trim() || !backend || !model} variant="contained">Send</Button>
-      </DialogActions>
+        <Button variant="contained" color="primary" onClick={() => sendMessage()} disabled={loading || !input.trim()} sx={{ minWidth: 100, height: 48, borderRadius: 2, boxShadow: 2 }}>
+          {loading ? <CircularProgress size={24} /> : t('send')}
+        </Button>
+      </Box>
+      {error && <Typography color="error" sx={{ mt: 2, px: 3 }}>{error}</Typography>}
       <RefinePromptDialog
         open={refineDialog.open}
         initialPrompt={refineDialog.prompt}
@@ -291,8 +292,8 @@ export default function ChatWindow({ open, onClose, backend, model }) {
         }}
         onRefine={doRefine}
       />
-      <Box mb={2}>
-        <Typography variant="subtitle2">Personality:</Typography>
+      <Box mb={2} px={3}>
+        <Typography variant="subtitle2">{t('personality')}:</Typography>
         <Select
           value={personality.label}
           onChange={e => {
@@ -304,11 +305,11 @@ export default function ChatWindow({ open, onClose, backend, model }) {
           {PERSONALITIES.map(p => (
             <MenuItem key={p.label} value={p.label}>{p.label}</MenuItem>
           ))}
-          <MenuItem value="custom">Custom...</MenuItem>
+          <MenuItem value="custom">{t('custom')}</MenuItem>
         </Select>
-        {showCustom || personality.label === 'Custom...' ? (
+        {showCustom || personality.label === t('custom') ? (
           <TextField
-            label="Custom System Prompt"
+            label={t('custom_system_prompt')}
             value={customPrompt}
             onChange={e => setCustomPrompt(e.target.value)}
             multiline
@@ -323,6 +324,6 @@ export default function ChatWindow({ open, onClose, backend, model }) {
           </Paper>
         )}
       </Box>
-    </Dialog>
+    </Paper>
   );
 } 

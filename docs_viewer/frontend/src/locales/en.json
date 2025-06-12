@@ -1,0 +1,21 @@
+{
+  "ai_playground": "AI Playground",
+  "files": "Files",
+  "folder": "Folder",
+  "file": "File",
+  "setup_settings": "Setup / Settings",
+  "single_llm_chat": "Single LLM Chat",
+  "dueling_llms": "Dueling LLMs",
+  "teams_debate": "Teams Debate",
+  "talk_to_future_self": "Talk to Your Future Self",
+  "experiment_log": "Experiment Log / History",
+  "multimodal_chat": "Multimodal Chat",
+  "select_folder": "Select Folder",
+  "no_folder_selected": "No folder selected",
+  "file_preview": "File Preview",
+  "metadata": "Metadata",
+  "language": "Language",
+  "english": "English",
+  "german": "German",
+  "japanese": "Japanese"
+} 

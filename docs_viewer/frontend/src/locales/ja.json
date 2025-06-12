@@ -1,0 +1,21 @@
+{
+  "ai_playground": "AIプレイグラウンド",
+  "files": "ファイル",
+  "folder": "フォルダー",
+  "file": "ファイル",
+  "setup_settings": "設定",
+  "single_llm_chat": "単一LLMチャット",
+  "dueling_llms": "LLM対決",
+  "teams_debate": "チームディベート",
+  "talk_to_future_self": "未来の自分と話す",
+  "experiment_log": "実験ログ / 履歴",
+  "multimodal_chat": "マルチモーダルチャット",
+  "select_folder": "フォルダーを選択",
+  "no_folder_selected": "フォルダーが選択されていません",
+  "file_preview": "ファイルプレビュー",
+  "metadata": "メタデータ",
+  "language": "言語",
+  "english": "英語",
+  "german": "ドイツ語",
+  "japanese": "日本語"
+} 

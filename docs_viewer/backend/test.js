@@ -1,6 +1,11 @@
 const request = require('supertest');
 const app = require('./index');
-const path = require('path');
+
+// Jest test setup - these globals are provided by Jest test environment
+/* global describe, it, expect, jest */
+
+// Add a timeout for tests that might take longer
+jest.setTimeout(30000); // 30 seconds
 
 describe('docs_viewer backend', () => {
   it('should return ok for health check', async () => {

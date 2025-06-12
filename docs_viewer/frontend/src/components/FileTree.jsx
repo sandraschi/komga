@@ -13,6 +13,8 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
+import { useLanguage } from '../context/LanguageContext';
+import logger from '../utils/logger';
 
 // Helper to render tree recursively
 function renderTree(nodes, onSelect) {
@@ -60,13 +62,14 @@ const DUMMY_TREE = [
   { type: 'file', name: 'About.txt', path: 'About.txt' }
 ];
 
-// --- Frontend log buffer for debugging ---
+// Never use console directly. Use logger for all logging.
 function logFileTree(...args) {
   const msg = '[FileTree] ' + args.map(a => (typeof a === 'string' ? a : JSON.stringify(a, null, 2))).join(' ');
-  if (window && window.console) window.console.log(msg);
+  logger.info(msg);
 }
 
 const FileTree = ({ root, onSelect, onFolderChange, disabled }) => {
+  const { t } = useLanguage();
   const [tree, setTree] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -174,14 +177,14 @@ const FileTree = ({ root, onSelect, onFolderChange, disabled }) => {
 
   return (
     <Box>
-      <Button fullWidth variant="outlined" sx={{ mb: 2 }} onClick={openFolderDialog}>
-        Select Folder
+      <Button fullWidth variant="outlined" sx={{ mb: 2, borderRadius: 3, boxShadow: 1 }} onClick={openFolderDialog}>
+        {t('select_folder')}
       </Button>
       <Dialog open={folderDialogOpen} onClose={() => setFolderDialogOpen(false)} maxWidth="xs" fullWidth>
-        <DialogTitle>Select Folder</DialogTitle>
+        <DialogTitle>{t('select_folder')}</DialogTitle>
         <DialogContent>
           {folders.length === 0 ? (
-            <Typography>No subfolders found.</Typography>
+            <Typography>{t('no_subfolders_found')}</Typography>
           ) : (
             folders.map(folder => (
               <Button key={folder.path} fullWidth sx={{ my: 1 }} onClick={() => handleFolderSelect(folder)}>
@@ -191,18 +194,18 @@ const FileTree = ({ root, onSelect, onFolderChange, disabled }) => {
           )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setFolderDialogOpen(false)}>Cancel</Button>
+          <Button onClick={() => setFolderDialogOpen(false)}>{t('cancel')}</Button>
         </DialogActions>
       </Dialog>
       <Box component="form" onSubmit={handleSearch} sx={{ display: 'flex', alignItems: 'center', mb: 1, px: 1, bgcolor: '#f5f5f5', borderRadius: 1 }}>
         <SearchIcon sx={{ mr: 1 }} />
         <InputBase
-          placeholder="Search files, tags, authors, series..."
+          placeholder={t('search_files_tags_authors_series')}
           value={search}
           onChange={e => setSearch(e.target.value)}
           sx={{ flex: 1 }}
         />
-        <Button type="submit" size="small" variant="contained" sx={{ ml: 1 }}>Go</Button>
+        <Button type="submit" size="small" variant="contained" sx={{ ml: 1 }}>{t('go')}</Button>
       </Box>
       {loading ? (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}><CircularProgress /></Box>
@@ -217,7 +220,7 @@ const FileTree = ({ root, onSelect, onFolderChange, disabled }) => {
       ) : isDummy ? (
         <>
           <Typography color="text.secondary" sx={{ mb: 1 }}>
-            Showing demo tree (backend not available).
+            {t('showing_demo_tree_backend_not_available')}
           </Typography>
           {treeContent}
         </>
